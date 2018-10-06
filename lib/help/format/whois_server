@@ -1,0 +1,25 @@
+! $Id: whois_server,v 1.1 2001/12/08 21:44:10 toast Exp $
+Usage: FORMAT WHOIS_SERVER <format description>
+  Controls how the whois line displaying the server a user is on appears.
+
+  Valid format characters:
+       N          Nick of whois target
+       S          The whois target's server hostname
+       M          The description of the server
+
+  This format has no effect if OLD_WHOIS_FORMAT is ON.
+
+See Also:
+  FORMAT WHOIS_ADMIN
+  FORMAT WHOIS_AWAY
+  FORMAT WHOIS_CHANNELS
+  FORMAT WHOIS_IDLE
+  FORMAT WHOIS_IRCNAME
+  FORMAT WHOIS_NSLOOKUP
+  FORMAT WHOIS_OPER
+  FORMAT WHOIS_SIGNON
+  FORMAT WHOIS_USERHOST
+  FORMAT WHOWAS_USERHOST
+  SET OLD_WHOIS_FORMAT
+  WHOIS
+  WHOWAS

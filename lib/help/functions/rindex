@@ -1,0 +1,15 @@
+! $Id: rindex,v 1.1 2001/12/07 16:54:18 toast Exp $
+RINDEX([^]charlist string)
+  Returns the index of the last character in string that is listed in
+  charlist.
+
+  If charlist is prepended by a carat (^), then the index of the last 
+  character in string that is not listed in charlist is returned.
+
+Examples:
+  rindex(. filename.ext)	- Returns 8
+  rindex(.e filename.ext)	- Returns 9
+  rindex(^atcg ttacgatgaafgtat)	- Returns 10
+
+See also:
+  FUNCTIONS INDEX

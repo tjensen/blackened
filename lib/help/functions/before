@@ -1,0 +1,16 @@
+! $Id: before,v 1.1 2001/12/07 16:54:10 toast Exp $
+BEFORE(num split string)
+BEFORE(split string)
+  Returns the portion of string that comes before the num-th instance
+  of split.
+
+  If num is omitted, the first instance of split is used.
+
+Examples:
+  before(hi this)		- Returns "t"
+  before(1 ! one!two!three)	- Returns "one"
+  before(2 ! one!two!three)	- Returns "one!two"
+  before(-1 ! four!five!six)	- Returns "four!five"
+
+See also:
+  FUNCTIONS AFTER

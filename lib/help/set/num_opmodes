@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET NUM_OPMODES [<number of opmodes>]
+  Sets the number of opmodes that mass functions will do at a time.
+  Should usually be 3 (-ooo) or 4 (-oooo).
+
+See Also:
+  MD
+  MOP

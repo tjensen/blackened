@@ -1,0 +1,10 @@
+! $Id: ascii,v 1.1 2001/12/07 16:54:10 toast Exp $
+ASCII(text)
+  Returns the ASCII values for each character in text.
+
+Examples:
+  ascii(ABC)				- Returns "65 66 67"
+  ascii(zyx)				- Returns "122 121 120"
+
+See also:
+  FUNCTIONS CHR

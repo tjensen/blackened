@@ -1,0 +1,16 @@
+! $Id: freadln,v 1.1 2001/12/07 16:54:12 toast Exp $
+FREADLN(handle)
+  This function reads and returns a line from the file stream associated
+  with handle.
+
+See also:
+  FUNCTIONS FCLOSE
+  FUNCTIONS FEOF
+  FUNCTIONS FGETC
+  FUNCTIONS FOPEN
+  FUNCTIONS FPUTC
+  FUNCTIONS FREAD
+  FUNCTIONS FSEEK
+  FUNCTIONS FTELL
+  FUNCTIONS FWRITE
+  FUNCTIONS FWRITELN

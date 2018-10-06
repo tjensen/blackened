@@ -1,0 +1,8 @@
+Usage: SBAN [<timeout>] [<channel>] <nickname>
+  Site bans a user from a channel.
+
+  If a timeout value is entered, the ban will be removed after that
+  many number of minutes.
+
+See Also:
+  BAN

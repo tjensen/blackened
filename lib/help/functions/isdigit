@@ -1,0 +1,10 @@
+! $Id: isdigit,v 1.1 2001/12/07 16:54:14 toast Exp $
+ISDIGIT(char)
+  Returns non-zero if char is a decimal digit.
+
+Examples:
+  isdigit(5)				- Returns 1
+  isdigit(r)				- Returns 0
+
+See also:
+  FUNCTIONS ISALPHA

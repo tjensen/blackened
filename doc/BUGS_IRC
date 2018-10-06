@@ -1,0 +1,6 @@
+"bugs" pending
+--------------
+* Messages go to window inside help pager.
+* level NOTE needed..   level ALL doesn't keep NOTE stuff.
+* window resizing..  if you change window size, hidden windows
+	are swapped back with the original size.

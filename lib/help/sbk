@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SBK [<timeout>] [<channel>] <nickname> [<reason>]
+  Site bans and kicks a user from a channel.
+
+  If a timeout value is entered, the ban will be removed after that
+  many number of minutes.
+
+See Also:
+  SB
+  KICK

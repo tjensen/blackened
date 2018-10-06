@@ -1,0 +1,17 @@
+! $Id: jot,v 1.1 2001/12/07 16:54:15 toast Exp $
+JOT(start end step)
+JOT(start end)
+  Returns a list of integers counting from start to end, at intervals
+  of step.  If step is omitted, the interval is 1.
+
+Examples:
+  jot(0 10)				- Returns "0 1 2 3 4 5 6 7 8 9 10"
+  jot(10 0)				- Returns "10 9 8 7 6 5 4 3 2 1 0"
+  jot(0 10 2)				- Returns "0 2 4 6 8 10"
+  jot(10 0 2)				- Returns "10 8 6 4 2 0"
+
+See also:
+  FUNCTIONS ISORT
+  FUNCTIONS IRSORT
+  FUNCTIONS RSORT
+  FUNCTIONS SORT

@@ -1,0 +1,16 @@
+! $Id: feof,v 1.1 2001/12/07 16:54:12 toast Exp $
+FEOF(handle)
+  This function returns a non-zero value if the stream associated with the
+  handle number is positioned at the end of the file.
+
+See also:
+  FUNCTIONS FCLOSE
+  FUNCTIONS FGETC
+  FUNCTIONS FOPEN
+  FUNCTIONS FPUTC
+  FUNCTIONS FREAD
+  FUNCTIONS FREADLN
+  FUNCTIONS FSEEK
+  FUNCTIONS FTELL
+  FUNCTIONS FWRITE
+  FUNCTIONS FWRITELN

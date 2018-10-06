@@ -1,0 +1,18 @@
+Usage: SET AUTO_REOPER [ON|OFF|TOGGLE]
+  Determines whether to make the client automatically regain server
+  operator status after reconnecting to a server.
+
+  WARNING: When this variable is ON, your plaintext server operator
+  password is stored in memory and might be readable by other processes
+  with sufficient privileges.  Not recommended for use on untrusted
+  systems.  Use at your own risk!
+
+  To wipe your operator password for the currently connected server, use
+  the DEOPER command.  To wipe all operator passwords, set this
+  variable to OFF.  Wiping operator passwords involves writing null
+  characters over the buffer, followed by writing the inverse, then all
+  nulls again.  Finally, the buffer is deallocated from memory.
+
+See also:
+  DEOPER
+  OPER

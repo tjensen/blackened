@@ -1,0 +1,35 @@
+! $Id: fopen,v 1.1 2001/12/07 16:54:12 toast Exp $
+FOPEN(mode filename)
+  Opens the file, filename, with the mode, and returns the resulting
+  file handle number.
+
+  The function will return 0 to indicate the file open operation failed.
+
+  The mode may be one of the following sequences:
+    r	- Open file for reading and position the stream at the beginning of
+	  the file.
+    r+	- Open for reading and writing and position the stream at the
+	  beginning of the file.
+    w	- Truncate the file or create a new file for writing, position the
+	  stream at the beginning of the file.
+    w+	- Open for write for writing or, if the file does not exist, create
+	  a new file.  Position the stream at the beginning of the file.
+    a	- Open for writing or, if the file does not exist, create a new file.
+	  Position the stream at the end of the file.
+    a+	- Open for reading and writing or, if the file does not exist, create
+	  a new file.  Position the stream at the end of the file.
+
+Example:
+  fopen(r /etc/group)		- Returns 1
+
+See also:
+  FUNCTIONS FCLOSE
+  FUNCTIONS FEOF
+  FUNCTIONS FGETC
+  FUNCTIONS FPUTC
+  FUNCTIONS FREAD
+  FUNCTIONS FREADLN
+  FUNCTIONS FSEEK
+  FUNCTIONS FTELL
+  FUNCTIONS FWRITE
+  FUNCTIONS FWRITELN

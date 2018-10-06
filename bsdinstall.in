@@ -1,0 +1,92 @@
+#! /bin/sh
+#
+#	@(#)install.sh	4.5	(Berkeley)	10/12/83
+#
+# @(#)$Id: bsdinstall.in,v 1.1 2001/12/10 00:29:54 toast Exp $
+#
+cmd=@MVCMD@
+strip=""
+chmod="@CHMOD@ 755"
+chown=""
+chgrp=""
+while true ; do
+	case $1 in
+		-s )	strip="@STRIP@"
+			shift
+			;;
+		-c )	cmd="@CPCMD@"
+			shift
+			;;
+		-m )	chmod="@CHMOD@ $2"
+			shift
+			shift
+			;;
+		-o )	chown="@CHOWN@ -f $2"
+			shift
+			shift
+			;;
+		-g )	chgrp="@CHGRP@ -f $2"
+			shift
+			shift
+			;;
+		-d )	cmd="@MKDIR@"
+			shift
+			;;
+		* )	break
+			;;
+	esac
+done
+
+if test ! ${2-""}; then
+	echo "install: no destination specified"
+	exit 1
+fi
+if test ${3-""}; then
+	echo "install: too many files specified -> $*"
+	exit 1
+fi
+if test $1 = $2 -o $2 = .; then
+	echo "install: can't move $1 onto itself"
+	exit 1
+fi
+case $cmd in
+@MKDIR@ )
+	file=$2/$1
+	;;
+* )
+	if test '!' -f $1; then
+		echo "install: can't open $1"
+		exit 1
+	fi
+	if test -d $2; then
+		file=$2/$1
+	else
+		file=$2
+	fi
+	@RMCMD@ -f $file
+	;;
+esac
+
+case $cmd in
+@MKDIR@ )
+	if test ! -d "$file"; then
+		$cmd $file
+	fi
+	;;
+* )
+	$cmd $1 $file
+	if test -n "$strip"; then
+		$strip $file
+	fi
+	;;
+esac
+
+if test -n "$chown"; then
+	$chown $file
+fi
+if test -n "$chgrp"; then
+	$chgrp $file
+fi
+$chmod $file
+
+exit 0

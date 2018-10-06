@@ -1,0 +1,128 @@
+	New things for ircII 2.2
+	^^^^^^^^^^^^^^^^^^^^^^^^
+
+Commands that have changed.
+	It is now possible to redirect to a DCC CHAT connecoitn with
+		REDIRECT =nick
+	You can have some command execute on the results of USERHOST with
+		USERHOST -CMD command
+	You can, and are recommented to, use WAIT different now with
+		WAIT -CMD command
+	You can have ircII create new winodows on screen or xterm's with
+		WINDOW CREATE
+	The IF and WHILE commands have changed.
+    New in 2.2.2
+	You can delete a server from the server list with
+		SERVER -DELETE <num>
+	Two new IGNORE levels, CRAP and CTCP.
+
+New commands
+	WHICH script - returns which script will be loaded with LOAD
+	FOREACH - to iterate over a list.
+	TIMER seconds command - executes `command' after `seconds' seconds.
+	INPUT "prompt" command - executes `command' when input is read from
+		the keyboard.
+	PING nick - uses CTCP PING to work out how many seconds a remote 
+		is from you.
+	PARSEKEY key - acts as though a key bound to `key' was pressed.
+	SENDLINE line - is the same as typing in the line.
+	HOOK line - does an ON HOOK check.
+	EVAL line - passes `line' to the inline parser, to be executed.
+	CTCP UTC - A time CTCP.
+	MLOAD - loads a menu.
+    New in 2.2.1
+	CTCP ECHO - Similar to CTCP ERRMSG.
+	WINDOW LOGFILE - Sets the logfile for that window.
+    New in 2.2.2
+	WINDOW NOTIFY_LEVEL - sets notify level for that window.
+	XTYPE - gives full control over /type
+
+(Set help files for these)
+
+New alias variables:
+	$W $V $H $U $~
+
+New SETable variables
+	NO_CTCP_FLOOD
+	SHOW_STATUS_ALL
+	STATUS_USER1-3
+	MENU
+	HIGHLIGHT_CHAR
+	HELP_PROMPT
+	HELP_SERVICE
+	HELP_PATH
+	DCC_BLOCK_SIZE
+	LOAD_PATH
+	DEBUG
+	VERBOSE_CTCP
+	SCROLL_BACKWARD
+	SCROLL_FORWARD
+	SCROLL_END
+	TRANSLATION
+	BOLD_VIDEO
+    New in 2.2.1
+	SHOW_WHO_HOPCOUNT
+    New in 2.2.2
+	XTERM_OPTIONS
+	EIGHT_BIT_CHARACTERS
+	NOTIFY_LEVEL
+
+   And STATUS_FORMAT has these new variables
+	%W %X %Y %B %# %@
+    New in 2.2.2
+	%>
+
+New/changed on hook's.
+	ON DCC_RAW
+	ON HOOK
+	ON INPUT
+	Several of the numeric ON's have changed.
+    New in 2.2.1
+	ON SERVER_NOTICE   *****  THIS HAS CHANGED  *****
+    New in 2.2.2
+	ON PUBLIC          *****  THIS HAS CHANGED  *****
+
+New bindable keys.
+	ERASE_TO_BEG_OF_LINE
+	REFRESH_INPUTLINE
+	META3_CHARACTER
+	META4_CHARACTER
+
+New functions.
+	$ENCODE()
+	$DECODE()
+	$TOUPPER()
+	$TOLOWER()
+	$TDIFF()
+	$CONNECT()
+	$LISTEN()
+	$ISCHANNEL(word)
+	$ISCHANOP(nick channel)
+	$WORD(number wordlist)
+	$WINNUM()
+	$WINNAM()
+    New in 2.2.2
+	$MYCHANNELS(window)
+	$MYSERVERS()
+
+Other
+	You can no longer use \n in a line to separate commands.
+	Functions are now access with $name().  $%name() is not supported.
+	You can access varibles in structures by using struct[index]
+	  as well as struct.index.
+	You can use { } style braces around aliases.
+	You can connected to the server via Unix domain sockets.
+	The display defaults to OFF while loading a script.
+	You can #define SCROLL_AFTER_DISPLAY to get 2.1.5 like scrolling.
+    New in 2.2.2
+	New command line option, -v, which prints the version
+	and internal version (release date).
+	You can use literal ^M's and ^J's to seperate the input line.
+
+    New in 2.2.3
+	The character atribute chars have changed in this version.  They
+	are now:
+		^_ does underline
+		^B does bold
+		^V does inverse.
+		^O turns them all off.

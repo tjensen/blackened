@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: BIND <key> PAGE_DOWN
+  This is effectively the same as SCROLL_FOREWARD
+
+See Also: 
+  BIND PAGE_UP
+  BIND SCROLL_FORWARD
+  BIND SCROLL_BACKWARD
+  BIND SCROLL_END
+  BIND SCROLL_START

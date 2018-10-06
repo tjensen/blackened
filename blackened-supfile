@@ -1,0 +1,56 @@
+# Thanks for using the Blackened IRC Client
+# by Timothy "Toast" Jensen
+#
+# Unfortunately, because I am constantly making changes to Blackened,
+# I can't make any guarantees about the stability of the source code
+# you download using CVSup.  ALWAYS keep a backup of your executable
+# before updating and rebuilding, so that you can quickly downgrade
+# to a more stable version should a serious bug be introduced.
+#
+# The code SHOULD always be able to compile, as I do actually perform
+# a little testing of my own before committing my changes to the
+# repository.  Otherwise, you're on your own! :)
+#
+# Don't have CVSup?  You can get it from:
+#	http://www.polstra.com/projects/freeware/CVSup/
+# I recommend you download a precompiled binary (if one is available
+# for your platform), as trying to compile it on your own may prove
+# difficult, for various reasons.
+#
+# To download the latest source tree using the X interface, run cvsup
+# as follows:
+#
+#      cvsup blackened-supfile
+#
+# If you are not running X or you simply don't want to use the cvsup
+# X interface, run it as follows:
+#
+#      cvsup -g -L 2 blackened-supfile
+#
+
+# This is the primary site (thanks LarZ!)
+*default host=cvsup.blackened.com
+
+# Change this if you want to put the source tree in a particular
+# directory.  Otherwise, CVSup just plops it into your current
+# working directory.
+*default prefix=.
+
+# Here you can select what version you want to download.  The default
+# of "." is to get the CURRENT source.  To get the final 1.6.2
+# release sources, change it to "REL_1_6_2".
+*default tag=.
+
+# Or, to grab the latest from the 1.8-STABLE branch, use this tag:
+#*default tag=REL_1_8
+
+# The rest you probably don't want to change.
+*default base=.
+*default release=cvs
+*default delete use-rel-suffix
+blackened
+
+
+
+
+# @(#)$Id: blackened-supfile,v 1.2.2.1 2002/03/17 23:15:52 toast Exp $

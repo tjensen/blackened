@@ -1,0 +1,787 @@
+@(#)$Id: Blackened.ChangeLog,v 1.9.2.1 2002/03/17 23:18:16 toast Exp $
+
+Blackened changes - Timothy Jensen <toast@blackened.com>
+
+1.8.1:
+  * Fixed compile issue on FreeBSD 5 involving the long_to_time function.
+
+  * Fixed bug in /BIND command that caused "blackened in free():
+    warning: junk pointer, too high to make sense" error messages, and
+    possibly crashes on some systems.
+
+  * Fixed $myservers() so it doesn't crash when a server's true name
+    hasn't been determined yet.
+
+  * Cygwin version no longer crashes when reading terminal capabilities.
+
+  * Completed the /STACK command and added a FORMAT stack type.
+
+  * Added a URL logger.
+
+  * Added /DMSG command.
+
+  * Added info about IRCRC environment variable to the man page.
+
+  * Added user@host info to DCC request output.
+
+  * "make install" once again installs wserv, serv, and ircflush.
+
+  * New variables:  URLLOG_FILE, URLLOG_LEVEL
+
+
+
+1.8.0:
+  * Blackened is now released under the GNU General Public License.
+
+  * REALLY fixed crash when using /HELP on Linux (and Solaris, I think).
+
+  * The text, "Sent to ops on #channel", is now only displayed once per
+    invocation of the /WALL or /OPS command (When OPS_METHOD = DEFAULT).
+
+  * The clients/oper value in /LUSERS output is really (clients-opers)/opers
+    now.
+
+  * Corrected some of the /LUSERS output, so it no longer says stuff like,
+    "1 servers".
+
+  * Corrected the /SET BEEP_ON_MSG help text.
+
+  * Fixed a nick change bug which caused the client to be inconsistent with
+    the server.  This caused the client to sometimes crash when joining or
+    parting channels.
+
+  * Fixed the bug that caused the actual channel mode to be hidden when doing
+    a "/mode #channel".
+
+  * Clearing the TIMESTAMP variable no longer crashes the client. (Thanks,
+    dialtone)
+
+  * Using the /FORMAT command on WHOIS and WHOWAS numerics works correctly
+    now.  Also, the output of WHOIS and WHOWAS is now configurable when
+    OLD_OPS_METHOD is off.
+
+  * The server notice parser for KILL notices now correctly handles hybrid-6
+    kill notices.
+
+  * When parsing server notices, the server name comparison is now case
+    insensitive, as it should be.
+
+  * Channel op messages (/OPS and WALL) now go to the window associated with
+    the channel.
+
+  * Doing a "/nslookup nick", when nick doesn't exist, no longer causes
+    /notify to get all screwed up.
+
+  * WALLOPS, OPERWALLS, LOCOPS, and the like now all correctly go to the
+    window with level "WALLOPS".  (Thanks, amnesia)
+
+  * WALLOPS, etc. are now correctly handled by the client.  The USER_WALLOPS
+    variable actually does something now!
+
+  * Removed the extra "SIG" text from signal names.  Basically, I got sick of
+    seeing "SIGSIGSEGV" in bug reports! ;-)
+
+  * /AUTOOP no longer lets you add auto-op entries that are already listed.
+    I also cleaned up a bunch of the auto-op code to make it a bit easier to
+    manage, since it was starting to get really ugly.
+
+  * The $FGETC() function now returns ASCII values, not the actual characters.
+
+  * Completely rewrote the help files for scripting functions.  There were
+    getting to be way too many functions to fit in a single help file, so I
+    split them up into individual files in a whole new "functions" section.
+
+  * The signoff message is now displayed when you /QUIT.
+
+  * Replaced the REJOIN_OPER compile-time option with a new AUTO_REOPER
+    run-time variable.  When you /SET AUTO_REOPER OFF, the internal copies
+    of your oper passwords are wiped clean, etc.
+
+  * Added variables for auto-accepting DCC CHAT and DCC SEND requests.
+    (Thanks, bnz)
+
+  * The IRCHOST and IRC_HOST environment variables are now synonymous with
+    the MYHOSTADDR environment variable.  This should allow people who are
+    more familiar with other popular IRC clients to easily set their virtual
+    hostname in Blackened.  Also, a VHOST run-time variable was added to
+    allow users to set their hostname without restarting.
+
+  * Added a new /REJOIN command for automatically rejoining channels you
+    are unable to join (because you're banned or whatever).
+
+  * Added support for the new 437 (nick/channel is unavailable) numeric.
+
+  * Renamed wserv, ircserv, and ircflush to keep them separate from other
+    IRC clients.
+
+  * Additions and removals from the NO_LOG variable are now logged to the
+    .MsgLog.
+
+  * Ban timeouts less than 1 minute are now shown in seconds.
+
+  * /SAVE no longer saves the built-in default formats.
+
+  * The time zone is now shown in log file time stamps.
+
+  * Added support for nicknames up to 32 characters long.
+
+  * Blackened now auto-detects which /OPS and /WALL implementation it
+    should use.  There is currently support for Undernet's WALLCHOPS command
+    and Hybrid-6's "@" channel prefixes.  A specific implementation can be
+    forced by setting the OPS_METHOD variable.
+
+  * The banner (think "***") is now completely configurable with a new
+    run-time variable.  Also, a new "%B" /FORMAT token has been added for
+    displaying the banner.
+
+  * Added support for the blink, aka flash, attribute.
+
+  * Corrected the behavior of some of the scripting functions.
+
+  * Added /REPEAT and /SWITCH commands.
+
+  * Added new /ON hooks for OPS, OPS_OTHER, SEND_OPS, and SEND_OPS_OTHER.
+
+  * Added new /FORMAT types for CTCP, CTCP_REPLY, CTCP_PRIVATE, CTCP_UNKNOWN,
+    TOPIC, OPS, OPS_OTHER, SEND_OPS, SEND_OPS_OTHER, WHOIS_ADMIN, WHOIS_AWAY,
+    WHOIS_CHANNELS, WHOIS_IDLE, WHOIS_IRCNAME, WHOIS_NSLOOKUP, WHOIS_OPER,
+    WHOIS_SERVER, WHOIS_SIGNON, WHOIS_USERNAME, and WHOWAS_USERNAME.
+
+  * Added new /SET variables: OPS_METHOD, AUTO_ACCEPT_DCC_CHAT,
+    AUTO_ACCEPT_DCC_SEND, AUTO_REOPER, REJOIN_BADKEY, REJOIN_BANNED,
+    REJOIN_FULL, REJOIN_INTERVAL, REJOIN_INVITEONLY, REJOIN_UNAVAILABLE,
+    and BANNER.
+
+  * Added new scripting functions: BEFORE(), AFTER(), STRCNT(), ISDIGIT(),
+    ISALPHA(), CHR(), ASCII(), TR(), SHIFT(), UNSHIFT(), IDLE(), UPTIME()
+
+
+
+1.7.1:
+  * Fixed coredump on negative ping reply.
+
+  * Fixed coredump on server joining channel (this shouldn't happen
+    anyway, Diane :P)
+
+  * Fixed coredump when using /HELP on linux.
+
+  * Fixed the /sb command.
+
+  * Fixed bug where client reported "Recording messages while away"
+    even though AWAY_RECORDER was OFF.
+
+  * Fixed cluster() for IP addresses and 2-character top-level
+    domains.
+
+  * Changed the test for an existing file from -e to -f in the
+    Makefile
+
+  * When client cores, it now signs off with a message indicating
+    that.
+
+  * The IRCNAME part of a /whois output now goes in the same window
+    as the rest of the output.  This was flaky before.
+
+  * /cstat output now goes to the window its channel is bound to.
+
+  * Added support for the 308 numeric.
+
+  * Changed default setting of AUTO_NSLOOKUP to OFF.
+
+  * Changed default setting of NUM_OPMODES to 4.
+
+  * Combined help file is now part of the distribution, so users no
+    longer have to build the help file themselves.
+
+
+
+1.7.0:
+  * Moved the default IRCLIB directory to
+    /usr/local/share/blackened/1.7.0/.
+
+  * Fixed term.c problem for Debian Linux users.  Thanks go out
+    to Joost van Baal for pointing this out for me.
+
+  * Added new question to easyinst script that asks what you want
+    to call the symlink that points to the Blackened binary.  I
+    prefer to use "irc", but some people like to use other things,
+    such as "blackened".
+
+  * Joining multiple channels at the same time no longer produces
+    large amounts of /WHO output scrolling your screen.
+
+  * /LUSERS output now shows the originating server name if it isn't
+    coming from your local server.
+
+  * Added functions and commands for file stream I/O.
+
+  * Auto-Ops can be delayed to prevent floods of mode changes using
+    the AUTOOP_DELAY variable.
+
+  * The .MsgLog file is set readable and writable only by the owner
+    when being created.
+
+  * Added an away message recorder.  To use, turn on AWAY_RECORDER.
+    Use /PLAY to read saved messages and /ERASE to delete them.
+    Many thanks to crusher for suggesting this feature! :)
+
+  * When LOOP_RECONNECT is ON, client will loop through the server
+    list trying to connect, forever and ever.
+
+  * Added official website URL to startup banner and CTCP VERSION
+    reply.
+
+  * Modified /VOICE command to act like the /OP command.
+
+  * Modified FLOOD hook to include the target (channel, user) that
+    is being flooded.  I like being told when I'm being PUBLIC
+    flooded, but for crying out loud, tell me WHERE! :)
+
+  * Modified /KLINE command to accept multiple nicks and/or userhost
+    masks separated by commas.
+
+  * Default setting for TRANSLATION is now NONE, rather than ASCII.
+
+  * Help files are now combined into one large file before instaling
+    it into the data directory.
+
+  * Lines in the help file(s) beginning with a bang (!) are no
+    longer displayed using the /HELP command.
+
+  * Modified /BAN, /MKB, and /SB to accept a temporary ban timeout.
+
+  * Using /BAN without any arguments displays currently pending
+    temporary bans.
+
+  * When a ban is lifted from a channel, if any pending temporary
+    bans match it, they are removed.
+
+  * If you ban someone on a channel and the mask is already in your
+    pending temporary ban list, the timeout is updated.  Similarly,
+    if this happens and you specify a timeout of 0 (don't unban)
+    the ban is removed from your internal list.
+
+  * Fixed /GONE to work when no away message is passed.
+
+  * /T will now accept a channel name, if passed.
+
+  * User can now specify a userhost mask as well as a nickname when
+    using the /BAN command.
+
+  * Included the "blackened-supfile" for people who want to stay
+    current with my latest changes via CVSup.
+
+  * New functions:
+      length()
+      reverse()
+      format()
+      lformat()
+      center()
+      sandr()
+      notword()
+      pop()
+      push()
+      pluck()
+      remove()
+      sort()
+      rsort()
+      isort()
+      irsort() or risort()
+      fopen()
+      fclose()
+      feof()
+      fgetc()
+      fwrite()
+      fwriteln()
+      fputc()
+      ftell()
+      fseek()
+      fread()
+      freadln()
+      jot()
+
+  * New commands:
+      /fclose
+      /fwrite
+      /fwriteln
+      /fputc
+      /fseek
+      /play
+      /erase
+      /voice
+      /devoice
+      /mdevoice
+      /mdv
+      /mv
+      /mvoice
+      
+  * New variables:
+      AUTOOP_DELAY
+      AWAY_RECORDER
+      STATUS_MSGS
+      LOOP_RECONNECT
+      HELP_FILE
+
+  * New formats:
+      RECORDER_BODY
+      RECORDER_HEAD
+
+  * New status line item
+      %G
+
+
+
+1.6.2:
+  * Fixed problem with SHOW_STATUS_ALL and SHOW_STATS_REQUESTS being
+    switched.
+
+
+
+1.6.1:
+  * Added DISABLE_DCC define in config.h.  Don't ask why.
+
+  * More vebose umode in status line.  Supports all of the current
+    ircd-hybrid user modes now.
+
+  * Added STATUS_CHANVOICE and "%-" to status line to allow you to see
+    when you have voice (+v) in a channel.
+
+  * /BANCOUNT should report number of bans correctly now.
+
+  * SHOW_AWAY_ONCE stuff shouldn't have any more problems after doing
+    a /WHOWAS.
+
+  * /LUSERS output now understands alternate server syntax in numeric
+    251.  No more 0.0% stuff.
+
+  * You can now set the maximum number of nicks to msg at a time when
+    doing a /WALL or /OPS command using MAX_WALL_NICKS.  The default
+    is set to 20, which I think is a good number.  Larger numbers will
+    trigger server mass msg detectors.  Smaller numbers may cause you
+    to flood yourself off.
+
+
+
+1.6.0:
+  * /PING and /SPING commands have been fixed to prevent floating point
+    exceptions on some systems.  Also, users of Digital Unix now have
+    fractional ping times like everyone else.
+
+  * Fixed floating point exception in /LUSERS output on NetBSD.
+
+  * Fixed dirent.h problem in source/dcc.c. (finally)
+
+  * Added new function, $timestamp(), which returns the current time
+    in the format of the TIMESTAMP variable.
+
+  * /BIND AUTO_MSG has been extended so that if you happen to press
+    that key and there is message text on your input line, that text
+    is appended to the new input line.  For example, if I were to
+    press the tab key after typing this in:
+      /MSG narcotic He must be confused!
+    The text, "He must be confused!" will be saved and printed in
+    the following input line:
+      /MSG LarZ He must be confused!
+    This feature was suggested by xer.
+
+  * Numeric formats have been added.  There are probably a few
+    numerics which do not work.  I spent quite a bit of time hunting
+    them all down.  These will be fixed in future versions.
+
+  * HELP SERVICE stuff has been removed, since it's useless on EFNet.
+
+  * Added "-clear" switch for /SPING.  The removes any pending server
+    pings.
+
+  * Fixed /KB and /SKB.  They were producing bad bans.
+
+  * Entering a nickname instead of a user@host mask in /AUTOOP now
+    does an automatic nslookup on the nick.
+
+  * Help files updated.
+
+  * Added "-remove" switch for /FINDK.  K: lines which match the
+    provided mask will be removed.  This is sort of a "mass unkline."
+
+  * Added IGN_PARAM variable.  This is used as the default parameters
+    for /IGN and /IGH.
+
+  * Year added to beginning/ending timestamps in window logs.
+
+  * Fixed a problem with compiling Blackened on Linux, caused by the
+    need for an include of termbits.h.
+
+  * Added /GONE command.  Works like /AWAY except first pipes the
+    away message through the GONE format before sending it to the
+    server.  Also added GONE format, of course.
+
+  * User can now press ^W followed by a number key to switch to that
+    window.  Shifted number keys go to windows 11 through 20.
+
+  * Added /LOCOPS command.
+
+  * Fixed some minor indent problems.
+
+  * Added BAN_TIMEOUT variable.  This is used as the default timeout
+    for /KB and /SKB, in minutes.
+
+  * Extended the /RESET command to also stop any pending /FINDK,
+    /FINDU, or /CSTAT commands.  Also added a check to prevent more
+    than one of these commands to be run at the same time.
+
+  * Created separate formats for sending WALLOPS, OPERWALL, and
+    LOCOPS.
+
+  * Added /CHAT and /RCHAT command for faster DCC chatting.
+
+  * Fixed the installation of help files.
+
+  * Added the following variables:
+      SHOW_ADMIN_REQUESTS
+      SHOW_INFO_REQUESTS
+      SHOW_LINKS_REQUESTS
+      SHOW_MOTD_REQUESTS
+      SHOW_STATS_REQUESTS
+      SHOW_TRACE_REQUESTS
+    If you are +o and have these on, the corresponding server notices
+    will be displayed.
+
+
+
+1.5c:
+  * Updated /SET help files
+
+  * Added help file for /CIGNORE
+
+  * Fixed a couple existing help files
+
+  * Temporary bans shouldn't give any more wierd free() errors.
+    Another silly bug.
+
+  * Removed some useless, old, hacked ircd code comstud had
+    created.
+
+
+
+1.5b:
+  * Formats now saved when a /SAVE is done.
+
+  * Fixed /save -format.
+
+  * Fixed operwall/wallops output.
+
+
+
+1.5:
+  * Added FILTER_LOG variable.  When ON, window log output is
+    passed through a filter before going to file.  This filter
+    strips out any control characters, except tab.
+
+  * Added /FINDD command.  This works similarly to /FINDU and
+    /FINDK.  Just give it a mask to look for and it finds
+    D-lines that fit.
+
+  * /IGN will now accept user@host parameters.  If the parameter
+    does not contain at least one asterisk, it is first run
+    through cluster().  Otherwise it is sent directly to the
+    ignore list.  Any ignore types that are specified are
+    added on rather than replacing the defaults!
+
+  * Added /CIGNORE command for ignoring channels.  Personally, I
+    think this is a stupid command.  It's perhaps the epitome of
+    vanity.  My philosphy is, "if you don't want to see stuff
+    that's happening in a channel, use /part."  But, enough
+    people nagged me about adding it.  So it is done.  You may
+    curse^H^H^H^H^Hthank ElJay and evenflow for this one, since
+    they were the loudest naggers.
+
+  * Temporary bans!  This only works with /KB and /SKB for now.  I
+    may decide to add this functionality to /BAN and /SBAN later.
+    To set a temporary ban, just enter a timeout value (in minutes)
+    as the first parameter:
+       /kb 30 #cheese lamer Buh-bye, loser!
+    As always, the channel can be left out, if it is the current
+    channel for the window.
+
+  * Temporary ignores!  Pass a timeout value (in minutes) along
+    with any other ignore parameters.  This works with /IGN and
+    /IGH too.  Example:
+       /ignore Bob msgs notices 20
+
+  * Fixed timestamp used for .MsgLog and .KillLog.  Some systems
+    were showing "%G" instead of the year.  Lame.
+
+  * 381 now shows up in the OperVision window, if it exists.
+
+  * Fixed the default lib directory AGAIN.  Stupid bug, caused by
+    the new configure script.
+
+  * When viewing the ignore list, you can now tell whether the
+    ignored person has been warned about the ignore or not.  A
+    minus sign means they have not.  A plus sign means they have.
+
+  * The timestamp that shows up before just about everything can
+    now be configured using the TIMESTAMP variable.
+
+  * cluster() now works like it did originally.  Only /KB, /SKB,
+    /BAN, and /SBAN actuall trim a long username.
+
+  * The moment you've been waiting for is here!  Finally you can
+    configure the formatting of various outputs to your liking.
+    /FORMAT command added.  Works similarly to /SET.  See the
+    help files for more detailed information.  This feature was
+    requested by Ehud.
+
+  * CS_MSG_FORMAT and USE_OLD_MSG have been removed.  This might
+    break any scripts you are using.  *shrug*  So don't use a
+    script! :)
+
+
+
+
+1.4b:
+  * /J fixed (again).  It now has the full functionality of /JOIN
+    plus the added feature of being able to leave out the # at
+    the beginning of a channel name.
+
+  * Default lib directory is REALLY /usr/local/lib/blackened now.
+
+  * Got rid of a few "cast from pointer to integer of different
+    size" compiler warnings when building client on 64-bit systems.
+    If you're running on a DEC Alpha platform, you proabably know
+    what I'm talking about.
+
+  * New configure script.  Maybe I'm dreaming, but I could swear
+    the new one runs faster.
+
+
+
+1.4:
+  * Added the ability to remove entries from the auto-op list.
+    To remove a single entry:
+      /autoop -remove #channel user@host
+    To clear an entire channel list:
+      /autoop -remove #channel
+    To clear the WHOLE THING:
+      /autoop -remove
+
+  * When installing for an entire system, default lib directory
+    is now /usr/local/lib/blackened
+
+  * /J fixed so that if you try to join a channel without a
+    # or & prefix, it automatically adds a # for you.  This is
+    for Vilas.  I'm used to typing the # so it didn't bother me.
+
+  * /FINGER now accepts nicknames as well as user@host or @host
+    parameters.  If a nickname is passed, a userhost lookup is
+    done.
+
+  * Got rid of a few "incompatible pointer type" compile warning
+    messages in comstud.c and toast.c.
+
+  * DCC status messages now get sent to their proper query
+    windows, if any.
+
+  * Signon time added to /WHOIS output.  Those of you use prefer
+    to use OLD_WHOIS_FORMAT can ignore this.
+
+  * Added SHOW_MY_WALLOPS boolean variable.  When ON, user can
+    see his own /WALLOPS and /OPERWALL messages.
+
+  * /VER and /PING now query the current channel if no nickname
+    is passed.
+
+  * New mail notification is now timestamped.
+
+  * /OOPS command added for those nasty misdirected message
+    blunders.
+
+  * Added /ON KICK hook.
+
+  * Added ability to limit /FINDU search by user's connection class
+    using the -CLASS flag.  Connection class is now displayed.
+
+  * Added a -COUNT flag to /FINDU.  When used, matches are counted
+    but not displayed.
+
+  * Added $randread() function for reading randomly chosen lines
+    from a text file.  Acts like $reason().
+
+  * Added branched pattern matching.  Users who are familiar with
+    EPIC will enjoy this feature.  This was recommended by Da5id.
+    "\\[foo fu\\]bar" will match "foobar" and "fubar".  You get
+    the idea.
+
+  * Compacted the timestamps in .MsgLog and .KillLog files.
+
+  * /INVITE now invites a user to the current channel if no channel
+    is specified.
+
+  * Cleaned up hook.h, keys.h, and vars.h for faster build.  No
+    longer need count.c or lex to build the client.
+
+
+
+1.3c:
+  * Fixed a couple stupid SHOW_AWAY_ONCE bugs I introduced in 1.3
+    *sigh*
+
+
+
+1.3b:
+  * D'oh! 1.3 wouldn't compile on Solaris (and who knows what else)
+    because it lacks a setenv() system call.  This is fixed.
+
+
+
+1.3:
+  * Enhanced SHOW_AWAY_ONCE to be able to keep track of 10 different
+    nicks/away-messages.
+
+  * New /whokill reasons with VERBOSE_WHOKILL on.  New format of kill
+    reason is as follows:
+       (your reason (*user@*.domain.com - irc.server.com))
+
+  * Ability to "/save -autoop" added.  Yay.
+
+  * Cleaned up /sping output a bit.
+
+  * Fixed /NEWHOST.  It works now.
+
+  * The user@host mask is now shown at the end of /findu and /findk
+    output.
+
+  * Idle time (when OLD_WHOIS_FORMAT is ON) now displayed in days,
+    hours, minutes, seconds.
+
+  * $cluster() will now chop a long username down to 9 characters.
+    I found this necessary when trying to ban users with long
+    usernames.  This might make other things break, but I'll let it
+    go for now and see what happens.
+
+  * No more coredump on /lusers.  I was unable to recreate this
+    bug (reported by evenflow), but I think I fixed what might have
+    been wrong.
+
+  * When SEND_IGNORE_MSG is ON, the message will only be sent ONCE.
+
+  * Added SHOW_ILINE_FULL variable.  So you don't have to watch these
+    messages scroll by:
+      *** [26-Mar:11:48] -- I-line is full for nick[@host.domain.com].
+
+
+
+1.2c:
+  * Fixed a bug when using multiple windows where one kept getting
+    "You are now talking to channel..." messages. Annoying. Bleh.
+
+
+
+1.2b:
+  * Fixed the "clt/serv" value in /lusers output.
+
+
+
+1.2:
+  * Fixed AUTOOP. It wasn't paying attention to the channel name
+    and instead opped anyone on the auto-op list in any channel.
+    D'oh!
+
+
+
+1.1:
+  * Notices from non-clients shouldn't cause seg faults anymore.
+    FreeBSD is, unfortunately for me, not as picky when it comes to
+    null pointers as some OSes (Solaris...) are.
+
+  * The 'easyinst' script was broken. You should be able to use it
+    without any problems now.
+
+
+
+1.0:
+
+  * First release with "Blackened" name.
+
+  * Client no longer seg faults on join. Some Unix flavors are
+    picky and caused this to happen in r5.
+
+  * Added DEFAULT_CS_MSG_FORMAT to config.h
+
+  * Client notifies a current channel change on actions. This was
+    accidentally forgotten in r5.
+
+  * New commands:
+
+     M (same as /MSG)
+     CSTAT [<channel>]
+     BANCOUNT [<channel>]
+     SPING [<server>]
+     AUTOOP [<channel>] [<usermask>]
+  
+  * New $clusterhost() function, by request of mjr.
+
+  * Statistics tagged onto the output for /lusers, /findk, and
+    /findu.
+
+  * Improved output format for ban lists.
+
+  * Random signoff messages.
+
+  * New variables:
+
+     AUTOOP_ENABLE
+     USERHOST_NOTIFY
+     OLD_WHOIS_FORMAT
+
+  * NOVICE set to OFF by default. Too many BitchX cluebies have
+    been asking me why they can't join more than one channel when
+    they try my client for the first time. No, I don't think this
+    will introduce more idiots into the IRC community.  mIRC did
+    that for us already.
+
+  * Primitive auto-op capabilities added.
+
+  * Notify will show the full user@host on signon, if desired.
+
+  * Easier to read /whois output.
+
+  * /The 'tabkey' function should work with DCC chat now, even if
+    a script has hooked dcc_chat, etc.
+
+  * Now includes Help files. I think everything is there.
+
+
+
+irc-2.8.2+TLJr5: (pre-"Blackened" era)
+
+  * Minor change to the way it handles the 'tabkey' function. It
+    should be more like the script now.
+
+  * Fixed /DLINE.  No longer sends the wrong command to the server.
+
+  * /OPS now includes channel name in the output:
+
+     [WallOp:#channel] Hi. I am a rock.
+
+  * Client no longer seg faults during a 'screen -r'. Previously,
+    if you used screen and changed window size often (like me),
+    the client would seg fault. It has been an entire month since
+    I made this code change and I haven't experience a single seg
+    fault since, so I'm pretty sure it works!
+
+  * Two new commands (by request of mjr):
+
+     FINDK <mask> [<server>]
+     FINDU <mask> [<server>]
+
+  * New variable:
+
+     CS_MSG_FORMAT
+
+  * Client now informs you of a current channel switch.  Before,
+    if you used ^X to switch channels, no record of this was
+    made in the window. I found this annoying when looking
+    through old logs. If enough people nag me about this, I may
+    decide to make this a toggle-able option with a new variable.
+

@@ -1,0 +1,51 @@
+! $Id: fe,v 1.4 2001/12/09 18:15:17 toast Exp $
+Usage: FE (<list>) <variables> { <commands> }
+  This causes <commands> to be executed once for each 
+  word in the list.  The aliases inside the {} 
+  are not expanded until execution unless the leading { 
+  is quoted like \{
+
+  Here are a couple examples of basic fe commands.
+    fe (how now brown cow) ii { echo $ii }
+  will return
+    how
+    now
+    brown
+    cow
+
+  FE can also be imbedded such as in the following example.
+    alias showwords {
+      fe (how now) ii
+      {
+        fe (brown cow) jj
+        {
+	  echo $ii $jj
+        }
+      }
+    }
+  And /showwords returns.. 
+    how brown
+    how cow
+    now brown   
+    now cow
+
+  Multiple variables can be listed as follows:
+    alias showtwo {
+      fe (how now brown cow) ii jj {
+        echo $ii $jj
+      }
+    }
+  which returns:
+    how now
+    brown cow
+
+  Notice that variable names 'ii' and 'jj' were used.  Any name can
+  be used for the index but keep in mind that single letter vars can
+  interfere with the built in single char vars.  See ALIAS special
+
+See Also:
+  expressions
+  ALIAS special
+  FEC
+  FOR
+  FOREACH

@@ -1,0 +1,519 @@
+@(#)$Id: BLACKENED.README,v 1.5.2.1 2002/03/17 23:31:31 toast Exp $
+
+All Blackened versions have been updated by:
+             Timothy L. Jensen
+             (Toast)
+             toast@blackened.com
+
+See the Official Blackened Website at:
+
+	http://www.blackened.com/blackened/
+
+In Blackened this is what you'll find:
+
+New variables:
+--------------
+AUTO_ACCEPT_DCC_CHAT  - Turn this on to automatically accept incoming DCC CHAT
+			requests.
+AUTO_ACCEPT_DCC_SEND  - Turn this on to automatically accept incoming DCC SEND
+			requests.
+AUTO_REOPER	      - Turn this on to automatically reoper up after being
+			disconnected from a server you oper on.
+AUTOOP_DELAY	      - Set to the number of seconds you want to delay
+			before auto-opping someone
+AUTOOP_ENABLE	      - Turn this on if you want auto-ops to be enabled
+AWAY_RECORDER	      - When on, messages are saved while you are away
+BAN_TIMEOUT           - Default amount of time for a channel ban to last
+BANNER		      - Set this to the text you want to be displayed to the
+			left of most server and client messages.  The default
+			value is "*** ".
+FILTER_LOG	      - Filters control characters out of window logs
+			when on.
+HELP_FILE	      - Client will read this file, if it exists, for
+			displaying help.
+IGN_PARAM             - Default parameters for /IGN and /IGH
+LAST_MSG	      - Holds the last msg you received.
+LAST_NOTICE	      - Holds the last notice you received.
+LAST_SENDMSG	      - Holds the last msg you sent.
+LAST_SENDNOTICE	      - Holds the last notice you sent.
+LOOP_RECONNECT	      - When on, client will loop through the server
+			list trying to reconnect forever.
+MAX_WALL_NICKS	      - Maximum number of nicks to msg at a time when
+			using /WALL or /OPS
+NO_LOG		      - Contains a space-separated list of nicks which
+			you do not want logged in your .MsgLog file.
+OLD_WHOIS_FORMAT      - Turn this on if you prefer the old 2.x whois
+			output format.
+OPS_METHOD	      - Determines the /OPS and /WALL implementation to use.
+			Acceptable values are: AUTO, HYBRID, WALLCHOPS, DEFAULT
+REJOIN_BADKEY	      - Turn this on to automatically rejoin channels that
+			are set mode +k.
+REJOIN_BANNED	      - Turn this on to automatically rejoin channels that
+			you are banned from.
+REJOIN_FULL	      - Turn this on to automatically rejoin channels that
+			are full.
+REJOIN_INTERVAL	      - Set this to the number of seconds to wait between
+			channel rejoin attempts.
+REJOIN_INVITEONLY     - Turn this on to automatically rejoin channels that
+			are set invite-only (mode +i)
+REJOIN_UNAVAILABLE    - Turn this on to automatically rejoin channels that
+			are currently unavailable.
+SERVER_NOTICE_WINDOW  - Server notices and wallops will be displayed
+			in the window with this name. Also known as
+			OperVision.
+SHOW_ADMIN_REQUESTS   - When ON, you will be notified when users
+			request ADMIN information from the server.
+SHOW_ILINE_FULL	      -	Turn this on if you want to see server notices
+			indicating an I: line is full.
+SHOW_LINKS_REQUESTS   - When ON, you will be notified when users
+			request LINKS information from the server.
+SHOW_MOTD_REQUESTS    - When ON, you will be notified when users
+			request MOTD information from the server.
+SHOW_MY_WALLOPS	      - Displays your wallops and operwall messages when
+			on.
+SHOW_STATS_REQUESTS   - When ON, you will be notified when users
+			request STATS information from the server.
+SHOW_TRACE_REQUESTS   - When ON, you will be notified when users
+			request TRACE information from the server.
+STATUS_MSGS	      - Holds the format string to display the number of
+			saved messages you have waiting to be read
+TIMESTAMP	      - Use this to specify your own personalized
+			timestamp format.
+URLLOG_FILE	      - Holds the filename of the URL log file.
+URLLOG_LEVEL	      - Determines which messages containing URLs should be
+			logged.
+USERHOST_NOTIFY	      - Turn this on if you want notify signons to
+			report the full user@host address.
+VERBOSE_WHOKILL	      -	Makes /whokill kill reasons a bit more descriptive
+			by indicating the target's user@host mask and
+			irc server.
+
+
+OPER COMMANDS:
+--------------
+DLINE	  -- Adds a D: line to the server config file
+  format:
+    dline <mask> <reason>
+
+FINDD	  -- Finds a D-line matching an IP mask
+  format:
+    findd <mask>
+
+FINDK	  -- Finds a K-line matching a user@host mask
+  format:
+    findk <mask>
+
+FINDU	  -- Finds a user matching a user@host mask
+  format:
+    findu [-count] [-class <num>] <mask>
+
+KLINE	  -- Adds a K: line to the server config file
+  format:
+    kline <mask>[,mask[,mask[...]]] <reason>
+    kline <minutes> <mask>[,mask[,mask[...]]] <reason>
+
+LOCOPS    -- Sends a LocOps message
+  format:
+    locops <message>
+
+OPERWALL  -- Sends an OperWall message
+  format:
+    operwall <message>
+
+TKLINE	  -- Adds a temporary K: line to the server config file
+  format:
+    tkline <minutes> <mask> <reason>
+
+UNKLINE	  -- Removes a K: line from the server config file
+  format:
+    unkline <mask>
+
+
+MISC COMMANDS:
+--------------
+AUTOOP		-- Add/remove entry to/from auto-op list
+  format:
+    autoop [-remove] [channel] [usermask|nick]
+
+BANCOUNT	-- Count channel bans
+  format:
+    bancount [channel]
+
+C		-- Change channel mode
+  format:
+    c [modes] [parameters]
+
+CHAT		-- DCC Chat
+  format:
+    chat <nick>
+
+CIGNORE		-- Channel ignore
+  format:
+    cignore <channel> <parameters>
+
+CSTAT		-- Display channel stats
+  format:
+    cstat [channel]
+
+DEVOICE   -- Sets one or more users -v in a channel
+  format:
+    devoice [channel] <nick1> [<nick2> [<nick3> [...]]]
+
+DMSG	  -- Sends a message to a DCC chat connection
+  format:
+    dmsg <nick> <message>
+
+ERASE     -- Erases all recorded messages
+  format:
+    erase
+
+FCLOSE    -- Closes a file opened with $fopen()
+  format:
+    fclose <filenum>
+
+FORMAT		-- Set/view output formats
+  format:
+    format [<type> [<value>]]
+
+FPUTC     -- Writes a character to an open file
+  format:
+    fputc <filenum> <ascii value>
+
+FSEEK     -- Moves current location in an open file
+  format:
+    fseek <filenum> <offset> <whence>
+
+FWRITE    -- Writes text to an open file
+  format:
+    fwrite <filenum> <text>
+
+FWRITELN  -- Writes text to an open file and appends it with a newline
+  format:
+    fwriteln <filenum> <text>
+
+GONE		-- Set away with format
+  format:
+    gone [<away message>]
+
+IGH		-- Quick *@host ignore
+  format:
+  ignore <nick> [parameters]
+
+IGN		-- Quick user@host ignore
+  format:
+  ignore <nick|userhost> [parameters]
+
+IGNORE		-- Ignore nick/user@host mask
+  format:
+    ignore [<nick|userhost> [<parameters>]]
+
+J		-- Join channel
+  format:
+    j [#]<channel> [key]
+
+KB		-- Kickban user
+  format:
+    kb [timeout] [channel] <nick> [reason]
+
+L		-- Part channel
+  format:
+    l [#channel]
+
+M		-- same as /MSG
+
+MDEVOICE  -- Sets all users in channel -v
+  format:
+    mdevoice [channel]
+    mdv [channel]
+
+MVOICE    -- Sets all uesrs in channel +v
+  format:
+    mvoice [channel]
+    mv [channel]
+
+NOLOG		-- Add/remove nicks to/from NO_LOG variable
+  format:
+    nolog [nick] [nick] [nick] [...]
+
+OOPS		-- Redirect misdirected message
+  format:
+    oops <nick>
+
+OV		-- Create/kill OperVision window (see SERVER_NOTICE_WINDOW)
+  format:
+    ov
+
+PLAY      -- Plays recorded messages
+  format:
+    play
+
+RCHAT		-- Close DCC chat
+  format:
+    rchat <nick>
+
+REJOIN		-- Rejoin a channel
+  format:
+    rejoin [[-]#channel [key]]
+
+RELM		-- Redirect last message received
+  format:
+    relm [#channel/nick]
+
+RELN		-- Redirect last notice received
+  format:
+    reln [#channel/nick]
+
+RELS		-- Redirect last message sent
+  format:
+    rels [#channel/nick]
+
+RELSN		-- Redirect last notice sent
+  format:
+    relsn [#channel/nick]
+
+REPEAT		-- Repeats a command multiple times
+  format:
+    repeat <count> <command>
+
+SKB		-- Site kickban a user
+  format:
+    skb [timeout] [channel] <nick> [reason]
+
+SPING		-- Ping a server
+  format:
+    sping [server]
+
+SWITCH		-- Switch command (similar to C)
+  format:
+    switch (expression) { (label) { commands } (label) { commands } ... }
+
+T		-- View/set current channel topic
+  format:
+    t [topic]
+
+UB		-- Unban user
+  format:
+    unban [nick/mask]
+
+VER		-- Send CTCP VERSION request
+  format:
+    ver [#channel/nick]
+
+VOICE     -- Sets one or more users +v in a channel
+  format:
+    voice [channel] <nick1> [<nick2> [<nick3> [...]]]
+
+W		-- similar to WHO but '*' given if no arguments passed
+
+WI		-- same as WHOIS <nick>
+
+WII		-- same as WHOIS <nick> <nick>
+
+WW		-- same as WHOWAS
+
+
+FUNCTIONS:
+----------
+$after([x] token text)
+	Returns the part of text that comes after the x'th instance of token
+
+$ascii(characters)
+	Returns the ASCII values of the characters
+
+$before([x] token text)
+	Returns the part of text that comes before the x'th instance of token
+
+$center(columns text)
+	Pads some text with spaces so that it is centered between some
+	number of columns
+
+$chr(values)
+	Returns the ASCII characters having the values
+
+$clusterhost()
+	This is equivalent to $cluster($userhost())
+
+$fclose(filenum)
+	Closes an open file
+
+$feof(filenum)
+	Returns non-zero if at the end of the file
+
+$fgetc(filenum count)
+	Reads count character ASCII values from an open file
+
+$fopen(mode filename)
+	Opens a file in the specified mode and returns its filenum
+
+$format(columns text)
+	Pads some text with spaces so that it fills some number of columns
+
+$fputc(filenum charval [charval [charval [...]])
+	Writes one or more characters to an open file
+
+$fread(filenum)
+	Reads a word from an open file
+
+$freadln(filenum)
+	Reads a line from an open file
+
+$fseek(filenum offset whence)
+	Moves to a location in an open file
+
+$ftell(filenum)
+	Returns the current location in an open file
+
+$fwrite(filenum text)
+	Writes text to an open file
+
+$fwriteln(filenum text)
+	Like $fwrite(), but appends the text with a newline
+
+$idle()
+	Returns the number of seconds the user has been idle
+
+$irsort(text)
+	Case-insensitive sorts a list of words in descending order
+
+$isalpha(char)
+	Returns non-zero if char is a letter of the alphabet
+
+$isdigit(char)
+	Returns non-zero if char is a digit
+
+$isort(text)
+	Case-insensitive sorts a list of words in ascending order
+
+$jot(from to [interval])
+	Counts from some number to another, increasing by some interval,
+	or 1 if no interval is specified
+
+$length(text)
+	Returns the length, in characters, of some text
+
+$lformat(columns text)
+	Like $format(), but pads the text so that it is left-justified
+
+$notword(index text)
+	Returns all of the words in text except the index
+
+$pluck(varname word)
+	Removes a single occurrance of a word in a variable
+
+$pop(varname)
+	Pops the "top" word from a variable
+
+$push(varname word)
+	Pushes a word onto the "top" of a variable
+
+$randread(filename)
+	Reads a randomly chosen line from a text file
+
+$remove(varname word)
+	Like $pluck(), but removes ALL occurrances of a word from a variable
+
+$reverse(text)
+	Returns some text in reversed order
+
+$risort(text)
+	Same as $irsort()
+
+$rsort(text)
+	Case-sensitive sorts a list of words in descending order
+
+$sandr(flags/from/to/text)
+$sar(flags/from/to/text)
+	Replaces all occurrances of "from" in "text" with "to".
+
+$shift(varname)
+	Removes and returns the first word in the variable named varname
+
+$sort(text)
+	Case-sensitive sorts a list of words in ascending order
+
+$strcnt(text)
+	Returns the number of words in text
+
+$timestamp()
+	Returns current timestamp
+
+$tr(/abc/def/text)
+	Replace a's with d's, b's with e's, and c's with f's in text
+
+$unshift(varname words)
+	Places words at the end of the variable named varname
+
+$uptime()
+	Returns the number of seconds the Blackened process has been running
+
+
+HOOKS:
+------
+KICK		- Activated when someone is kicked from a channel
+OPS		- Activated by /OPS and /WALL messages
+OPS_OTHER	- Activated by /OPS and /WALL messages in channels other than
+		  the current channel
+SEND_OPS	- Activated when the user sends an /OPS or /WALL message
+SEND_OPS_OTHER	- Activated when the user sends an /OPS or /WALL message in a
+		  channel other than the current channel
+
+
+BIND KEYS:
+----------
+AUTO_MSG      -- Clears the input line and automatically enters /MSG <nick>
+		 for you. No more tabkey script! WoooHOOO!
+GROW_WINDOW   -- Increases the size of the current window by 1 line
+HIDE_WINDOW   -- Hides the current window
+KILL_WINDOW   -- Kills the current window
+LIST_WINDOWS  -- Lists all windows
+NEW_WINDOW    -- Creates a new window
+PAGE_DOWN     -- Same as SCROLL_FORWARD but has special handling for page
+		 down key (ignores trailing ~)
+PAGE_UP	      -- Same as SCROLL_BACKWARD but has special handling for page
+		 up key (ignores trailing ~)
+SHRINK_WINDOW -- Decreases the size of the current window by 1 line
+
+
+Features:
+---------
+
+* Built-in away message recorder
+
+* Built-in auto-ops
+
+* Many built-in commands for IRC Operators
+
+* Snazzy new look!
+
+   Channel stuff with timestamp:
+   [30-Oct:12:36 Toast] woooooiiii
+   [30-Oct:12:37 Toast:#blackened] *suspicious*
+
+   Private stuff with timestamp:
+   [30-Oct:12:38] *DarkToast!toast@FadeTo.Blackened.COM* hi toast
+   [30-Oct:12:38] -> *DarkToast* hi darktoast
+
+   Timestamps timestamps everywhere!
+
+* Temporary bans
+
+* tabkey script no longer necessary -- it's built in!
+
+* Added statistics in /LUSERS output.
+
+* Random signoff messages
+
+* New /WHOIS and /WHOWAS format for better readability
+
+* Easier window manipulation through new key bindings:
+
+   ^Wc - create new window
+   ^Wg - grow current window
+   ^Wk - kill current window
+   ^Wn - next window
+   ^WN - swap next window
+   ^Wp - previous window
+   ^WP - swap previous window
+   ^Ws - shrink current window
+
+I hope I didn't forget to mention anything.

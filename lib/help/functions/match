@@ -1,0 +1,11 @@
+! $Id: match,v 1.1 2001/12/07 16:54:15 toast Exp $
+MATCH(pattern wordlist)
+  Returns the index of the first word in wordlist that matches the
+  pattern.  The first word in wordlist has index 1.
+
+Examples:
+  match(m* marble oak mantle)	- Returns 1
+  match(m*n* marble oak mantle)	- Returns 3
+
+See also:
+  FUNCTIONS RMATCH

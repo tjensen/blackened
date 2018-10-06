@@ -1,0 +1,25 @@
+! $Id: whois_userhost,v 1.1 2001/12/08 21:44:11 toast Exp $
+Usage: FORMAT WHOIS_USERHOST <format description>
+  Controls how the whois line displaying a user's userhost appears.  This
+  is always the first line of output for the WHOIS command.
+
+  Valid format characters:
+       N          Nick of whois target
+       I          The whois target's username
+       H          The whois target's hostname or IP address
+
+  This format has no effect if OLD_WHOIS_FORMAT is ON.
+
+See Also:
+  FORMAT WHOIS_ADMIN
+  FORMAT WHOIS_AWAY
+  FORMAT WHOIS_CHANNELS
+  FORMAT WHOIS_IDLE
+  FORMAT WHOIS_IRCNAME
+  FORMAT WHOIS_NSLOOKUP
+  FORMAT WHOIS_OPER
+  FORMAT WHOIS_SERVER
+  FORMAT WHOIS_SIGNON
+  FORMAT WHOWAS_USERHOST
+  SET OLD_WHOIS_FORMAT
+  WHOIS

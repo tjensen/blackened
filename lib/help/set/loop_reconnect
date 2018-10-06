@@ -1,0 +1,9 @@
+Usage: SET LOOP_RECONNECT [ON|OFF|TOGGLE]
+  When ON, the client will continue to try to reconnect to an IRC
+  server by looping through the SERVER list.
+
+  When OFF, when the client reaches the end of the SERVER list, it
+  will quit trying to reconnect.
+
+See Also:
+  SERVER

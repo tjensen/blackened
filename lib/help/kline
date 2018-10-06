@@ -1,0 +1,13 @@
+Usage: KLINE [<time>] <userhost_mask>[,<another>[...]] <reason>
+  Adds a K: line to the server config file. If a time is given, the
+  kline will last for that given number of minutes. Note that some ircd
+  versions do not support the temporary kline feature.
+
+  Multiple klines with the same reason can be sent in succession
+  quickly by separating the userhost masks and/or nicknames by commas.
+  For example:
+    /KLINE nick1,*user@*host2,nick3,nick4,*user@*host5 this is the reason
+
+See Also:
+  FINDK
+  UNKLINE

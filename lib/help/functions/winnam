@@ -1,0 +1,6 @@
+! $Id: winnam,v 1.1 2001/12/07 16:54:21 toast Exp $
+WINNAM()
+  Returns the name of the window with focus.
+
+See also:
+  FUNCTIONS WINNUM

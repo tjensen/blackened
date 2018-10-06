@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: ON [#|+|-|^|&|@]KICK [-|^]<parameters> [action]
+  This is activated whenever someone kicks someone else from a
+  channel.  The parameters for the action are as follows:
+    $0    nickname of person who kicked
+    $1    the nickname of the person being kicked
+    $2    the channel the person is being kicked from
+    $3-   the kick comment

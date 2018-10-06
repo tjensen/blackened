@@ -1,0 +1,17 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: USERS [<channel>] [<wildcards>] [<options>] [<reason>]
+  Performs some action on users matching the wildcards and options
+  in a channel.  If no options are given, a list of users is shown
+  instead.
+
+  Valid options:
+    -OPS    -- makes it only select ops
+    -NONOPS -- makes it only select non-ops
+    -KILL   -- kills users matching the pattern
+    -MSG    -- sends a msg to all users matching the pattern
+    -NOTICE -- sends a notice to all users matching the pattern

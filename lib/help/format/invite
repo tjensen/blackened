@@ -1,0 +1,16 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT INVITE <format description>
+  Controls how channel invitations appear.
+
+  Valid format characters:
+       F          Nick of person inviting
+       T          Nick of person receiving invitation
+       C          The channel invitation is for
+
+See Also:  
+  INVITE

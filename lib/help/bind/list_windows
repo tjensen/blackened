@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: BIND <key> LIST_WINDOWS
+  This function lists the windows and their settings.
+
+See Also: 
+  BIND GROW_WINDOW
+  BIND HIDE_WINDOW
+  BIND KILL_WINDOW
+  BIND NEW_WINDOW
+  BIND SHRINK_WINDOW

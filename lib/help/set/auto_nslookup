@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET AUTO_NSLOOKUP [ON|OFF|TOGGLE]
+  If ON, the client will lookup the hostname for an IP when you do
+  a WHOIS or USERHOST of a person with an IP address. This is
+  also done when a person joins a channel.
+
+See Also:
+  NSLOOKUP

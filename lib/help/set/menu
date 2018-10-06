@@ -1,0 +1,11 @@
+! $Id: menu,v 1.2 2001/12/09 01:46:22 toast Exp $
+Usage: SET MENU <Name of menu>
+  Will set the MENU variable to the name of a menu which has
+  been loaded with the MLOAD command.  When MENU is set, the 
+  new menu will appear on the screen.  The key bound to
+  ENTER_MENU is used to get into the menu. (default ^R)
+
+See Also: 
+  MLIST
+  MLOAD
+  BIND ENTER_MENU

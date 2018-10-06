@@ -1,0 +1,24 @@
+! $Id: whois_ircname,v 1.1 2001/12/08 21:44:10 toast Exp $
+Usage: FORMAT WHOIS_IRCNAME <format description>
+  Controls how the whois line displaying a user's IRCNAME appears.
+
+  Valid format characters:
+       N          Nick of whois target
+       M          The whois target's IRCNAME value
+
+  This format has no effect if OLD_WHOIS_FORMAT is ON.
+
+See Also:
+  FORMAT WHOIS_ADMIN
+  FORMAT WHOIS_AWAY
+  FORMAT WHOIS_CHANNELS
+  FORMAT WHOIS_IDLE
+  FORMAT WHOIS_NSLOOKUP
+  FORMAT WHOIS_OPER
+  FORMAT WHOIS_SERVER
+  FORMAT WHOIS_SIGNON
+  FORMAT WHOIS_USERHOST
+  FORMAT WHOWAS_USERHOST
+  SET OLD_WHOIS_FORMAT
+  WHOIS
+  WHOWAS

@@ -1,0 +1,16 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT SERVER_WALLOPS <format description>
+  Controls how server wallops appear
+
+  Valid format characters:
+       F          Server sending message
+       M          The message
+
+See Also:  
+  WALLOPS
+  OPERWALL

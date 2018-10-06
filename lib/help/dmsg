@@ -1,0 +1,12 @@
+Usage: DMSG <nickname> <text>
+  Sends a private message over a DCC CHAT connection to the
+  nickname specified.
+
+  This command is equivalent to the following:
+
+    /MSG =<nickname> <text>
+
+See Also:
+  DCC
+  DCC CHAT
+  MSG

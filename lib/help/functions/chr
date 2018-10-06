@@ -1,0 +1,10 @@
+! $Id: chr,v 1.1 2001/12/07 16:54:10 toast Exp $
+CHR(values)
+  Returns a string containing the passed ASCII values.
+
+Examples:
+  chr(65 66 67)				- Returns "ABC"
+  chr(122 121 120)			- Returns "zyx"
+
+See also:
+  FUNCTIONS ASCII

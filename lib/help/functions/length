@@ -1,0 +1,6 @@
+! $Id: length,v 1.1 2001/12/07 16:54:15 toast Exp $
+LENGTH(text)
+  Returns the length of text, in number of characters.
+
+Example:
+  length(See Spot run.)				- Returns 13

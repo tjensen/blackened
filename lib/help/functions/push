@@ -1,0 +1,13 @@
+! $Id: push,v 1.1 2001/12/07 16:54:17 toast Exp $
+PUSH(varname words)
+  Adds one or more words to the end of a variable named varname.
+  The resulting contents of varname are returned.
+
+Example:
+  @ foo = [one two three]
+  push(foo four)			- Returns "one two three four"
+
+See also:
+  FUNCTIONS POP
+  FUNCTIONS SHIFT
+  FUNCTIONS UNSHIFT

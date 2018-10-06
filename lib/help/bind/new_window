@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: BIND <key> NEW_WINDOW
+  This function creates a new window if there is room
+
+See Also: 
+  BIND GROW_WINDOW
+  BIND HIDE_WINDOW
+  BIND LIST_WINDOWS
+  BIND KILL_WINDOW
+  BIND SHRINK_WINDOW

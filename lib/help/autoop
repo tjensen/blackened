@@ -1,0 +1,24 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: AUTOOP [-REMOVE] [<channel> [<userhost_mask>|<nickname>]]
+  Adds an entry to the auto-op list. If no mask is given, the auto-op
+  list for the given channel will be displayed. If no channel is given,
+  all auto-op lists will be displayed.
+
+  Channel * is a special case. Entries in this channel's list will
+  be opped in all channels.
+
+  If a nickname is specified rather than a user@host mask, an attempt
+  to find that nickname's userhost will be made.  If found, the output
+  will be passed through cluster() and added to the auto-op list.
+
+  The -REMOVE flag should is used to remove a userhost, clear
+  a channel list, or clear the entire auto-op list.
+
+See Also:
+  SET AUTOOP_DELAY
+  SET AUTOOP_ENABLE

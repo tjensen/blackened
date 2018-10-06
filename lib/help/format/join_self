@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT JOIN_SELF <format description>
+  Controls how channel joins appear when YOU join a channel.
+
+  Valid format characters:
+       F          Nick of person joining (your nick)
+       C          The channel being joined
+
+See Also:  
+  JOIN

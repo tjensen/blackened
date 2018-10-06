@@ -1,0 +1,12 @@
+Usage: SET REJOIN_BADKEY [ON|OFF|TOGGLE]
+  This variable determines whether the client should try to rejoin
+  channels that are set mode +k.
+
+See also:
+  SET REJOIN_BANNED
+  SET REJOIN_FULL
+  SET REJOIN_INVITEONLY
+  SET REJOIN_UNAVAILABLE
+  REJOIN
+  JOIN
+  MODE

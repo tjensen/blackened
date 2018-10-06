@@ -1,0 +1,42 @@
+! $Id: urllog_level,v 1.1.2.1 2002/03/11 19:24:39 toast Exp $
+Usage: SET URLLOG_LEVEL [ALL|NONE|[-]<level> [-]<level> ...]
+  The setting of this variable determines which types of messages
+  are written to the URL log.  If ALL is specified, all lines
+  containing URLs that show up on the screen are saved to the URL
+  log, except DCC mesages, which have to be explicitly set.
+  eg, to get everything, use
+
+    /SET URLLOG_LEVEL DCC,ALL
+
+  If NONE is specified, nothing is saved in the URL log.  The <level>
+  specification can be one of the following: 
+    PUBLIC          Channel conversation
+    MSGS            Private messages
+    NOTICES         NOTICEs
+    WALLS           WALLs
+    WALLOPS         WALLOPs
+    NOTE            NOTEs
+    OPNOTES         Operator notifications
+    SNOTES          Server notices
+    ACTIONS         In and outgoing CTCP ACTION lines
+    USERLOG1        Reserved for the user
+    USERLOG2        Reserved for the user
+    USERLOG3        Reserved for the user
+    USERLOG4        Reserved for the user
+    DCC             DCC connections
+    BEEP            Beeps
+    CRAP            Anything not covered by the above categories
+
+  You can combine these on a command line to make the URL log
+  save just what you want.  Also, by putting a - before any
+  level, you remove that one from the list.  For example, if you
+  wish to save everything except NOTEs and all that CRAP, you
+  could do:
+    SET URLLOG_LEVEL ALL -NOTE -CRAP
+  which is the same as doing:
+    SET URLLOG_LEVEL PUBLIC MSG NOTICE WALL WALLOP OPNOTES ACTIONS SNOTES
+
+  In order to be recognized, URLs must begin with "http://".
+
+See also:
+  SET URLLOG_FILE

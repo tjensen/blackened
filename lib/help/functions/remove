@@ -1,0 +1,10 @@
+! $Id: remove,v 1.1 2001/12/07 16:54:17 toast Exp $
+REMOVE(word text)
+  Returns the text with all instances of the word removed.
+
+Example:
+  remove(dog one dog two dog three)	- Returns "one two three"
+
+See also:
+  FUNCTIONS PLUCK
+  FUNCTIONS STRIP

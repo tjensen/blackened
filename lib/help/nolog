@@ -1,0 +1,14 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: NOLOG [<nickname> [<nickname> ...]]
+  Adds or removes nicknames from the NO_LOG variable.  If no
+  nicknames are given, the contents of NO_LOG are displayed.
+
+See also:
+  SET NO_LOG
+  SET MSGLOG
+  SET MSGLOGFILE

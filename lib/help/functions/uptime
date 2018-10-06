@@ -1,0 +1,9 @@
+! $Id: uptime,v 1.1 2001/12/08 05:25:47 toast Exp $
+UPTIME()
+  Returns the number of seconds since the Blackened process was started.
+
+See also:
+  FUNCTIONS IDLE
+  FUNCTIONS PID
+  FUNCTIONS TDIFF
+  FUNCTIONS TDIFF2

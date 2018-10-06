@@ -1,0 +1,8 @@
+! $Id: findd,v 1.1 2001/12/08 17:00:47 toast Exp $
+Usage: FINDD <ip_mask> [<server>]
+  Searches a server's D: line list for matches with the given mask.
+
+See Also:
+  DLINE
+  FINDK
+  STATS

@@ -1,0 +1,11 @@
+! $Id: tdiff,v 1.1 2001/12/07 16:54:20 toast Exp $
+TDIFF(seconds)
+  Returns a string representing the number of seconds passed.
+
+Example:
+  tdiff(0)		- Returns "0 seconds"
+  tdiff(12345)		- Returns "3 hours 25 minutes 45 seconds"
+  tdiff(9825284)	- Returns "113 days 17 hours 14 minutes 44 seconds"
+
+See also:
+  FUNCTIONS TDIFF2

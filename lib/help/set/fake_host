@@ -1,0 +1,16 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET FAKE_HOST <some text>
+  This text is displayed instead of your actual hostname in a CTCP
+  FINGER reply.
+
+  This is useful for dialup users with dynamic IPs, as it allows them
+  to display their actual email address.
+
+See Also:
+  SET USE_FAKE_HOST
+  CTCP FINGER

@@ -1,0 +1,39 @@
+! $Id: fec,v 1.3 2001/12/09 18:04:54 toast Exp $
+Usage: FEC (<list>) <variable> { <commands> }
+  This causes <commands> to be executed once for each 
+  character in the list.  The aliases inside the {} 
+  are not expanded until execution unless the leading { 
+  is quoted like \{
+  Here are a couple examples of basic foreach commands.
+    fec (blue) ii { echo $ii }
+  will return
+    b
+    l
+    u
+    e
+  FEC can also be imbedded such as in the following example.
+    alias showchars {
+      fec (AB) ii
+      {
+        fec (cd) jj
+        {
+	  echo $ii $jj
+        }
+      }
+    }
+  And /showchars returns.. 
+    A c
+    A d
+    B c
+    B d
+
+  Notice that variable names 'ii' and 'jj' were used.  Any name can
+  be used for the index but keep in mind that single letter vars can
+  interfere with the built in single char vars.  See ALIAS special
+
+See Also:
+  expressions
+  ALIAS special
+  FE
+  FOR
+  FOREACH

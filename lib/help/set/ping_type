@@ -1,0 +1,11 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET PING_TYPE [<ping type>]
+  Determines how to ping other users.
+    1          use CTCP PING with fractional seconds
+    2          use CTCP ECHO with fractional seconds
+    other      use CTCP PING with whole seconds

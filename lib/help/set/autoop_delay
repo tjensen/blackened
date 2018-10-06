@@ -1,0 +1,14 @@
+Usage: SET AUTOOP_DELAY <seconds>
+  This variable tells the AutoOp system how long to wait before auto-
+  matically giving someone ops.  The actual delay is a random value
+  between AUTOOP_DELAY and two times AUTOOP_DELAY.
+
+  The use of AUTOOP_DELAY is highly recommended, as it can help
+  prevent floods of mode changes in large channels.
+
+  If AUTOOP_DELAY is zero, the user is given ops immediately after
+  joining.
+
+See also:
+  AUTOOP
+  SET AUTOOP_ENABLE

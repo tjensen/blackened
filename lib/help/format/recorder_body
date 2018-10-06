@@ -1,0 +1,16 @@
+Usage: FORMAT RECORDER_BODY <format description>
+  Controls how the body line of a message item appears when using the
+  PLAY command.
+
+  Valid format characters:
+       D          Date and time stamp
+       F          Nick of person who sent the message
+       M          The message text
+       N          The message number
+
+See Also:  
+  AWAY
+  ERASE
+  FORMAT RECORDER_HEAD
+  PLAY
+  SET AWAY_RECORDER

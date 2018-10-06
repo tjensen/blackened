@@ -1,0 +1,9 @@
+! $Id: newnick,v 1.1 2001/12/08 19:26:42 toast Exp $
+Usage: NEWNICK <nickname>
+  Disconnects you from the currently connected server and reconnects you
+  with the new nickname.  The usefulness of this command is undetermined.
+
+See also:
+  NEWHOST
+  NEWUSER
+  NICK

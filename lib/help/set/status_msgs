@@ -1,0 +1,12 @@
+Usage: SET STATUS_MSGS <Status line text when you have msgs>
+  The contents of STATUS_MSGS are replaced in the STATUS_FORMAT
+  variable for any occurence of %G while you get new messages in your
+  away message recorder.  The STATUS_MSGS may contain occurences of
+  %G which will be replaced by the total number of messages you have.
+  If you have no msgs, %G is replaced by nothing in the STATUS_FORMAT.
+
+See Also:
+  AWAY
+  ERASE
+  PLAY
+  SET AWAY_RECORDER

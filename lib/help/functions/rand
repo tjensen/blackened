@@ -1,0 +1,6 @@
+! $Id: rand,v 1.1 2001/12/07 16:54:17 toast Exp $
+RAND(limit)
+  Returns a randomly chosen integer in the range 0 <= x < limit.
+
+See also:
+  FUNCTIONS SRAND

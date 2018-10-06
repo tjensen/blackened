@@ -1,0 +1,6 @@
+! $Id: winnum,v 1.1 2001/12/07 16:54:21 toast Exp $
+WINNUM()
+  Returns the number of the window with focus.
+
+See also:
+  FUNCTIONS WINNAM

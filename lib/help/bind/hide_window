@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: BIND <key> HIDE_WINDOW
+  This function hides the current window.
+
+See Also: 
+  BIND GROW_WINDOW
+  BIND KILL_WINDOW
+  BIND LIST_WINDOWS
+  BIND NEW_WINDOW
+  BIND SHRINK_WINDOW

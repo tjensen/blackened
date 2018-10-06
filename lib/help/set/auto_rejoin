@@ -1,0 +1,19 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET AUTO_REJOIN [<rejoin type>]
+  Determines how to handle rejoining a channel after being kicked:
+    0 - off (do not rejoin)
+    1 - rejoin normally
+    2 - rejoin with the same username as the person who kicked you.
+    3 - rejoin using a random nickname
+    4 - rejoin using a random nickname and the same username as the
+	person who kicked you.
+
+See also:
+  JOIN
+  KICK
+  NICK

@@ -1,0 +1,11 @@
+! $Id: rmatch,v 1.1 2001/12/07 16:54:18 toast Exp $
+RMATCH(word patternlist)
+  Returns the index of the first pattern in patternlist that matches the
+  word.  The first pattern in patternlist has index 1.
+
+Examples:
+  rmatch(marble m* n*)		- Returns 1
+  rmatch(marble *e *r*b*)	- Returns 2
+
+See also:
+  FUNCTIONS MATCH

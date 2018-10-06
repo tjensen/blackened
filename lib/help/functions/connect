@@ -1,0 +1,11 @@
+! $Id: connect,v 1.1 2001/12/07 16:54:11 toast Exp $
+CONNECT(host port)
+  Returns the file descriptor for the connection.  A NULL fd means host
+  could not be resolved.  Negative fd means some error occurred in the
+  attempt.  Communication through the connection is done with
+  DCC RAW and ON DCC_RAW.
+
+See also:
+  FUNCTIONS LISTEN
+  DCC RAW
+  ON DCC_RAW

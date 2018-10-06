@@ -1,0 +1,15 @@
+! $Id: index,v 1.1 2001/12/07 16:54:13 toast Exp $
+INDEX([^]charlist string)
+  Returns the index of the first character in string that is listed in
+  charlist.
+
+  If charlist is prepended by a carat (^), then the index of the first
+  character in string that is not listed in charlist is returned.
+
+Examples:
+  index(. filename.ext)		- Returns 8
+  index(.e filename.ext)	- Returns 3
+  index(^atcg ttacgatgaafgtat)	- Returns 10
+
+See also:
+  FUNCTIONS RINDEX

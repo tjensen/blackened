@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET USE_FAKE_HOST [ON|OFF|TOGGLE]
+  When ON, the text in FAKE_HOST replaces your actual hostname in
+  CTCP FINGER output.
+
+See Also:
+  SET FAKE_HOST
+  CTCP FINGER

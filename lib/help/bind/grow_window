@@ -1,0 +1,16 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: BIND <key> GROW_WINDOW
+  This function increases the size of the current window by one line
+  if there is room.
+
+See Also: 
+  BIND HIDE_WINDOW
+  BIND KILL_WINDOW
+  BIND LIST_WINDOWS
+  BIND NEW_WINDOW
+  BIND SHRINK_WINDOW

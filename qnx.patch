@@ -1,0 +1,146 @@
+configure/autoconf get a few things wrong for QNX.. these diffs should
+straighten things out.  NOTE: GNU make (gmake) is the preferred make
+for building ircii.
+
+glen@qnx.com
+
+Index: Makefile
+*** Makefile~	Mon Jan  9 10:47:26 1995
+--- Makefile	Mon Jan  9 10:53:03 1995
+***************
+*** 37,48 ****
+  
+  # Set this to the lex you want to use, and if they lex uses a library.
+  
+! LEX = flex
+! LEXLIB = -lfl
+  
+  CC = cc
+  DEFS = -DHAVE_CONFIG_H
+! LIBS =  -lsun -ldir -lsocket -linet -lnsl_s -ldgc -lresolv
+  
+  # Set this to -g if you want to be able to debug the client, otherwise
+  # use -O to have the compiler do some optimization instead.
+--- 37,48 ----
+  
+  # Set this to the lex you want to use, and if they lex uses a library.
+  
+! LEX = lex
+! LEXLIB = 
+  
+  CC = cc
+  DEFS = -DHAVE_CONFIG_H
+! LIBS =  -lsocket
+  
+  # Set this to -g if you want to be able to debug the client, otherwise
+  # use -O to have the compiler do some optimization instead.
+***************
+*** 137,143 ****
+  VERSION = 2.6.10
+  
+  SHELL = /bin/sh
+! MAKE = make $(MFLAGS)
+  MFLAGS ='CC=$(CC)'					\
+  	'CFLAGS=$(CFLAGS)'				\
+  	'DEFS=$(DEFS)'					\
+--- 137,143 ----
+  VERSION = 2.6.10
+  
+  SHELL = /bin/sh
+! MAKE = gmake $(MFLAGS)
+  MFLAGS ='CC=$(CC)'					\
+  	'CFLAGS=$(CFLAGS)'				\
+  	'DEFS=$(DEFS)'					\
+Index: include/defs.h
+*** include/defs.h~	Mon Jan  9 10:47:52 1995
+--- include/defs.h	Mon Jan  9 14:14:13 1995
+***************
+*** 73,94 ****
+  /* #undef NEED_WAITPID */
+  
+  /* define this if you have scandir() */
+! #define HAVE_SCANDIR 1
+  
+  /* define this if you have memmove() */
+! /* #undef HAVE_MEMMOVE */
+  
+  /* define this if you have setsid() */
+! /* #undef HAVE_SETSID */
+  
+  /* define this if you have getsid() */
+! /* #undef HAVE_GETSID */
+  
+  /* define this if you have getpgid() */
+  #define HAVE_GETPGID 1
+  
+  /* define this if your getpgrp() doesn't take a pid argument */
+! /* #undef BROKEN_GETPGRP */
+  
+  /* define this if you need getcwd() */
+  #define NEED_GETCWD 1 
+--- 73,94 ----
+  /* #undef NEED_WAITPID */
+  
+  /* define this if you have scandir() */
+! /* #undef HAVE_SCANDIR */
+  
+  /* define this if you have memmove() */
+! #define HAVE_MEMMOVE 1
+  
+  /* define this if you have setsid() */
+! #define HAVE_SETSID 1
+  
+  /* define this if you have getsid() */
+! #define HAVE_GETSID 1
+  
+  /* define this if you have getpgid() */
+  #define HAVE_GETPGID 1
+  
+  /* define this if your getpgrp() doesn't take a pid argument */
+! #define BROKEN_GETPGRP 1
+  
+  /* define this if you need getcwd() */
+  #define NEED_GETCWD 1 
+***************
+*** 136,142 ****
+  #define HAVE_UNAME 1
+  
+  /* define this if you need strerror(3) */
+! #define NEED_STRERROR 1
+  
+  /* Define if you have the <dirent.h> header file.  */
+  #define HAVE_DIRENT_H 1
+--- 136,142 ----
+  #define HAVE_UNAME 1
+  
+  /* define this if you need strerror(3) */
+! /* #undef NEED_STRERROR */
+  
+  /* Define if you have the <dirent.h> header file.  */
+  #define HAVE_DIRENT_H 1
+***************
+*** 196,199 ****
+  #define HAVE_UNISTD_H 1
+  
+  /* Define if you have the sun library (-lsun).  */
+! #define HAVE_LIBSUN 1
+--- 196,199 ----
+  #define HAVE_UNISTD_H 1
+  
+  /* Define if you have the sun library (-lsun).  */
+! /* #undef HAVE_LIBSUN */
+Index: source/irc.c
+diff -rc ircii-2.6.10/source/irc.c ircii-2.6.10-qnx/source/irc.c 
+*** ircii-2.6.10/source/irc.c	Mon Jan  9 07:49:27 1995
+--- ircii-2.6.10-qnx/source/irc.c	Mon Jan  9 15:20:46 1995
+***************
+*** 711,716 ****
+--- 711,718 ----
+  		{
+  		case 0:
+  		case -1:
++ 			if (errno == EBADF || errno == ESRCH)
++ 				irc_io_loop = 0;
+  			if (cntl_c_hit)
+  			{
+  				if (one_key)

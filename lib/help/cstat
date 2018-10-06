@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: CSTAT [<channel>]
+  Displays user statistics for a channel. If no channel is given, the
+  current channel is used.
+
+See also:
+  MODE
+  WHO

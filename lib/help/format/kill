@@ -1,0 +1,18 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT KILL <format description>
+  Controls how kills appear.
+
+  Valid format characters:
+       F          Nick of oper killing
+       H          Oper's hostname
+       T          Nick of person being killed
+       S          The oper's server
+       M          The kill comment
+
+See Also:  
+  KILL

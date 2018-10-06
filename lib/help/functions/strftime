@@ -1,0 +1,17 @@
+! $Id: strftime,v 1.1 2001/12/07 16:54:19 toast Exp $
+STRFTIME(time format)
+  Returns a string representing the time with the given format.
+  The format string may contain one or more conversion specifications,
+  represented by a percent sign (%) followed by another character.
+
+  NOTE: Supported conversion specifications may depend on your operating
+	system or compiler.  See the strftime(3) man page or similar
+	documentation for more information.
+
+Examples:
+  strftime(777 %H:%M)		- Returns "18:12"
+  strftime($time() %D)		- Returns "12/02/01"
+
+See also:
+  FUNCTIONS TIME
+  FUNCTIONS STIME

@@ -1,0 +1,12 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET SHOW_INFO_REQUESTS [ON|OFF|TOGGLE]
+  If ON and you are opered up, every time a user requests the INFO
+  command you will be notified.
+
+See also:
+  OV

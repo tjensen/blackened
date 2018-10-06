@@ -1,0 +1,57 @@
+#!/usr/bin/perl
+
+# $Id: makehelp,v 1.5 1999/08/06 07:12:58 toast Exp $
+
+sub mkhlp {
+	local(@dir);
+	local($loc) = $_[0];
+	local($pre) = $_[1];
+	local($last) = $_[2];
+	local($entry);
+
+	print STDERR "$loc/\n";
+
+	if (opendir(DIR, "$loc")) {
+		@dir = sort grep(!/^(\.|CVS$)/, readdir(DIR));
+		closedir(DIR);
+
+		print "$pre\?\n";
+		foreach $entry (@dir) {
+			print "\t$entry\n";
+		}
+
+		foreach $entry (@dir) {
+			if (-f "$loc/$entry") {
+				if (open(HLP, "< $loc/$entry ")) {
+					$entry =~ tr/A-Z/a-z/;
+					if ($last eq $entry) {
+						print "$entry\n";
+					} else {
+						print $pre . $entry . "\n";
+					}
+					while (<HLP>) {
+						if (!/^\!/) {
+							chop;
+							print "\t$_\n";
+						}
+					}
+					close(HLP);
+				} else {
+					print STDERR "Can't read $loc/$entry\n";
+				}
+			} elsif (-d "$loc/$entry") {
+				&mkhlp("$loc/$entry", "$pre$entry ", "$entry");
+			}
+		}
+
+	} else {
+		print STDERR "Can't read $loc/\n";
+	}
+}
+
+if ($ARGV[0] eq "") {
+	&mkhlp(".", "");
+} else {
+	&mkhlp($ARGV[0], "");
+}
+

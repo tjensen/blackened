@@ -1,0 +1,18 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SPING [-clear] [<server>]
+  Sends a ping to a server and displays the amount of time it took
+  to go to the server and back.
+
+  If no server is given, a list of servers which you are waiting for
+  ping replies from is displayed.
+
+  If the -clear argument is used, all currently pending server
+  pings are removed from the queue.
+
+See Also:
+  PING

@@ -1,0 +1,20 @@
+Usage: REJOIN [[-]<channel>[,<key>] [[-]<channel>[,<key>] ...]]
+  Manages the channel rejoin list.
+
+  If no parameters are given, this command lists the contents of the
+  channel rejoin list.
+
+  One or more channels may be listed to be added to or removed from the
+  channel rejoin list.  Prefix the channel name with the - character
+  to remove a channel from the list.
+
+  An optional channel key may be appended to the channel name.
+
+See Also:
+  SET REJOIN_BADKEY
+  SET REJOIN_BANNED
+  SET REJOIN_FULL
+  SET REJOIN_INTERVAL
+  SET REJOIN_INVITEONLY
+  SET REJOIN_UNAVAILABLE
+  JOIN

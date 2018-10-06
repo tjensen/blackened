@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET NO_LOG <some text>
+  This variable contains a space-separated list of nicks.  Any messages
+  and notices sent to or received from one of these nicks will NOT be
+  logged to the MsgLog file.
+
+See Also:
+  NOLOG
+  SET MSGLOG
+  SET MSGLOGFILE

@@ -1,0 +1,12 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET VERBOSE_WHOKILL [ON|OFF|TOGGLE]
+  When ON, WHOKILL kill reasons are appended with the user's
+  user@host mask and IRC server information.
+
+See Also:
+  WHOKILL

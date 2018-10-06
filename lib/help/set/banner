@@ -1,0 +1,15 @@
+Usage: SET BANNER <some text>
+  Sets the banner string to be displayed to the left of most messages
+  from the client or server.  For example, in the following line:
+
+    *** There are no nicknames being ignored
+
+  The text, "*** ", is the banner.
+
+  NOTE: In server numeric messages, if SHOW_NUMERICS is ON, this
+	variable's text will not be displayed.  Instead, the 3-digit
+	server numeric will be shown as the banner.
+
+See also:
+  FORMAT
+  SET SHOW_NUMERICS

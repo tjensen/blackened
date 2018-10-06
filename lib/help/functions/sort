@@ -1,0 +1,11 @@
+! $Id: sort,v 1.1 2001/12/07 16:54:19 toast Exp $
+SORT(list)
+  Returns list, sorted in ascending order.  The sort is case-sensitive.
+
+Example:
+  sort(one Two three four)		- Returns "Two four one three"
+
+See also:
+  FUNCTIONS ISORT
+  FUNCTIONS IRSORT
+  FUNCTIONS RSORT

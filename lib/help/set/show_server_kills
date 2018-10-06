@@ -1,0 +1,12 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET SHOW_SERVER_KILLS [ON|OFF|TOGGLE]
+  If ON, kills made by servers will be shown. Otherwise, they will
+  be ignored.
+
+See also:
+  OV

@@ -1,0 +1,19 @@
+@(#)$Id: README,v 1.6 2001/12/15 23:21:53 toast Exp $
+
+Please read the Blackened.ChangeLog file to find out what is
+new in this version of Blackened, and the INSTALL file to
+find out how to compile and install this version of
+Blackened.
+
+The INSTALL file also has some additional notes on portability
+issues.
+
+Blackened is based on ircii-2.8.2+CoMSTuDr7+EG.  Please read
+the BLACKENED.README file to find out what features Blackened
+offers.
+
+Think you may have found a bug?  Let me know through email -- I
+probably will not respond if you /msg me on IRC.  Your comments
+are appreciated.
+
+Tim Jensen <toast@blackened.com> (Toast@EFnet)

@@ -1,0 +1,12 @@
+! $Id: repeat,v 1.1 2001/12/08 19:29:06 toast Exp $
+Usage: REPEAT <count> <command>
+  Executes the command count times.
+
+Example:
+  repeat 5 echo Hi.			- Echoes "Hi." five times.
+
+See also:
+  FEC
+  FOR
+  FOREACH
+  WHILE

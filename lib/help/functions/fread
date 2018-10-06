@@ -1,0 +1,17 @@
+! $Id: fread,v 1.1 2001/12/07 16:54:12 toast Exp $
+FREAD(handle)
+  This function reads and returns a word from the file stream associated
+  with handle.  Words in the file are separated by whitespace (spaces,
+  tabs, and newlines).
+
+See also:
+  FUNCTIONS FCLOSE
+  FUNCTIONS FEOF
+  FUNCTIONS FGETC
+  FUNCTIONS FOPEN
+  FUNCTIONS FPUTC
+  FUNCTIONS FREADLN
+  FUNCTIONS FSEEK
+  FUNCTIONS FTELL
+  FUNCTIONS FWRITE
+  FUNCTIONS FWRITELN

@@ -1,0 +1,13 @@
+! $Id: stime,v 1.1 2001/12/07 16:54:19 toast Exp $
+STIME(time)
+  Returns a string representing the integer time parameter.
+
+  NOTE: Examples are for informational purposes only.  Actual return values
+	depend on time zone and locale settings.
+
+Example:
+  stime(0)		- Returns "Wed Dec 31 18:00:00 1969"
+  stime(1000000000)	- Returns "Sat Sep  8 20:46:40 2001"
+
+See also:
+  FUNCTIONS TIME

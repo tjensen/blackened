@@ -1,0 +1,13 @@
+Usage: FPUTC <filenum> [<value> [<value> [<value> [...]]]]
+  Writes one or more characters to an open file stream.  Values MUST
+  be numeric ASCII codes.  For example:
+    /FPUTC 1 32
+  This will write a space character to the file associated with
+  filenum 1.
+
+See also:
+  ALIAS FUNCTIONS
+  FCLOSE
+  FWRITE
+  FWRITELN
+  FSEEK

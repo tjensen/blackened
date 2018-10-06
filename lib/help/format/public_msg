@@ -1,0 +1,17 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT PUBLIC_MSG <format description>
+  Controls how public messages appear when sent by someone not
+  in the channel.
+
+  Valid format characters:
+       F          Nick of person sending message
+       T          Channel receiving message
+       M          The message
+
+See Also:  
+  MSG

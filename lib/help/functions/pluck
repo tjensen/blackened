@@ -1,0 +1,11 @@
+! $Id: pluck,v 1.1 2001/12/07 16:54:16 toast Exp $
+PLUCK(word text)
+  Returns the text with the first instance of the word plucked
+  out.
+
+Example:
+  pluck(dog one dog two dog three)	- Returns "one two dog three"
+
+See also:
+  FUNCTIONS STRIP
+  FUNCTIONS REMOVE

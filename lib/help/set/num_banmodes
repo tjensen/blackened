@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET NUM_BANMODES [<number of banmodes>]
+  Sets the number of banmodes that mass functions will do at a time.
+  Should usually be 3 (-bbb) or 4 (-bbbb).
+
+See Also:
+  MB
+  MUB

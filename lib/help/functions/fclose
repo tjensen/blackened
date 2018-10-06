@@ -1,0 +1,21 @@
+! $Id: fclose,v 1.1 2001/12/07 16:54:11 toast Exp $
+FCLOSE(handle)
+  Closes a file that was opened with FOPEN.  The handle parameter
+  should be the same value that was returned by FOPEN.
+
+  The function will return 0 to indicate the file was successfully closed.
+
+Example:
+  fclose(1)		- Returns 0
+
+See also:
+  FUNCTIONS FEOF
+  FUNCTIONS FGETC
+  FUNCTIONS FOPEN
+  FUNCTIONS FPUTC
+  FUNCTIONS FREAD
+  FUNCTIONS FREADLN
+  FUNCTIONS FSEEK
+  FUNCTIONS FTELL
+  FUNCTIONS FWRITE
+  FUNCTIONS FWRITELN

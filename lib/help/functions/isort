@@ -1,0 +1,11 @@
+! $Id: isort,v 1.1 2001/12/07 16:54:14 toast Exp $
+ISORT(list)
+  Returns list, sorted in ascending order.  The sort is case-insensitive.
+
+Example:
+  isort(one Two three four)		- Returns "four one three Two"
+
+See also:
+  FUNCTIONS IRSORT
+  FUNCTIONS RSORT
+  FUNCTIONS SORT

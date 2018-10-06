@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: MB [<channel>] [<user@host>]
+  Mass bans all non-ops in the channel matching the user@host mask.
+  If no mask is given, *@* is used instead.
+
+See Also:
+  BAN
+  BANCOUNT
+  UNBAN
+  MODE

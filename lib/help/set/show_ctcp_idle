@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET SHOW_CTCP_IDLE [ON|OFF|TOGGLE]
+  If this is OFF, your idle time will not be displayed in a CTCP
+  FINGER reply.
+
+See also:
+  CTCP
+  CTCP FINGER

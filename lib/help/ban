@@ -1,0 +1,14 @@
+Usage: BAN [<timeout>] [<nickname>|<userhost_mask>]
+  Adds a ban affecting the given nickname or mask to the current
+  channel.
+
+  If no userhost mask or nickname is given, the list of currently
+  pending temporary bans will be displayed.
+
+  If a timeout value is entered, the ban will be removed after that
+  many number of minutes.
+
+See also:
+  BANCOUNT
+  UNBAN
+  MODE

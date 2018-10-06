@@ -1,0 +1,6 @@
+Usage: DEVOICE [<channel>] <nickname> [<nickname> ...]
+  Takes away voice from one or more users in a channel.
+
+See Also:
+  MODE
+  VOICE

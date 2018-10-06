@@ -1,0 +1,295 @@
+# Blackened IRC Client - by Timothy Jensen
+# Copyright (c) 1997-2001 - All Rights Reserved
+#
+# @(#)$Id: Makefile.in,v 1.33.2.1 2002/03/17 16:29:01 toast Exp $
+
+# targets recognised by this makefile:
+#   blackened		- compiles Blackened
+#   ircserv		- compiles ircserv
+#   ircflush		- compiles ircflush
+#   wserv		- compiles wserv
+#   all, everything	- compiles Blackened, ircserv, ircflush and wserv
+#
+#   installirc		- installs Blackened
+#   installscript 	- installs the scripts
+#   installtranslation	- installs the translation tables
+#   installhelp		- installs the help files
+#   installman		- installs the man pages
+#   installserv		- installs ircserv
+#   installwserv	- installs wserv
+#   installflush	- installs ircflush
+#   install		- installs all of the above
+#   installeverything   - same as install
+#
+#   clean		- remove all .o files, core, and binaries
+#   distclean		- remove all files geneated by compilation/installation.
+
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+bindir = @bindir@
+datadir = @datadir@
+mandir = @mandir@
+
+VERSION = @VERSION@
+
+# Where the ircII binary will be installed.
+# 'make install' will compile and install the program
+INSTALL_IRC = $(bindir)/blackened-$(VERSION)
+
+# Name of the symbolic link to be created.
+INSTALL_LINK = $(bindir)/@IRCLINK@
+
+# Where the ircII library will be.  Generally this is the place that
+# you put the scripts, help pages and translation tables.  It is
+# very important that you set this correctly.
+IRCLIB = @IRCLIB@/$(VERSION)
+
+CC = @CC@
+DEFS = @DEFS@
+LIBS = @LIBS@
+
+# Set this to -g if you want to be able to debug the client, otherwise
+# use -O to have the compiler do some optimization instead.
+CFLAGS = @CFLAGS@
+
+# Set this to -s if you want the binary to be striped.
+LDFLAGS = @LDFLAGS@
+
+# these are legacy things from ircii 2.2 that haven't yet been
+# handled with autoconf.
+
+# For Apollo systems (10.2 and upwards) use the following with BSD defaults:
+# DEFS = -Asys,bsd4.3
+
+# Use one of the following for mips systems:
+# Choice 1, if your system has the wait3() call
+# DEFS = -systype bsd43
+# Choice 2, if your system has the wait2() call
+# DEFS = -systype bsd43 -Duse_wait2
+#
+# Or, if you only have sysv installed, use one of the following:
+# DEFS = -DMIPS_SYSV
+# DEFS = -DMIPS_SYSV -Duse_wait2
+
+## You probably don't need to change anything below this line
+
+# Uncomment the following if you want a secure IRC which binds to a
+# privileged port. This feature is completely useless in the current
+# IRC environment, but in the future some servers may use privileged
+# port systems to verify users connecting to them. The value of
+# PRIV_PORT determines the minimum port number to use.
+# If you modify these (including uncommenting them) you will need to
+# touch config.h
+#
+# If you are on a system where test-suid works, you can simply define
+# PP_DEFS to be PRIV_PORT_ULC and irc will change effective UID back
+# to a normal user immediately, and change to root when binding a port.
+# This feature is undocumented, but is known to work on Sun, MIPS and
+# Apollo (Cos we've tested them already).
+# PP_DEFINES = -DPRIV_PORT=667
+# PP_OBJS = file.o
+# PP_DEFINES = -DPRIV_PORT_ULC
+
+# Full path of the directory for ircII help files.  
+# The help files are not within the source distribution, if you don't have
+# them and want them, check out your nearest ircII archive.
+# You may comment HELP_DIR, then the ircIIhelp service will be used.
+# If you don't comment it out and want to use the IRCIIHelp service anyway,
+# you must make sure that the directory doesn't exist.
+HELP_DIR = $(IRCLIB)/help
+HELP_FILE = $(IRCLIB)/help
+
+# Full path of the directory in which to copy the
+# IRCII scripts supplied with the code.  These scripts
+# may be loaded by using the LOAD command in IRCII.
+INSTALL_SCRIPT = $(IRCLIB)/script
+
+# Default setting for IRC_PATH where irc will look for
+# its script files if the environment variable is undefined.
+# Usually, this should contain the same path as used for INSTALL_SCRIPT in
+# the Makefile, but it can contain multiple path elements
+# separated by colons. The path MUST lead to an existing directory,
+# because the 'global' script is expected to be found there.
+IRC_PATH = ~/.irc:$(INSTALL_SCRIPT):.
+
+# Path for TRANSLATION variable.
+TRANS_PATH = $(IRCLIB)/translation
+
+# Set the next line to the full path for installation of the ircserv program
+# if you wish to use it. 
+INSTALL_IRCSERV = $(bindir)/blackened-ircserv
+
+# This little program is necessary to have an interactive shell
+# in a window of ircII. The 'shell' script uses it, so also update
+# the path in there, if you want to enable this.
+INSTALL_IRCFLUSH = $(bindir)/blackened-ircflush
+
+# This program allows you to use screen/xterm's to put new irc windows
+# on new screen/xterm windows.
+INSTALL_WSERV = $(bindir)/blackened-wserv
+
+INSTALL_MAN = $(mandir)/man1/blackened.1
+
+## You shouldn't have to change anything below here
+
+srcdir = .
+
+CHMOD = @CHMOD@
+RM = @RM@
+LN = @LN@
+CP = @CPCMD@
+MV = @MVCMD@
+INSTALL = ./bsdinstall -c -m 755
+INSTALL_DATA = ../../bsdinstall -c -m 644
+INSTALL_LIB = ./bsdinstall -c -m 644
+
+SHELL = /bin/sh
+MAKE = make $(MFLAGS)
+MFLAGS ='CC=$(CC)'					\
+	'CFLAGS=$(CFLAGS)'				\
+	'DEFS=$(DEFS)'					\
+	'HELP_DIR=$(HELP_DIR)'				\
+	'HELP_FILE=$(HELP_FILE)'			\
+	'INSTALL_IRC=$(INSTALL_IRC)'			\
+	'INSTALL_LINK=$(INSTALL_LINK)'			\
+	'INSTALL_IRCSERV=$(INSTALL_IRCSERV)'		\
+	'INSTALL_WSERV=$(INSTALL_WSERV)'		\
+	'IRCLIB=$(IRCLIB)'				\
+	'IRCPATH=$(IRC_PATH)'				\
+	'LDFLAGS=$(LDFLAGS)'				\
+	'LIBS=$(LIBS)'					\
+	'LN=$(LN)'					\
+	'PP_DEFS=$(PP_DEFS)'				\
+	'PP_OBJS=$(PP_OBJS)'				\
+	'PPS_DEFS=$(PPS_DEFS)'				\
+	'RM=$(RM)'					\
+	'TRANS_DIR=$(TRANS_PATH)'
+
+all: blackened ircserv ircflush wserv
+
+install: all installbin installscript installtranslation installhelp installman installwserv installserv installflush
+	$(INSTALL_LIB) lib/reasons $(IRCLIB)/reasons
+
+irc: blackened
+
+blackened: source/Makefile Makefile
+	@cd source; $(MAKE) all
+
+installeverything: install
+
+everything: all
+
+ircserv: source/Makefile
+	@cd source; $(MAKE) ircserv
+
+ircflush: source/ircflush.c source/Makefile
+	@cd source; $(MAKE) ircflush
+
+wserv: source/wserv.c source/term.c source/Makefile
+	@cd source; $(MAKE) wserv
+
+lib/help.blackened:
+	@cd lib; ../makehelp help > help.blackened
+
+# Needed for forcing a rebuild of the help file from the "export" target
+help :
+	@cd lib; ../makehelp help > help.blackened
+
+# Same as above.  We don't want to install the extra crap any more.
+#
+#installbin: installirc installserv installflush installwserv
+#
+installbin: installirc
+
+installirc: blackened installdirs
+	$(INSTALL) source/blackened $(INSTALL_IRC)
+	@if test -f $(INSTALL_LINK).old; then $(RM) $(INSTALL_LINK).old; fi
+	@if test -f $(INSTALL_LINK); then $(MV) $(INSTALL_LINK) $(INSTALL_LINK).old; fi
+	$(RM) $(INSTALL_LINK)
+	$(LN) $(INSTALL_IRC) $(INSTALL_LINK)
+
+installscript: installdirs
+	-@(								\
+		if test -f $(INSTALL_SCRIPT)/local; then		\
+			if test -f lib/script/local; then 			\
+				$(MV) lib/script/local lib/script/local.orig;	\
+			fi;						\
+		fi							\
+	)
+	( \
+		cd lib/script; \
+		for i in *; do \
+			if test -f $$i; then \
+				$(CHMOD) -x $$i; \
+				$(INSTALL_DATA) $$i $(INSTALL_SCRIPT); \
+			fi; \
+		done \
+	)
+
+installtranslation: installdirs
+	( \
+		cd lib/translation; \
+		for i in *; do \
+			if test -f $$i; then \
+				$(CHMOD) -x $$i; \
+				$(INSTALL_DATA) $$i $(TRANS_PATH); \
+			fi; \
+		done \
+	)
+
+installserv: ircserv installdirs
+	$(INSTALL) source/ircserv $(INSTALL_IRCSERV)
+
+installflush: ircflush installdirs
+	$(INSTALL) source/ircflush $(INSTALL_IRCFLUSH)
+
+installwserv: wserv installdirs
+	$(INSTALL) source/wserv $(INSTALL_WSERV)
+
+installhelp: installdirs lib/help.blackened
+	@-if test -d $(HELP_FILE); then mv $(HELP_FILE) $(HELP_FILE).olddir; fi
+	@-if test -f $(HELP_FILE); then mv $(HELP_FILE) $(HELP_FILE).old; fi
+	$(INSTALL_LIB) lib/help.blackened $(HELP_FILE)
+
+installman:
+	$(INSTALL_LIB) -m 644 doc/blackened.1 $(INSTALL_MAN)
+
+installdirs:
+#	umask 022; ./mkinstalldirs $(IRCLIB) $(bindir) $(TRANS_PATH) $(INSTALL_SCRIPT) $(HELP_DIR)
+	umask 022; ./mkinstalldirs $(IRCLIB) $(bindir) $(mandir)/man1 $(TRANS_PATH) $(INSTALL_SCRIPT)
+
+helpclean cleanhelp:
+	$(RM) lib/help.blackened
+
+clena clean:
+	@-if test -f source/Makefile; then cd source; $(MAKE) clean; fi
+
+distclean cleandir realclean: clean
+	$(RM) Makefile Makefile.bak source/Makefile source/Makefile.bak source/sig.inc config.status config.cache config.log easyinst.status bsdinstall include/defs.h doc/blackened.1
+
+lint:
+	@if test -f source/Makefile; then cd source; $(MAKE) lint; fi
+
+autoconf: configure
+
+configure: configure.in acconfig.h
+	autoconf
+
+autoheader: include/defs.h.in
+
+include/defs.h.in: configure.in acconfig.h
+	autoheader
+
+config_h:
+	$(RM) include/config.h
+	$(CP) include/config.h.dist include/config.h
+
+export: distclean autoconf autoheader config_h help
+
+dist: export
+	( \
+		cd ..; \
+		mv blackened blackened-$(VERSION); \
+		tar --exclude CVS --exclude .cvsignore -z -c -f blackened-$(VERSION).tar.gz blackened-$(VERSION); \
+		mv blackened-$(VERSION) blackened; \
+	)

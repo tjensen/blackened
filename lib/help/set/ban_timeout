@@ -1,0 +1,8 @@
+Usage: SET BAN_TIMEOUT [<minutes>]
+  This value sets the default ban duration of any kickban or site
+  kickban.  After this amount of time has passed, the bans are
+  automatically removed.
+
+See Also:
+  KB
+  SKB

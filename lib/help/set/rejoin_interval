@@ -1,0 +1,13 @@
+Usage: SET REJOIN_INTERVAL <seconds>
+  This variable determines how long, in seconds, the client should wait
+  between channel rejoin attempts.
+
+See also:
+  SET REJOIN_BADKEY
+  SET REJOIN_BANNED
+  SET REJOIN_FULL
+  SET REJOIN_INTERVAL
+  SET REJOIN_INVITEONLY
+  SET REJOIN_UNAVAILABLE
+  REJOIN
+  JOIN

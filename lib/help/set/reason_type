@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET REASON_TYPE [<ping type>]
+  Determines how to choose a kick/kill reason.
+    0          Use random reasons file if available
+    other      Force the use of DEFAULT_REASON
+
+See Also:
+  SET DEFAULT_REASON

@@ -1,0 +1,12 @@
+! $Id: pop,v 1.1 2001/12/07 16:54:17 toast Exp $
+POP(varname)
+  Removes and returns the last word in a variable named varname.
+
+Example:
+  @ foo = [one two three]
+  pop(foo)				- Returns "three"
+
+See also:
+  FUNCTIONS PUSH
+  FUNCTIONS SHIFT
+  FUNCTIONS UNSHIFT

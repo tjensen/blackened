@@ -1,0 +1,16 @@
+! $Id: after,v 1.1 2001/12/07 16:54:09 toast Exp $
+AFTER(num split string)
+AFTER(split string)
+  Returns the portion of string that comes after the num-th instance
+  of split.
+
+  If num is omitted, the first instance of split is used.
+
+Examples:
+  after(hi this)		- Returns "s"
+  after(1 ! one!two!three)	- Returns "two!three"
+  after(2 ! one!two!three)	- Returns "three"
+  after(-1 ! four!five!six)	- Returns "six"
+
+See also:
+  FUNCTIONS BEFORE

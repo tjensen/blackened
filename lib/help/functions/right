@@ -1,0 +1,10 @@
+! $Id: right,v 1.1 2001/12/07 16:54:18 toast Exp $
+RIGHT(count string)
+  Returns the count rightmost bytes from the string.
+
+Example:
+  right(5 this is a test)	- Returns " test"
+
+See also:
+  FUNCTIONS LEFT
+  FUNCTIONS MID

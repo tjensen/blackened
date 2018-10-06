@@ -1,0 +1,22 @@
+! $Id: fputc,v 1.1 2001/12/07 16:54:12 toast Exp $
+FPUTC(handle list)
+  This function writes one or more characters to the file stream associated
+  with handle.  The list should be a series of character ASCII
+  values to write.
+
+  The number of characters written is returned.
+
+Example:
+  fputc(1 32 65 66 67)			- Writes " ABC" to file stream 1
+
+See also:
+  FUNCTIONS FCLOSE
+  FUNCTIONS FEOF
+  FUNCTIONS FGETC
+  FUNCTIONS FOPEN
+  FUNCTIONS FREAD
+  FUNCTIONS FREADLN
+  FUNCTIONS FSEEK
+  FUNCTIONS FTELL
+  FUNCTIONS FWRITE
+  FUNCTIONS FWRITELN

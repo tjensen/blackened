@@ -1,0 +1,10 @@
+! $Id: left,v 1.1 2001/12/07 16:54:15 toast Exp $
+LEFT(count string)
+  Returns the count leftmost bytes from the string.
+
+Example:
+  left(5 this is a test)	- Returns "this "
+
+See also:
+  FUNCTIONS RIGHT
+  FUNCTIONS MID

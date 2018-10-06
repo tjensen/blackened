@@ -1,0 +1,17 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT SEND_ACTION <format description>
+  Controls how CTCP ACTIONs appear when sent.
+
+  Valid format characters:
+       F          Nick of person doing action (your nick)
+       T          Nick of person receiving action
+       M          The action message
+
+See Also:  
+  ME
+  DESCRIBE

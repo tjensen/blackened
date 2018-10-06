@@ -1,0 +1,11 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET TAB [ON|OFF|TOGGLE]
+  When ON, tabs are parsed and the cursor is moved to the next tab stop.
+
+See Also:
+  SET TAB_MAX

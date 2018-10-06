@@ -1,0 +1,12 @@
+Usage: SET MAX_WALL_NICKS <maximum number of nicks to wall>
+  This will limit the number of nicks that will be sent messages at the
+  same time when using the WALL or OPS command.  The server may
+  prohibit you from using large values, but small values can cause you
+  to flood yourself off the server when used in large channels.
+
+  This variable has no effect when OPS_METHOD is HYBRID.
+
+See Also:
+  SET OPS_METHOD
+  OPS
+  WALL

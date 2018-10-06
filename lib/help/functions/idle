@@ -1,0 +1,8 @@
+! $Id: idle,v 1.2 2001/12/08 05:25:46 toast Exp $
+IDLE()
+  Returns the number of seconds the keyboard has been inactive.
+
+See also:
+  FUNCTIONS TDIFF
+  FUNCTIONS TDIFF2
+  FUNCTIONS UPTIME

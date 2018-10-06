@@ -1,0 +1,7 @@
+! $Id: clusterhost,v 1.1 2001/12/07 16:54:11 toast Exp $
+CLUSTERHOST()
+  Returns, approximately, the equivalent of CLUSTER(USERHOST()).
+
+See also:
+  FUNCTIONS USERHOST
+  FUNCTIONS CLUSTER

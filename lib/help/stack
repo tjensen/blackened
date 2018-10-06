@@ -1,0 +1,25 @@
+! $Id: stack,v 1.1.2.1 2002/03/07 22:31:41 toast Exp $
+Usage: STACK <operation> <type> <parameters>
+  This command manages Blackened stacks.
+
+  A stack operation and type are required.
+
+  Stack Operations:
+    LIST	lists the stack
+    PUSH	places a new item on the stack
+    POP		removes an item from the stack
+
+  Stack Types:
+    ALIAS	aliases
+    ASSIGN	ASSIGN variables
+    ON		ON hooks
+    SET		SET variables
+    FORMAT	FORMAT strings
+
+See also:
+  ALIAS
+  ASSIGN
+  FORMAT
+  ON
+  QUEUE
+  SET

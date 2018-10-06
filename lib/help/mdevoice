@@ -1,0 +1,6 @@
+Usage: MDEVOICE [<channel>] [<user@host>]
+  Takes away voice from all users matching the user@host mask. If no
+  mask is given, *@* is used.
+
+See Also:
+  MODE

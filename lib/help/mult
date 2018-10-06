@@ -1,0 +1,12 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: MULT [<channel>] <nick> [<nick> [...]] [:<reason>]
+  Kicks multiple nicks from a channel. Note that the reason MUST be
+  prefixed with a colon (:) character.
+
+See Also:
+  KICK

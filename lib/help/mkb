@@ -1,0 +1,9 @@
+Usage: MKB [<timeout>] [<channel>] <user@host> [<reason>]
+  Mass kicks and bans all non-ops matching the user@host mask.
+
+  If a timeout value is entered, the ban will be removed after that
+  many number of minutes.
+
+See Also:
+  KICK
+  BAN

@@ -1,0 +1,30 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT [<format name> [<value>]]
+  Sets a specified format to a given value.  If FORMAT is used
+  with no parameters, all formats and their current settings
+  are listed.  If FORMAT is used with a format name and no
+  value, that formats current setting is listed.
+
+  Format items are identified by the percent (%) sign.  The
+  character following the percent sign specifies the item to
+  show.  The following characters are valid for all format
+  types:
+    
+    @        Timestamp
+    !        Highlight
+    B        Banner (usually "*** ")
+    U        Userhost
+    *        Cluster(Userhost)
+
+  In some situations, certain format characters have no effect.  For
+  example, a "%U" in NOTIFY_SIGNON will be replaced by a blank, since
+  no userhost is associated with that format.
+
+See also:
+  HELP FORMAT ? for a list of all formats
+  SET BANNER

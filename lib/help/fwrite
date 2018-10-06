@@ -1,0 +1,9 @@
+Usage: FWRITE <filenum> [<text>]
+  Writes text to an open file stream.
+
+See also:
+  ALIAS FUNCTIONS
+  FCLOSE
+  FWRITELN
+  FPUTC
+  FSEEK

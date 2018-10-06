@@ -1,0 +1,12 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET AUTOOP_ENABLE [ON|OFF|TOGGLE]
+  This variable decides whether users listed in the auto-op list should
+  be opped on join.
+
+See also:
+  AUTOOP

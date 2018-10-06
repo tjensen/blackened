@@ -1,0 +1,14 @@
+! $Id: tr,v 1.1 2001/12/07 16:54:21 toast Exp $
+TR(flags/from/to/text)
+  Translates each character in text that is listed in from to the
+  corresponding character in to.
+
+Examples:
+  tr(/aeiou/4310_/What are you doing?)	- Returns "Wh4t 4r3 y0_ d01ng?"
+  tr(/aeiou//What are you doing?)	- Returns "Wht r y dnG?"
+
+See also:
+  FUNCTIONS MATCH
+  FUNCTIONS RMATCH
+  FUNCTIONS SAR
+  FUNCTIONS STRIP

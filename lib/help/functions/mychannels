@@ -1,0 +1,9 @@
+! $Id: mychannels,v 1.1 2001/12/07 16:54:16 toast Exp $
+MYCHANNELS(refnum)
+MYCHANNELS()
+  Returns the list of channels you are in on the server associated with
+  window refnum.  If refnum is omitted, the window with focus
+  is used.
+
+See also:
+  FUNCTIONS MYSERVERS

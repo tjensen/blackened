@@ -1,0 +1,42 @@
+! $Id: queue,v 1.1.2.1 2002/03/08 04:04:45 toast Exp $
+Usage: QUEUE [<switch>] [ [<name>] [ ... ] ]
+  This command manages queues for future batch processing.
+
+  If no switches are provided, the command adds an item to a queue.
+  Note that the item must be enclosed in { } brackets to be added.
+  For example:
+
+    /QUEUE qname { echo This is an item in a queue. }
+
+  To run the contents of a queue, use the -DO switch with the name
+  of the queue.  Note that the named queue will be removed after it
+  is run.
+
+    /QUEUE -DO qname
+
+  To run the contents of a queue without removing it afterwards, use
+  the -NO_FLUSH switch:
+
+    /QUEUE -NO_FLUSH qname
+
+  To view the contents of a queue, use the -LIST switch with the
+  name of the queue:
+
+    /QUEUE -LIST qname
+
+  To view all queues, use the -SHOW switch:
+
+    /QUEUE -SHOW
+
+  To remove an item from a queue, use the -DELETE switch with the
+  the name of the queue and the item number:
+
+    /QUEUE -DELETE qname 1
+
+  To completely remove an entire queue, use the -FLUSH switch with
+  the name of the queue:
+
+    /QUEUE -FLUSH qname
+
+See also:
+  STACK

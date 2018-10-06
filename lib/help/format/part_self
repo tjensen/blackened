@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT PART <format description>
+  Controls how channel parts appear when YOU part a channel.
+
+  Valid format characters:
+       F          Nick of person parting (your nick)
+       C          The channel being parted
+
+See Also:  
+  PART

@@ -1,0 +1,9 @@
+! $Id: old_whois_format,v 1.2 2001/12/08 21:45:46 toast Exp $
+Usage: SET OLD_WHOIS_FORMAT [ON|OFF|TOGGLE]
+  When ON, the original irc-2.8.2 format for WHOIS and WHOWAS
+  output will be used.
+
+See also:
+  FORMAT
+  WHOIS
+  WHOWAS

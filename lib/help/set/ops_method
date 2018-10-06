@@ -1,0 +1,24 @@
+Usage: SET OPS_METHOD [DEFAULT|WALLCHOPS|HYBRID|AUTO]
+  Determines how the OPS and WALL commands send messages to all
+  channel operators.
+
+  When set to DEFAULT, the commands use the old-style method of sending
+  messages to multiple targets.  Use SET MAX_WALL_NICKS to tune the
+  maximum number of nicknames to message at one time.
+
+  When set to WALLCHOPS, the client will use the server WALLCHOPS
+  command.  Some servers may not support this method, however recent
+  versions of the Undernet ircd do.
+
+  When set to HYBRID, the client will use the method of sending a
+  message to @#channel.  Some servers may not support this method, however
+  Hybrid versions 6 and higher do.
+
+  When set to AUTO, the client will attempt to determine which method
+  is supported by the server you are connected to by looking at the server
+  version.
+
+See also:
+  SET MAX_WALL_NICKS
+  OPS
+  WALL

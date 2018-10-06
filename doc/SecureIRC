@@ -1,0 +1,45 @@
+This version of IRCII supports the use of privileged ports. A modified
+server which only accepts connections from clients whose port number is
+below 1024 can use this to ensure the integrity of the user name field
+from the user@host pair.
+
+The procedure for installing IRCII for privileged ports is slightly
+different. First, you should uncomment the PP_OBJS and PP_DEFS macros
+in Makefile. Then touch config.h and make. The value for PRIV_PORT
+specified in PP_DEFS is the lower bound port IRCII should try to use.
+In practice this value is unlikely to matter, provided it is below 1000.
+
+If your system has the saved UID feature, you can use a more secure
+version of the privileged port code. See test-suid.c and Makefile for
+details on this.
+
+Once you have made IRCII, and installed it, you will need to do one of
+two things:
+
+	1) If you are using ircserv, make the ircserv program owned by
+	   root, with a secure group ID. For example, you could create
+	   the group ID irc, and have ircserv's group be irc.
+
+	   Change the mode of ircserv so that nobody other than a member
+	   of that group (or root) can execute it. Then make irc setgid
+	   to that group.
+
+	   eg:  chown root.irc ircserv
+		chmod 4710 ircserv
+		chgrp irc irc
+		chmod 2711 irc
+
+	   If there is a chance that users may be unable to execute the
+	   ircserv process due to processes being exhausted, you can make
+	   irc setuid->root too.
+
+	2) If you are not using ircserv, you will need to install irc
+	   setuid->root.
+
+	   eg:  chown root irc
+		chmod 4711 irc
+
+Note: The Implementation with the ircserv process can be proven to be
+	secure trivially. This is not the case with the non ircserv
+	version, although the potential waeknesses have been carefully
+	analysed, and to the best of my knowledge, none exist.

@@ -1,0 +1,9 @@
+! $Id: tolower,v 1.1 2001/12/07 16:54:20 toast Exp $
+TOLOWER(text)
+  Returns the text with all alphabetic characters in lower case.
+
+Example:
+  tolower(This is a test)		- Returns "this is a test"
+
+See also:
+  FUNCTIONS TOUPPER

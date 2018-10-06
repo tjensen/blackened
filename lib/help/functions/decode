@@ -1,0 +1,9 @@
+! $Id: decode,v 1.1 2001/12/07 16:54:11 toast Exp $
+DECODE(text)
+  Returns decoded version of text, which was encoded with ENCODE.
+
+Example:
+  decode(HEGFHDHE)		- Returns "test"
+
+See also:
+  FUNCTIONS ENCODE

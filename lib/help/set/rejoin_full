@@ -1,0 +1,12 @@
+Usage: SET REJOIN_FULL [ON|OFF|TOGGLE]
+  This variable determines whether the client should try to rejoin
+  channels that have reached their client limit.
+
+See also:
+  SET REJOIN_BADKEY
+  SET REJOIN_BANNED
+  SET REJOIN_INVITEONLY
+  SET REJOIN_UNAVAILABLE
+  REJOIN
+  JOIN
+  MODE

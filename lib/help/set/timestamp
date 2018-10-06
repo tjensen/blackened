@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET TIMESTAMP <format description for timestamps>
+  Setting the variable allows you to alter the appearance of
+  timestamps.  Certain special characters are recognized in
+  this format line and replaced with various bits of status line
+  information.  Each of these special characters is preceeded by
+  a '%'.  Please read the strftime man page on your system to
+  determine which characters are supported.

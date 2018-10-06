@@ -1,0 +1,12 @@
+Usage: SET REJOIN_UNAVAILABLE [ON|OFF|TOGGLE]
+  This variable determines whether the client should try to rejoin
+  channels that are unavailable.
+
+See also:
+  SET REJOIN_BADKEY
+  SET REJOIN_BANNED
+  SET REJOIN_FULL
+  SET REJOIN_INVITEONLY
+  REJOIN
+  JOIN
+  MODE

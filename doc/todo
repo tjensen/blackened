@@ -1,0 +1,18 @@
+$Id: todo,v 1.1.1.1 1999/07/16 21:21:13 toast Exp $
+
+mrg's list:
+
+finish /stack.  make sure it works.  i don't think /stack % on <numeric> works.
+fix eight bit mode, stty losing problems.
+fix zcat stuff to grok .Z .z .gz, etc, all at once.
+fix problem with /server not working, but /window server does.
+fix aix /notify crashes when using aix cc.
+scroll_forward is hosed.
+find and fix rejoin lossage with trashed reconnect channels.
+find and `fix' all lame uses of my_stricmp(), such as the one that is in who() -- do the tolower once and use strcmp()
+fix the next `port'.
+
+ian's list:
+
+[ =Dae= <16:41> ] document index's ^ feature in the help file.
+[ =Dae= <16:41> ] figure out /win new level snotes

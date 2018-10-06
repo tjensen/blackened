@@ -1,0 +1,7 @@
+Usage: SET HELP_FILE <Path to help file>
+  This path points to the location of the file containing the
+  help text. e.g.
+    SET HELP_FILE /usr/local/share/blackened/1.7.0/help
+
+See Also:
+  HELP

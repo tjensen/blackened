@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: BIND <key> AUTO_MSG
+  The AUTO_MSG function clears the input line and types:
+    /MSG <nickname>
+  The nickname is one which was used previously.
+
+  If the input line already contains text of the above format, any
+  message text is saved and appended to the new input line.
+
+  This feature obsoletes the tabkey script.

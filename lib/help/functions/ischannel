@@ -1,0 +1,8 @@
+! $Id: ischannel,v 1.1 2001/12/07 16:54:14 toast Exp $
+ISCHANNEL(channel)
+  Returns non-zero if channel is a valid channel name.
+
+See also:
+  FUNCTIONS ISCHANOP
+  FUNCTIONS ONCHANNEL
+  FUNCTIONS CHANUSERS

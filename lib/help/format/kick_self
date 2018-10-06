@@ -1,0 +1,17 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT KICK_SELF <format description>
+  Controls how channel kicks appear when YOU get kicked.
+
+  Valid format characters:
+       F          Nick of person kicking
+       C          The channel target is being kicked from
+       T          Nick of person being kicked (your nick)
+       M          The kick comment
+
+See Also:  
+  KICK

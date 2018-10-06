@@ -1,0 +1,6 @@
+! $Id: myservers,v 1.1 2001/12/07 16:54:16 toast Exp $
+MYSERVERS()
+  Returns the list of servers to which you are connected.
+
+See also:
+  FUNCTIONS MYCHANNELS

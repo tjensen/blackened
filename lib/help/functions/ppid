@@ -1,0 +1,6 @@
+! $Id: ppid,v 1.1 2001/12/07 16:54:17 toast Exp $
+PPID()
+  Returns the parent process's process ID number.
+
+See also:
+  FUNCTIONS PID

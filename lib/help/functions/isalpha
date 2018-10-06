@@ -1,0 +1,10 @@
+! $Id: isalpha,v 1.1 2001/12/07 16:54:14 toast Exp $
+ISALPHA(char)
+  Returns non-zero if char is a letter of the alphabet.
+
+Examples:
+  isalpha(r)				- Returns 1
+  isalpha(5)				- Returns 0
+
+See also:
+  FUNCTIONS ISDIGIT

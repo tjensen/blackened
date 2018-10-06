@@ -1,0 +1,6 @@
+Usage: SET VHOST <virtual host name>
+  Change the virtual host name/address from which you connect to IRC
+  servers.
+
+See also:
+  NEWHOST

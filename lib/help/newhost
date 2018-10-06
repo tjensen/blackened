@@ -1,0 +1,9 @@
+! $Id: newhost,v 1.1 2001/12/08 19:26:32 toast Exp $
+Usage: NEWHOST <hostname>
+  Disconnects you from the currently connected server and reconnects you
+  with the new hostname.  Also updates the VHOST variable.
+
+See also:
+  NEWNICK
+  NEWUSER
+  SET VHOST

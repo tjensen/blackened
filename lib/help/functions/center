@@ -1,0 +1,11 @@
+! $Id: center,v 1.1 2001/12/07 16:54:10 toast Exp $
+CENTER(width text)
+  Returns the text, formatted with padding on the left to center it
+  between width characters.
+
+Example:
+  center(15 What's up?)		- Returns "  What's up?"
+
+See also:
+  FUNCTIONS CENTER
+  FUNCTIONS LFORMAT

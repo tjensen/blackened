@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: MODE [+|-]<modechars> [<parameters>]
+       MODE [+|-]b [<nick>[!<user>[@<host>]]]
+  Sets the current channel's mode. This is exactly the same as using
+  the MODE command with * as the first parameter.
+
+See also:
+  MODE

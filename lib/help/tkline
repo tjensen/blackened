@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: TKLINE <time> <userhost_mask> <reason>
+  Adds a temporary K: line to the server config file. The kline will
+  last for the given time in minutes. Note that some ircd versions do
+  not support this feature.
+
+See Also:
+  KLINE
+  FINDK
+  UNKLINE

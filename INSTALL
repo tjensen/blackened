@@ -1,0 +1,88 @@
+@(#)$Id: INSTALL,v 1.2 1999/07/26 20:31:17 toast Exp $
+
+------------------------------------------------------------------------
+NOTE: This is the INSTALL doc from the original ircii-2.8.2 client.
+      Pretty much everything applies to Blackened as well, so I
+      haven't changed anything.
+
+      -Tim
+------------------------------------------------------------------------
+
+to compile ircii
+
+  o  there are 2 main ways of configuring ircii for your system.  you
+     can either run the `easyinst' script, or, if you know how to use
+     gnu configure scripts, you can use that directly, and then edit
+     include/config.h yourself.
+
+  o  using easyinst:
+      - in the same directory that this file is in, type `./easyinst'.
+	if you are using an old version of system v, you might need
+	`sh easyinst'.
+      - this script asks you a few questions and then calls configure
+        for you.
+      - you will then need to run `make' and `make install'.
+
+  o  using configure directly:
+      - in the same directory that this file is in, type `./configure'.
+	if you are using an old version of system v, you might need
+	`sh configure'.
+
+      - this script tries to guess various things about your system
+        that are important to it compiling.  it creates various files
+        in this process.  configure takes a couple of minutes to run.
+
+     WARNING: gnu sed vesrion 2.05 (and maybe 2.04 -- i don't know)
+     will not function properly with this configure script.  gnu
+     sed version 2.03 does.  please do not send me a bug report if
+     you are using gnu sed version 2.05 (such as linux systems)
+
+      - when this has finished, you might want to check the Makefile
+        for the places ircii will be installed.  the defaults are
+        /usr/local/lib, /usr/local/bin and /usr/local/man.  you can
+        either do `make prefix=/local' or set it with configure, by
+        calling configure with the `--prefix=/local' switch.
+
+  o  compiling ircii - type `make' in the main ircii directory.  this
+     will compile the `irc', `ircflush', `ircserv', and `wserv'
+     programs that reside in the source sub directory.
+
+  o  once the programs are compiled, you can install them with
+     `make install'.  this will install all the binaries, scripts,
+     translation tables, and the ircii man page.
+
+  o  you can now delete the object files and binaries from the source
+     directory with `make clean'.  `make distclean' will also delete
+     any file that `configure' created.  this is useful for then
+     using the same sources to compile on a different architecture.
+
+
+notes on portability.
+
+  o  there is a bug in the compiler shipped with bsdi's operating
+     sytem that causes ircii to fail to compile.  if you use the
+     `gcc2' compiler rather than `gcc' or `cc' this problem is
+     alleviated.  complain to bsdi about their broken compiler.
+     the configure process also seems to fail to add `-ll' to the
+     LEXLIB variable in the Makefile.
+
+  o  some exotic mips machines are not yet accounted for in the
+     configuration process, and must have certain things set
+     specially in the Makefile (these are noted in the Makefile
+     itself).
+
+  o  there are problems with the configure script running under qnx.
+     in the file qnx.patch exist patches for the defs.h.in and
+     Makefile files that may need to be applied.  there is also an
+     experimental patch to irc.c that qnx needs, but has not been
+     tested on other operating systems yet that needs to be applied.
+     these can be applied by running `patch -p0 < qnx.pach' in the
+     ircii directory.
+
+  o  some versions of nextstep (3.x?) require some serious kludges
+     to get ircii to compile and work.  if you have problems with
+     missing __environ, __NXArgc, etc, run the make command again
+     with "make CFLAGS=-O" (or `-g\ -O' if you want debugging as
+     well) for the final link, and see if that works.  if not, you'll
+     have to hack around with various flags, or the LIBS variable
+     in the Makefile.

@@ -1,0 +1,18 @@
+! $Id: for,v 1.2 2001/12/08 17:00:34 toast Exp $
+Usage: FOR (<commence>,<evaluation>,<iteration>) { <commands> }
+  This works just like the C for loop.  However, unlike C, the comma (,)
+  character is used as a delimiter.
+
+Example:
+    for (@ii = 0, ii < 4, @ii = ii + 1) { echo $ii}
+  will return
+    0
+    1
+    2
+    3
+
+See Also:
+  expressions
+  ALIAS special
+  FEC
+  FOREACH

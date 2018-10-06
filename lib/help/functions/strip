@@ -1,0 +1,15 @@
+! $Id: strip,v 1.1 2001/12/07 16:54:20 toast Exp $
+STRIP(charlist string)
+  Returns the string with all instances of characters in charlist
+  stripped out.
+
+Examples:
+  strip(~ ~ ~)				- Returns " "
+  strip(~ ~one t~o th~ree)		- Returns "one to three"
+  strip(aeiou all work and no play...)	- Returns "ll wrk nd n ply..."
+
+See also:
+  FUNCTIONS MATCH
+  FUNCTIONS PLUCK
+  FUNCTIONS REMOVE
+  FUNCTIONS RMATCH

@@ -1,0 +1,18 @@
+! $Id: ftell,v 1.1 2001/12/07 16:54:13 toast Exp $
+FTELL(handle)
+  This function reads and returns the current position of the stream
+  associated with handle.
+
+  The value, -1, is returned to indicate an error occurred.
+
+See also:
+  FUNCTIONS FCLOSE
+  FUNCTIONS FEOF
+  FUNCTIONS FGETC
+  FUNCTIONS FOPEN
+  FUNCTIONS FPUTC
+  FUNCTIONS FREAD
+  FUNCTIONS FREADLN
+  FUNCTIONS FSEEK
+  FUNCTIONS FWRITE
+  FUNCTIONS FWRITELN

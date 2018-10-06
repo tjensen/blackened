@@ -1,0 +1,12 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: DEOP [<channel>] <nickname> [<nickname> ...]
+  Deops one or more users in a channel.
+
+See Also:
+  MODE
+  OP

@@ -1,0 +1,37 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: CIGNORE [<channel>] [-][<message type>]
+
+  The standard form of CIGNORE allows you to specify which type of
+  messages you wish to ignore from a channel.  The message type
+  parameter can be one of the following:
+    MSGS            All MSGs received
+    NOTICES         All NOTICEs received
+    CTCP            All CTCPs received
+    JOINS           Users joining channel
+    PARTS           Users leaving channel
+    KICKS           Users kicked from channel
+    MODES           Channel mode changes
+    TOPICS          Channel topic changes
+    CRAP            Anything else
+    ALL             All of the above message types
+    NONE            No message types
+
+  You can specify multiple types of messages to ignore on the
+  command line.  Preceeding a type with a - indicates removal of
+  ignoring of that type of message.  For example:
+    CIGNORE #Cheese MSGS KICKS
+  ignores MSGs and KICKs from #Cheese.  
+    CIGNORE #twilight_zone ALL -TOPICS
+  ignores all types of messages except TOPICS from #twilight_zone.
+
+  All forms of CIGNORE use the - to remove ignore attributes,
+  and the type NONE will remove the channel from the list
+  completely.  
+
+See Also:
+  PART

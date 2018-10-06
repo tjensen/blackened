@@ -1,0 +1,6 @@
+Usage: VOICE [<channel>] <nickname> [<nickname> ...]
+  Gives voice to one or more users in a channel.
+
+See Also:
+  DEVOICE
+  MODE

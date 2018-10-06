@@ -1,0 +1,9 @@
+! $Id: listen,v 1.1 2001/12/07 16:54:15 toast Exp $
+LISTEN(port)
+  Creates a listening socket on the specified port.  If the port # is not
+  specified then it returns the number of the port it chose arbitrarily.
+
+See also:
+  FUNCTIONS CONNECT
+  DCC RAW
+  ON DCC_RAW

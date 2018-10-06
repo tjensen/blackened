@@ -1,0 +1,21 @@
+! $Id: functions,v 1.1 2001/12/07 16:54:13 toast Exp $
+Blackened Functions
+  Blackened functions are substituted with the format $FUNCTION(arguments).
+  A function is an ALIAS which assigns a value to FUNCTION_RETURN.
+  For example:
+    ALIAS DOUBLE assign FUNCTION_RETURN ${[$0]+[$0]}
+  which is the same as:
+    ALIAS DOUBLE @ function_return = [$0] * 2
+  used with:
+    ALIAS SHOWDOUBLE echo $DOUBLE($0)
+  will cause
+    SHOWDOUBLE 7
+  to display "14".
+
+  The following built-in functions already exist and cannot be overriden:
+  For a list of built-in functions that cannot be overridden:
+    /HELP FUNCTIONS ?
+
+Note:
+  The argument separator for most functions is the space character, not the
+  comma.

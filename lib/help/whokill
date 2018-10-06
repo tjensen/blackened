@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: WHOKILL <pattern> <reason>
+  Performs a WHO on the given pattern and kills all matches.
+  For example:
+    WHOKILL * die die die!
+  This will kill all users in the current channel (except you).
+
+See Also:
+  KILL
+  OPER

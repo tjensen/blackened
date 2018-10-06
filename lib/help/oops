@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: OOPS <nickname>
+  Informs the last person you messaged that the message you sent was
+  not intended for him.  Then re-sends the message to the given
+  nickname.
+
+See Also:
+  MSG

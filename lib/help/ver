@@ -1,0 +1,18 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: VER [<nickname>]
+  This command will send a CTCP VERSION to the given nickname or
+  nicknames.  The remote client will reply with its version
+  information.  Do not use with too long a list of nicknames or
+  server flood control will kick in and the return times will be
+  inaccurate.
+
+  If no nickname is given, the query is sent to the current
+  channel.
+
+See Also:
+  CTCP

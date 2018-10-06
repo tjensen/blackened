@@ -1,0 +1,11 @@
+! $Id: encode,v 1.1 2001/12/07 16:54:11 toast Exp $
+ENCODE(text)
+  Returns encoded version of text, suitable for use as a Blackened
+  variable or alias name.  Any special characters, including spaces, can be
+  encoded into the string.
+
+Example:
+  encode(test)			- Returns "HEGFHDHE"
+
+See also:
+  FUNCTIONS DECODE

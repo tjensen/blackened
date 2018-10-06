@@ -1,0 +1,12 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: CHAT NICK
+  This is the same as using DCC CHAT NICK.
+
+See Also:
+  DCC CHAT
+  MSG

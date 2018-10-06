@@ -1,0 +1,16 @@
+! $Id: findu,v 1.2 2001/12/08 17:00:48 toast Exp $
+Usage: FINDU [-switch [<arg>]] <userhost_mask> [<server>]
+  Searches for a user matching the supplied user@host mask on a
+  server.  The following switches are also recognized and used to
+  limit the listing:
+  -CLASS <num>            - Shows only users in the connection
+			    class given.
+  -COUNT                  - Does not show matches. Only counts
+			    them.
+
+  The switches may be abbreviated unambiguously.
+
+See Also:
+  FINDD
+  FINDK
+  TRACE

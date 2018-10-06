@@ -1,0 +1,30 @@
+! $Id: fseek,v 1.1 2001/12/07 16:54:13 toast Exp $
+FSEEK(handle offset whence)
+  This function positions the stream associated with handle to the
+  specified offset.  The offset is relative to the position
+  indicated by whence.
+
+  The whence parameter may be one of the following:
+     SEEK_SET	- relative to the start of the file
+     SEEK_CUR	- relative to the current position
+     SEEK_END	- relative to the end of the file
+
+  If the operation is successful, 0 is returned.  Any other value indicates
+  an error.
+
+Examples:
+  fseek(1 42 SEEK_SET)
+  fseek(1 7 SEEK_CUR)
+  fseek(1 -4 SEEK_END)
+
+See also:
+  FUNCTIONS FCLOSE
+  FUNCTIONS FEOF
+  FUNCTIONS FGETC
+  FUNCTIONS FOPEN
+  FUNCTIONS FPUTC
+  FUNCTIONS FREAD
+  FUNCTIONS FREADLN
+  FUNCTIONS FTELL
+  FUNCTIONS FWRITE
+  FUNCTIONS FWRITELN

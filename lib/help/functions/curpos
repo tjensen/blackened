@@ -1,0 +1,4 @@
+! $Id: curpos,v 1.1 2001/12/07 16:54:11 toast Exp $
+CURPOS()
+  Returns the position from the start of the input line to where the
+  cursor is located.

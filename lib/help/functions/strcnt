@@ -1,0 +1,10 @@
+! $Id: strcnt,v 1.1 2001/12/07 16:54:19 toast Exp $
+STRCNT(wordlist)
+  Returns the number of words in wordlist.
+
+Example:
+  strcnt(see jack run)		- Returns 3
+
+See also:
+  FUNCTIONS NOTWORD
+  FUNCTIONS WORD

@@ -1,0 +1,8 @@
+! $Id: reason,v 1.1 2001/12/08 05:47:50 toast Exp $
+REASON()
+  Returns the default kick reason, or a random kick reason.
+
+See also:
+  FUNCTIONS RANDREAD
+  KICK
+  SET DEFAULT_REASON

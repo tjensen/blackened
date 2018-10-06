@@ -1,0 +1,16 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT UMODE <format description>
+  Controls how user modes appear.
+
+  Valid format characters:
+       F          Nick of person changing mode (your nick)
+       C          Channel whose mode is changing (your nick)
+       M          The mode change
+
+See Also:  
+  UMODE

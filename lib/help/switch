@@ -1,0 +1,24 @@
+! $Id: switch,v 1.1 2001/12/09 01:40:09 toast Exp $
+Usage: SWITCH (<expression>) { (<match>) { <commands> } ... }
+  This command works similarly to the C switch statement.  An expression
+  is evaluated and matched with one or more possibilities.  When a match
+  is found, the immediately following command(s), enclosed in curly
+  brackets, is (are) executed.
+
+  Only the first match, if one exists, is executed.  Therefore, the order
+  of match expressions may influence the behavior of the SWITCH command.
+
+Example:
+  switch ($name)
+  {
+    (Bob) { echo What's up, Bob? }
+    (Frank) { echo Howdy, Frank! }
+    (Wendy) { echo Where's the beef? }
+    (*) { echo I don't know you! }
+  }
+
+See Also:
+  expressions
+  ALIAS special
+  IF
+  WHILE

@@ -1,0 +1,12 @@
+! $Id: shift,v 1.1 2001/12/07 16:54:19 toast Exp $
+SHIFT(varname)
+  Removes and returns the first word in a variable named varname.
+
+Example:
+  @ foo = [one two three]
+  shift(foo)				- Returns "one"
+
+See also:
+  FUNCTIONS POP
+  FUNCTIONS PUSH
+  FUNCTIONS UNSHIFT

@@ -1,0 +1,13 @@
+! $Id: word,v 1.1 2001/12/07 16:54:22 toast Exp $
+WORD(index wordlist)
+  Returns the index-th word in wordlist.  The first word in
+  wordlist has index 0.
+
+Examples:
+  word(0 see jack run)		- Returns "see"
+  word(1 see jack run)		- Returns "jack"
+  word(2 see jack run)		- Returns "run"
+
+See also:
+  FUNCTIONS NOTWORD
+  FUNCTIONS STRCNT

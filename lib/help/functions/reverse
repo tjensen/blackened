@@ -1,0 +1,6 @@
+! $Id: reverse,v 1.1 2001/12/07 16:54:17 toast Exp $
+REVERSE(text)
+  Returns text, with the characters in reverse order.
+
+Example:
+  length(See Spot run.)				- Returns ".nur topS eeS"

@@ -1,0 +1,22 @@
+! $Id: sar,v 1.1 2001/12/07 16:54:19 toast Exp $
+SAR(flags/search/replace/target)
+SANDR(flags/search/replace/target)
+  Searches for the search string in the target string and replaces
+  it with the replace string.
+
+Flags:
+  g	- Replace all instances of the search string instead of just
+	  the first one.
+  r	- The target string is actually the name of a variable to do
+	  the search and replace on.
+
+Examples:
+  sar(/s/th/this is a test)		- Returns "thith is a test"
+  sar(g/s/th/this is a test)		- Returns "thith ith a tetht"
+  @ foo = [this is a test]
+  sar(rg/s/th/foo)			- Returns "thith ith a tetht"
+
+See also:
+  FUNCTIONS MATCH
+  FUNCTIONS RMATCH
+  FUNCTIONS TR

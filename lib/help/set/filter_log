@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET FILTER_LOG [ON|OFF|TOGGLE]
+  Turns the control character filter ON or OFF for window log files.
+  When ON, non-printable control characters are removed before lines
+  are sent to their log files.
+
+See Also:
+  SET LOGFILE
+  WINDOW LOG
+  WINDOW LOGFILE

@@ -1,0 +1,8 @@
+! $Id: getkey,v 1.1 2001/12/08 05:47:45 toast Exp $
+GETKEY(channel)
+  Returns the key of channel, if it is known.
+
+See also:
+  FUNCTIONS ISCHANNEL
+  JOIN
+  MODE

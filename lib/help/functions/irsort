@@ -1,0 +1,12 @@
+! $Id: irsort,v 1.1 2001/12/07 16:54:14 toast Exp $
+IRSORT(list)
+RISORT(list)
+  Returns list, sorted in descending order.  The sort is case-insensitive.
+
+Example:
+  irsort(one Two three four)		- Returns "Two three one four"
+
+See also:
+  FUNCTIONS ISORT
+  FUNCTIONS RSORT
+  FUNCTIONS SORT

@@ -1,0 +1,16 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT DCC_CHAT <format description>
+  Controls how DCC CHAT messages appear
+
+  Valid format characters:
+       F          Nick of person sending message
+       M          The message
+
+See Also:  
+  MSG
+  DCC CHAT

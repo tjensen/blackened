@@ -1,0 +1,13 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET STATUS_CHANVOICE <text of display for status line voice mode>
+  The value of STATUS_CHANVOICE is replaced in the STATUS_FORMAT
+  variable for any occurence of %- if you have channel voice status.
+  If you are a chanop or not voiced, %- is replaced with nothing.
+
+See Also:  
+  SET STATUS_CHANOP

@@ -1,0 +1,13 @@
+Usage: FSEEK <filenum> <offset> <whence>
+  Moves the current position in an open file stream.
+  Supported values for whence are:
+    SEEK_SET  offset plus beginning of file
+    SEEK_CUR  offset plus current position
+    SEEK_END  offset plus end of file
+
+See also:
+  ALIAS FUNCTIONS
+  FCLOSE
+  FWRITE
+  FWRITELN
+  FPUTC

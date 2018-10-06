@@ -1,0 +1,56 @@
+		     INSTALLATION INSTRUCTION FOR IRCII
+
+Notes: In this version it is important to install the `translation' and
+      `script' directory.  See the IRCII_LIBRARY variable in the
+      config.h
+
+You might be tempted to try the 'install' script here by
+issuing the command      csh install     and then answer the
+questions.  At the point where it asks if you want to compile you
+can say 'no' and go on to step 1, or you can say 'yes' and try to
+compile the client.  Note that install1.0 assumes you are on a
+bsd, ultrix, or sun type machine.  Most other machines require
+manual changes to the Makefile in order to compile.
+
+ o  Using your favorite editor, modify the config.h file to meet
+    your site specifications.  Instructions for doing this are
+    included in the config.h file.  
+
+ o  Again using your favorite editor, modify the Makefile to meet
+    your site specifications regarding program and help file
+    installation, etc.  Instructions are included in the Makefile.
+
+ o  Type "make install".  This will compile and install the program.
+    Then type "make installscript" and "make installtranslation" to
+    install the scripts and the character translation tables to
+    their definitive locations.
+
+ o  If you wish to install the ircserv program as well,
+    type "make installserv".
+
+ o  If you wish to install the ircflush program as well,
+    type "make installflush".
+    See the Makefile about using ircserv and ircflush.
+
+ o  If you wish to have ircII interact with screen and/or xterm to
+    have multiple screen, type "make installwserv".
+
+ o  You can do `make installeverything' to do all of the above steps
+    at the same time
+
+ o  If your ircII client behaves in a way you didn't want it to, it
+    might be related to the things it executes at startup, precisely
+    the script/global file, and the related script/local.
+    For information about the scripts read also the /HELP LOAD.
+
+ o  If you are running Solaris 2, you will probably need to have
+    environment variable LD_LIBRARY_PATH set to /usr/ucblib, or
+    to compile statically (with -static)
+
+ o  BigCheese is no longer on Internet (since June, 1991) and Troy
+    no longer maintains ircII (since September 1992), so you should
+    now redirect questions and comments to
+	Matthew Green <phone@coombs.anu.edu.au>..  phone on IRC
+    or to the ircII coders mailing list
+	ircii-coders@cbme.unsw.edu.au
+    or to the alt.irc or alt.irc.ircii newsgroups.

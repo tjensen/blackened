@@ -1,0 +1,13 @@
+! $Id: findk,v 1.2 2001/12/08 17:00:47 toast Exp $
+Usage: FINDK [<-switch>] <userhost_mask> [<server>]
+  Searches a server's K: line list for matches with the given mask.
+
+  Valid switches are:
+  -COUNT    Counts matching klines, but does not display them
+  -REMOVE   Removes matching klines
+
+See Also:
+  FINDD
+  KLINE
+  UNKLINE
+  STATS

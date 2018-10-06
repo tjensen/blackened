@@ -1,0 +1,9 @@
+Usage: PLAY
+  Plays back messages that have been saved while you were away.
+
+See also:
+  AWAY
+  ERASE
+  FORMAT RECORDER_BODY
+  FORMAT RECORDER_HEAD
+  SET AWAY_RECORDER

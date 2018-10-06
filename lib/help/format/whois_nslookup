@@ -1,0 +1,26 @@
+! $Id: whois_nslookup,v 1.1 2001/12/08 21:44:10 toast Exp $
+Usage: FORMAT WHOIS_NSLOOKUP <format description>
+  Controls how the whois line displaying a user's IP address to hostname
+  conversion appears.
+
+  Valid format characters:
+       N          Nick of whois target
+       I          The whois target's IP address
+       H          The whois target's hostname or "unknown"
+
+  This format has no effect if OLD_WHOIS_FORMAT is ON.
+
+See Also:
+  FORMAT WHOIS_ADMIN
+  FORMAT WHOIS_AWAY
+  FORMAT WHOIS_CHANNELS
+  FORMAT WHOIS_IDLE
+  FORMAT WHOIS_IRCNAME
+  FORMAT WHOIS_OPER
+  FORMAT WHOIS_SERVER
+  FORMAT WHOIS_SIGNON
+  FORMAT WHOIS_USERHOST
+  FORMAT WHOWAS_USERHOST
+  SET OLD_WHOIS_FORMAT
+  WHOIS
+  WHOWAS

@@ -1,0 +1,6 @@
+Usage: T [<channel>] [<topic for channel>]
+  This is the same as using TOPIC with * as the first
+  parameter if no channel is specified.
+
+See also:
+  TOPIC

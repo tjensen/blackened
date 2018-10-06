@@ -1,0 +1,317 @@
+.\" $Id: blackened.1.in,v 1.8 2002/01/12 23:33:35 toast Exp $
+.Dd November 25, 2001
+.Dt BLACKENED 1
+.Os
+.Sh NAME
+.Nm Blackened
+.Nd enhanced interface to the Internet Relay Chat system
+.Sh SYNOPSIS
+.Nm @IRCLINK@
+.Op Fl c Ar chan
+.Op Fl p Ar portno
+.Op Fl f ]
+.Op Fl F
+.Op Fl s
+.Op Fl S
+.Op Fl d
+.Op Ar nickname Op Qq server list
+.Op Fl l Ar filename
+.Op Fl L Ar filename
+.Op Fl a
+.Op Fl v
+.Op Fl q
+.Sh DESCRIPTION
+.Nm
+is a full screen, termcap based interface to Internet Relay Chat.
+Based on ircII-2.8.2, it gives full access to all of the normal
+.Tn IRC
+functions, plus a wide variety of additional options, including many 
+that are highly useful to
+.Tn IRC
+server operators and administrators.
+.Ss "The Screen"
+The screen is split into two parts, separated by an inverse-video
+status line
+.Pq "if supported" .
+The upper
+.Pq larger
+part of the screen displays responses from the
+.Tn IRC
+server.
+The lower part of the screen
+.Pq a single line
+accepts keyboard input.
+.Pp
+Some terminals do not support certain features required by
+.Nm Blackened ,
+in which case you receive a message stating this.
+If this occurs, try changing the terminal type or run
+.Nm
+with the
+.Fl d
+option.
+.Ss "Irc Commands"
+Any line beginning with the slash character
+.Sq /
+is regarded as a
+.Nm
+command
+.Po the command character may be changed; type
+.Dq Ic "/help set cmdchar"
+.Pc .
+Any line not beginning with this character is treated as a message to
+be sent to the current channel.
+To produce a listing of commands, type
+.Dq "/help ?" .
+To receive information about the commands type
+.Do Ic /help\ 
+.Aq Ic command
+.Dc .
+.Ss "The .ircrc File"
+When
+.Nm
+is executed, it checks the user's home directory for a
+.Pa \&.ircrc
+file, executing the commands in the file. Commands in this file do not
+need to have a leading slash character
+.Sq / .
+This allows predefinition of aliases and other features.
+.Ss "The Help Files"
+All of the
+.Nm
+commands are fully described in the help files package.  The best way to
+start help is with the
+.Dq Ic /HELP\ ?
+command as this prints a listing of all available help files.
+.Sh OPTIONS
+.Bl -tag -width Fl
+.It Fl c Ar chan
+Automatically join channel
+.Dq chan .
+.It Fl p Ar portno
+Set the port number to
+.Dq portno
+.Po default: 6667, the standard
+.Tn IRC
+port
+.Pc .
+Only supply this if you connect to a server which uses a port other than 6667.
+.It Fl f
+Use flow control
+.Pq ^S and ^Q
+to stop and start the display.
+Normally these are both bound to other functions within
+.Nm Blackened .
+This switch is ignored if the
+.Fl d
+switch is used.
+.It Fl F
+Don't use flow control
+.Pq ^S and ^Q
+to stop and start the display.
+This switch is ignored if the
+.Fl d
+switch is used.
+.It Fl s
+Don't start up the ircserv process to connect to the
+.Tn IRC
+server
+.Pq default .
+.It Fl S
+Start up the ircserv process to connect to the
+.Tn IRC
+server.
+.It Fl d
+Start in
+.Dq dumb
+mode.  All input is taken directly from stdin and all output goes to stdout
+without using any of the
+.Xr termcap 5
+screen control codes.
+.It Ar nickname
+Set the nickname
+.Po overrides the environment variable\ 
+.Ev IRCNICK ;
+default: the username
+.Pc .
+.It Ar server
+Set the list of servers with which
+.Nm
+will try to connect upon startup.
+This list is also used by the program's
+.Ic /server
+command.
+The format for lines in the list is:
+.Bd -literal -offset indent
+hostname
+[:portno[:password[:nick]]]
+.Ed
+.It Fl l Ar filename
+Selects a different file to be used as the .ircrc file for 
+.Nm Blackened .
+There is no exansion of $ expandos when using this option.
+The default is
+.Pa $HOME/.ircrc .
+.It Fl L Ar filename
+Selects a different file to be used as the .ircrc file for
+.Nm Blackened .
+Expansion of $ expandos happens with this option.  
+The default is 
+.Pa $HOME/.ircrc .
+.It Fl a
+This adds the normal
+.Tn IRC
+server list to the command line list of
+.Tn IRC
+servers.
+.It Fl v
+Print the version and release date of
+.Nm
+and exit.
+.It Fl q
+Start up
+.Nm
+quickly -- don't load the
+.Pa \&.ircrc
+file.
+.El
+.Sh ENVIRONMENT
+It can be helpful to predefine certain variables in
+in the
+.Pa \&.cshrc ,
+.Pa \&.profile ,
+or
+.Pa \&.login
+file:
+.Bl -tag -width Ev
+.It Ev IRCNICK
+The user's
+.I IRC
+nickname.
+.Pp
+.It Ev IRCNAME
+The user's
+.I IRC
+realname (otherwise retreived from
+.Pa /etc/passwd )
+.Pp
+.It Ev IRCSERVER
+The default
+.I IRC
+server(s) (see server
+.B option
+for details)
+.Pp
+.It Ev IRCHOST
+The hostname or IP from which to connect to IRC servers.  Useful for virtual
+hosts.
+.It Ev IRC_HOST
+Alternative name for
+.Ev IRCHOST .
+.It Ev MYHOSTADDR
+Alternative name for
+.Ev IRC_HOST .
+.Pp
+.It Ev IRCRC
+The location of the .ircrc initialization file.  The default is
+.Pa $HOME/.ircrc .
+.Pp
+.It Ev HOME   
+Overrides the default home path in
+.Pa /etc/passwd .
+.Pp
+.It Ev TERM   
+The type of terminal in use.
+.El
+.Sh FILES
+.Bl -tag -width Pa
+.It Pa /usr/local/bin/@IRCLINK@
+the executable program
+.It Pa ~/.ircrc
+default initialization file
+.It Pa ~/.irc/
+directory you can put your own
+.Nm
+scripts into, that can then be loaded with
+.Ic /load
+.It Pa /usr/local/share/blackened/@VERSION@/
+directory containing message-of-the-day, master initialization, help files and 
+.Nm
+scripts
+.El
+.Sh "SIGNALS"
+.Bl -tag -width Ev
+.Nm
+handles the following signals:
+.It SIGUSR1
+Closes all
+.Tn DCC
+connections and processes spawned with
+.Xr exec 3 .
+.It SIGUSR2
+Drops
+.Nm
+back to the command line.
+.El
+.Sh EXAMPLES
+.Dl "@IRCLINK@ -c #irchelp -p 5555"
+Connect
+.Nm
+to port number 5555 of the default host and immediately join channel
+#irchelp.
+.Pp
+.Dl "@IRCLINK@ Mermaid"
+Use the nickname
+.Dq Mermaid .
+.Pp
+.Dl "@IRCLINK@ Mermaid server1:5000 server2::passwd server3"
+Use the nickname
+.Dq Mermaid
+and the modified server list.
+.Pp
+.Dl "@IRCLINK@ -d"
+Use dumb mode.
+.Pp
+.Dl "@IRCLINK@ -f"
+Allow use of ^S/^Q to stop/start screen display.
+.Pp
+.Bd -literal -offset indent
+setenv IRCNICK Mermaid
+setenv IRCNAME "The one and only :)"
+@IRCLINK@
+.Ed
+Set the nickname
+.Pq if not specified elsewhere
+to
+.Dq Mermaid .
+The user's name
+.Po when provided in response to a\ 
+.Ic /WHOIS
+command
+.Pc is set to
+.Dq "The one and only :)" .
+.Sh BUGS
+To report bugs in the latest version of
+.Nm
+send email to
+.Aq blackened-bugs@blackened.com
+with as much pertinent information as possible.  Please avoid creating
+duplicate bug reports by checking the
+.%T Known Bugs
+list on the official
+website prior to sending email.
+.Sh AUTHOR
+.An "Timothy Jensen" Aq toast@blackened.com
+.Pp
+Names of contributors and contact addresses can be retrieved with the
+.Ic /info 
+command.
+.Sh "SEE ALSO"
+.Xr ircII 1 ,
+.Xr ircd 8
+.Pp
+.%T RFC 1459: Internet Relay Chat Protocol
+.Pp
+Official Website:
+.Li http://www.blackened.com/blackened/
+.\" end of man page

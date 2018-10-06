@@ -1,0 +1,23 @@
+! $Id: fgetc,v 1.1 2001/12/07 16:54:12 toast Exp $
+FGETC(handle count)
+FGETC(handle)
+  This function reads and returns count characters from the file stream
+  associated with handle.  The characters returned are in integer form
+  and can be converted to true characters using CHR.
+
+  If no count is specified, the default of 1 is assumed.
+
+  When the end-of-file is reached, -1 is returned.
+
+See also:
+  FUNCTIONS CHR
+  FUNCTIONS FCLOSE
+  FUNCTIONS FEOF
+  FUNCTIONS FOPEN
+  FUNCTIONS FPUTC
+  FUNCTIONS FREAD
+  FUNCTIONS FREADLN
+  FUNCTIONS FSEEK
+  FUNCTIONS FTELL
+  FUNCTIONS FWRITE
+  FUNCTIONS FWRITELN

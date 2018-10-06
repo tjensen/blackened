@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: RELM [<nicknames>|<channel>|=<nick>|@<user>]
+  Redirects the last message you received to the given target. If no
+  target is given the message is sent to the current channel.
+
+See also:
+  LAST_MSG
+  RELN
+  RELS
+  RELSN

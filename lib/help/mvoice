@@ -1,0 +1,6 @@
+Usage: MVOICE [<channel>] [<user@host>]
+  Gives voice to all non-ops matching the user@host mask. If no mask
+  is given, *@* is used.
+
+See Also:
+  MODE

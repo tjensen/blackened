@@ -1,0 +1,9 @@
+Usage: SET AWAY_RECORDER [ON|OFF|TOGGLE]
+  When ON, all messages you receive while you are set AWAY are 
+  recorded for later playback.
+
+See also:
+  AWAY
+  ERASE
+  PLAY
+  SET STATUS_MSGS

@@ -1,0 +1,10 @@
+Usage: FWRITELN <filenum> [<text>]
+  Writes text to an open file stream and appends it with a newline
+  character.
+
+See also:
+  ALIAS FUNCTIONS
+  FCLOSE
+  FWRITE
+  FPUTC
+  FSEEK

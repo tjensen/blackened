@@ -1,0 +1,25 @@
+! $Id: whois_idle,v 1.1 2001/12/08 21:44:10 toast Exp $
+Usage: FORMAT WHOIS_IDLE <format description>
+  Controls how the whois line displaying a user's idle time appears.
+
+  Valid format characters:
+       N          Nick of whois target
+       S          Number of seconds the whois target has been idle
+       M          The equivalent of $tdiff(%S)
+
+  This format has no effect if OLD_WHOIS_FORMAT is ON.
+
+See Also:
+  FORMAT WHOIS_ADMIN
+  FORMAT WHOIS_AWAY
+  FORMAT WHOIS_CHANNELS
+  FORMAT WHOIS_IRCNAME
+  FORMAT WHOIS_NSLOOKUP
+  FORMAT WHOIS_OPER
+  FORMAT WHOIS_SERVER
+  FORMAT WHOIS_SIGNON
+  FORMAT WHOIS_USERHOST
+  FORMAT WHOWAS_USERHOST
+  SET OLD_WHOIS_FORMAT
+  WHOIS
+  WHOWAS

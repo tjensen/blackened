@@ -1,0 +1,9 @@
+Usage: FCLOSE <filenum>
+  Closes an open file stream.
+
+See also:
+  ALIAS FUNCTIONS
+  FWRITE
+  FWRITELN
+  FPUTC
+  FSEEK

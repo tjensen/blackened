@@ -1,0 +1,9 @@
+! $Id: urllog_file,v 1.1.2.1 2002/03/11 19:24:38 toast Exp $
+Usage: SET URLLOG_FILE <some text>
+  Determines the filename of the URL log.
+
+  URL logging can be disabled by clearing this variable or by setting
+  URLLOG_LEVEL to NONE.
+
+See Also:
+  SET URLLOG_LEVEL

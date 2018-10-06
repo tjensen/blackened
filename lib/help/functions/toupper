@@ -1,0 +1,9 @@
+! $Id: toupper,v 1.1 2001/12/07 16:54:21 toast Exp $
+TOUPPER(text)
+  Returns the text with all alphabetic characters in upper case.
+
+Example:
+  toupper(This is a test)		- Returns "THIS IS A TEST"
+
+See also:
+  FUNCTIONS TOLOWER

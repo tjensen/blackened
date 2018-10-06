@@ -1,0 +1,120 @@
+All +CoMSTuD versions have been updated by:
+             Chris Behrens
+             (CoMSTuD)
+             cbehrens@eskimo.com
+
+
+In the +CoMSTuD versions this is what you'll find:
+
+Hope I didn't miss anything...
+
+Also, there are some new SET functions:
+---------------------------------------
+SET KILLLOGFILE <string>      - If this is set, all operator kills will
+                                be logged to this file (you must be +sw)
+SET MSGLOGFILE <string>       - Filename to log /msgs to
+SET MSGLOG <ON or OFF>        - If this is on, all msgs will be logged
+SET PUBLOGSTR <string>        - If this string is said publically and
+                                MSGLOG is on, this line will be logged
+SET DEFAULT_REASON <string>   - Sets the default kick reason for masskicks
+                                and so forth...notice that this only used if
+                                REASON_TYPE is set to 0 and no reason was
+                                given with the command
+SET REASON_TYPE <0 or 1>      - What should the masskick reason be if no
+                                reason is given with the command?
+                                0 - use KICK_REASON
+                                1 - use a random reason from IRCLIB/reasons
+                                    file
+SET SHOW_SERVER_KILLS         - If your usermode is +sw, this will show
+                                you server kills if it's set to ON,
+	                        otherwise, it will ignore them
+SET SHOW_FAKES                - If your usermode is +sw, this will show
+                                you Fake: messages if it's set to ON,
+                                otherwise, it will ignore them
+SET SHOW_UNAUTHS              - If your usermode is +sw, this will show
+                                you Unauthorized connections if ON,
+                                otherwise it will ignore them
+SET AUTO_NSLOOKUP             - Will lookup the hostname for an ip#
+                                when you do a whois or userhots of a 
+                                person with an ip#, and will also displays
+                                it when a person joins a channel
+SET NUM_OPMODES <0 thru 4>    - Sets the # of modes that mass functions
+                                will do at a time....should usually be
+                                3 (-ooo) or 4 (-oooo)
+SET NUM_BANMODES <0 thru 4>   - Sets the # of modes that mass functions
+                                will do at a time ...shoud usually be
+                                3 (-bbb) or 4 (-bbbb)
+SET SHOW_CTCP_IDLE            - If this is OFF, it'll hide you idletime
+                                from CTCP FINGER
+SET USE_OLD_MSG               - See below for special /msg formatting...
+                                Set this to ON, if you don't like mine =)
+SET AUTO_REJOIN <0 through 4> - Auto-rejoin on kick...
+                                  0 - off
+                                  1 - rejoin normally
+                                  2 - rejoin with same username as person who
+                                      kicked you
+	                          3 - rejoin using random nickname
+                                  4 - rejoin with random username and nick
+
+
+MASS functions -- format: cmdname [#Channel] [Wildcards]
+Note: Wildcards are allowed
+--------------------------------------------------------
+MB   -- Massban           (massbans non-chanops)
+MD   -- Massdeop          (massdeops chanops)
+MK   -- Masskick          (masskicks non-chanops)
+MKB  -- Masskickban       (masskickbans non-chanops)
+MKBOLD  -- old masskickban
+MOP  -- Massop            (massops non-chanops)
+MUB  -- Massunban         (massunbans banned users)
+MULT -- Multikick  Usage: MULT <channel> nick1 nick2...nickn :reason  <-- need :
+MASSFUCK                  (massdeops then masskickbans users)
+
+FOR OPERS:
+
+TRACEKILL -- Kills users matching a pattern on your server
+TRACESERV -- Kills users matching a pattern on another server
+WHOKILL   -- Does /WHO and kills users matching a pattern
+
+MISC
+----
+B       -- Ban       -- format:      b [#channel] <nick>
+BAN     -- Ban       -- format:    ban [#channel] <nick>
+BOMB    -- Ctcp bomb -- format:   bomb <where> what...
+KB      -- Kickban   -- format:     kb [#channel] <nick> [reason]
+SB      -- Siteban   -- format:     sb [#channel] <nick>
+SBK     -- SiteKickBan  format:    sbk [#channel] <nick> [reason]
+SFUCK   --    ""         ""      sfuck     ""       ""      ""
+NSL     -- Nslookup  -- format:    nsl <nick or user@host>
+UB      -- Unban     -- format:     ub <nick or user@host>
+FINGER  -- Finger    -- format: finger <user@host>
+OPS     -- Wallop    -- format:    ops <channel> the message...
+CYCLE   -- Cycle     -- format:  cycle [#channel]
+
+Special feature:
+
+USERS [<channel>] [<wildcards>] [<option>] [<reason>]
+
+With no options, it shows nick!user@host of people on a channel
+
+Options:
+
+-ops    -- makes it select only ops
+-nonops -- makes it select only nonops
+-kill   -- kills users matching the pattern on a channel
+-msg    -- sends a msg to all users matching pattern (massmsg)
+-notice -- just like msg, but /notice
+
+
+Other misc features:
+  Auto rejoin will rejoin a channel that has a key (+k)
+    The client remembers the key and issues JOIN <channel> <key> automatically
+  Cycle works the same way
+
+  Special kill formatting: (Shows the server and oper's hostname)
+*** KILL for NItes by CoMSTuD@pv0815.vincent.iastate.edu on irc-2.mit.edu
+ (Layyyyyyyyyyyyyyyym, *kiss*)
+
+ Special /msg formatting:
+*CoMSTuD* La La La <cbehrens@*.iastate.edu:02:40>
+

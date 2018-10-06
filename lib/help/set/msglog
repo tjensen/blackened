@@ -1,0 +1,15 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! Timothy Jensen, and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: SET MSGLOG [ON|OFF|TOGGLE]
+  When ON, all messages and notices are logged to the file set in
+  MSGLOGFILE.
+
+See Also:
+  MSG
+  NOLOG
+  SET MSGLOGFILE
+  SET NO_LOG

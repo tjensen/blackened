@@ -1,0 +1,8 @@
+! $Id: chanusers,v 1.1 2001/12/07 16:54:10 toast Exp $
+CHANUSERS(channel)
+  Returns the list of users in channel.
+
+See also:
+  FUNCTIONS ISCHANNEL
+  FUNCTIONS ISCHANOP
+  FUNCTIONS ONCHANNEL

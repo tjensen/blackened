@@ -1,0 +1,27 @@
+! Copyright (c) 1990-1997  Michael Sandrof, Troy Rollo, Matthew Green,
+! and other ircII contributors.
+!
+! All rights reserved.  See the HELP IRCII COPYRIGHT file for more
+! information.
+!
+Usage: FORMAT [<format numeric> [<value>]]
+  Sets a specified format to a given value.  If FORMAT is used
+  with no parameters, all formats and their current settings
+  are listed.  If FORMAT is used with a format name and no
+  value, that formats current setting is listed.
+
+  Format items are identified by the percent (%) sign.  The
+  character following the percent sign specifies the item to
+  show.  The following characters are valid for all format
+  types:
+    
+    @        Timestamp
+    !        Highlight
+    U        Userhost
+    *        Cluster(Userhost)
+    #        "***" or the current numeric
+    S        "(from irc.server.com)" or blank
+    0-9      Parameters
+
+See also:
+  HELP FORMAT ? for a list of all formats
