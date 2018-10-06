@@ -1,0 +1,14 @@
+config.log
+config.cache
+config.status
+Makefile
+makehelp
+bsdinstall
+doc/blackened.1
+include/defs.h
+source/blackened
+source/ircflush
+source/ircserv
+source/sig.inc
+source/wserv
+*.o
