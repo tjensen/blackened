@@ -38,6 +38,7 @@ static	char	rcsid[] = "@(#)$Id: ctcp.c,v 1.7 2001/04/01 15:58:26 toast Exp $";
 #include "toast.h"
 #include "format.h"
 #include "cignore.h"
+#include "comstud.h"
 
 #define	CTCP_SHUTUP	0
 #define	CTCP_VERBOSE	1
@@ -695,10 +696,10 @@ do_new_notice_ctcp(from, to, str, cmd)
 				if (timediff2 < 0) timediff2 = 0;
 
 				if (args && *args)
-					sprintf(buf, "%d.%0.3d seconds",
+					sprintf(buf, "%d.%.3d seconds",
 					(int) timediff, (int) timediff2);
 				else
-				sprintf(buf, "%d second%s", timediff,
+				sprintf(buf, "%d second%s", (int) timediff,
 					(timediff == 1) ? "" : "s");
 				args = buf;
 			}
