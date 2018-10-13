@@ -400,10 +400,10 @@ FILE	*fp;
 	{
 
 		int	i = 0;
-		char	*command = "\nDIGRAPH -ADD ";
+		static const char *command = "\nDIGRAPH -ADD ";
 
 		fprintf(fp, "DIGRAPH -CLEAR");
-		fprintf(fp, command);
+		fputs(command, fp);
 		while(1)
 		{
 			fprintf(fp, "%d %d %d  ", dig_table_lo[i],
@@ -411,7 +411,7 @@ FILE	*fp;
 			if (!dig_table_lo[++i])
 				break;
 			if (!(i % 5))
-				fprintf(fp, command);
+				fputs(command, fp);
 		}
 		fputc('\n', fp);
 
