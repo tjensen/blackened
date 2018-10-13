@@ -257,7 +257,8 @@ main(argc, argv)
 			{
 				if (0 != (c = dgets(buffer, BUFSIZ, 0,
 							(char *) 0)))
-					write(des, buffer, c);
+					if (write(des, buffer, c) == -1)
+						perror("write");
 				else
 					done = 1;
 			}
@@ -272,7 +273,8 @@ main(argc, argv)
 						    index(buffer, ' ')) != NULL)
 						{
 							sprintf(pong, "PONG user@host %s\n", ptr + 1);
-							write(des, pong, strlen(pong));
+							if (write(des, pong, strlen(pong)) == -1)
+								perror("write");
 						}
 					}
 					else
@@ -288,7 +290,8 @@ main(argc, argv)
 							wd_ptr = &wd;
 						}
 #else
-						write(1, buffer, c);
+						if (write(1, buffer, c) == -1)
+							perror("write");
 #endif /* NON_BLOCKING */
 					}
 				}
