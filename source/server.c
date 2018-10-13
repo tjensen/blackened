@@ -797,7 +797,8 @@ connect_to_server_process(server_name, port)
 		close(read_des[0]);
 		close(write_des[1]);
 		sprintf(buffer, "%u", port);
-		setuid(getuid());
+		if (setuid(getuid()) != 0)
+			perror("setuid");
 		execl(path, name, server_name, buffer, (char *) 0);
 		printf("-5 0\n"); /* -1 - -4 returned by connect_by_number() */
 		fflush(stdout);

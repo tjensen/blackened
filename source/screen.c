@@ -1765,8 +1765,10 @@ create_additional_screen()
 	set_current_screen(create_new_screen());
 	if (0 == (child = fork()))
 	{
-		setuid(getuid());
-		setgid(getgid());
+		if (setuid(getuid()) != 0)
+			perror("setuid");
+		if (setgid(getgid()) != 0)
+			perror("setgid");
 	/*
 	 * Unlike most other cases, it is important here to close down
 	 * *ALL* unneeded file descriptors. Failure to do so can cause
