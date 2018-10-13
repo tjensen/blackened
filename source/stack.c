@@ -39,7 +39,7 @@ do_stack_on(type, args)
 	int	type;
 	char	*args;
 {
-	char	foo[4];
+	char	foo[16];
 	int	len, cnt, i, which = 0;
 	Hook	*list;
 	NumericList *nhook, *nptr, *ntmp;
@@ -94,7 +94,7 @@ do_stack_on(type, args)
 	}
 	if (which < 0)
 	{
-		sprintf(foo, "%3.3u", -which);
+		snprintf(foo, sizeof(foo), "%3.3u", -which);
 		if ((nhook = (NumericList *) find_in_list(&numeric_list, foo, 0))
 				!= NULL)
 			list = nhook->list;
