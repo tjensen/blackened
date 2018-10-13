@@ -12,7 +12,6 @@
 static	char	rcsid[] = "@(#)$Id: exec.c,v 1.2 2001/11/29 19:31:11 toast Exp $";
 #endif
 
-#define IN_EXEC_C
 #include "irc.h"
 
 #ifdef M_UNIX
@@ -46,6 +45,7 @@ static	char	rcsid[] = "@(#)$Id: exec.c,v 1.2 2001/11/29 19:31:11 toast Exp $";
 #include "server.h"
 #include "output.h"
 #include "parse.h"
+#include "dcc.h"
 
 #if defined(SVR3) && defined(HAVE_SOCKETPAIR)
 /* SVR3's pipe's are *unidirectional*!  We could spend all day pushing

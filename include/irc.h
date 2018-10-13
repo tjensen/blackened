@@ -63,11 +63,6 @@
 # endif /* HAVE_FCNTL_H */
 #endif /* HAVE_SYS_FCNTL_H */
 
-/* machines we don't want to use <unistd.h> on 'cause its broken */
-#if defined(pyr) || defined(_SEQUENT_) || defined(IN_EXEC_C)
-# undef HAVE_UNISTD_H
-#endif
-
 #ifdef HAVE_UNISTD_H
 # include <unistd.h>
 #endif
