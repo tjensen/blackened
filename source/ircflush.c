@@ -47,7 +47,7 @@ death()
 void
 setup_master_slave()
 {
-	char	line[11];
+	char	line[16];
 	char	linec;
 	int	linen;
 
@@ -58,10 +58,10 @@ setup_master_slave()
 			break;
 		for (linen = 0; linen < 16; linen++)
 		{
-			sprintf(line, "/dev/pty%c%1x", linec, linen);
+			snprintf(line, sizeof(line), "/dev/pty%c%1x", linec, linen);
 			if ((master = open(line, O_RDWR)) >= 0)
 			{
-				sprintf(line, "/dev/tty%c%1x", linec, linen);
+				snprintf(line, sizeof(line), "/dev/tty%c%1x", linec, linen);
 				if (access(line, R_OK | W_OK) == 0)
 				{
 					if ((slave = open(line, O_RDWR)) >= 0)
@@ -114,8 +114,10 @@ main(argc, argv)
 		dup2(slave, 1);
 		dup2(slave, 2);
 		close(master);
-		setuid(getuid());
-		setgid(getgid());
+		if (setuid(getuid()) == -1)
+			perror("setuid");
+		if (setgid(getgid()) == -1)
+			perror("setgid");
 		execvp(argv[1], &(argv[1]));
 		fprintf(stderr, "flush: Error exec'ing process!\n");
 		exit(1);
@@ -137,7 +139,8 @@ main(argc, argv)
 				if (FD_ISSET(0, &rd))
 				{
 				    if ((cnt = read(0, buffer,BUFFER_SIZE)) > 0)
-					write(master, buffer, cnt);
+					if (write(master, buffer, cnt) == -1)
+						perror("write");
 				    else
 					death();
 				}
@@ -145,9 +148,16 @@ main(argc, argv)
 				{
 					if ((cnt = read(master, buffer,
 							BUFFER_SIZE)) > 0)
-						write(1, buffer, cnt);
+					{
+						if (write(1, buffer, cnt) == -1)
+						{
+							perror("write");
+						}
+					}
 					else
+					{
 						death();
+					}
 				}
 			}
 		}
