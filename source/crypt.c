@@ -261,17 +261,21 @@ do_crypt(str, key, flag)
 			dup2(in[0], 0);
 			close(out[0]);
 			close(in[1]);
-			setuid(getuid());
-			setgid(getgid());
-			execl(encrypt_program, encrypt_program, key, NULL);
+			if (setuid(getuid()) == 0 && setgid(getgid()) == 0) {
+				execl(encrypt_program, encrypt_program, key, NULL);
+			}
 			exit(0);
 		default:
 			close(out[1]);
 			close(in[0]);
-			write(in[1], ptr, strlen(ptr));
-			close(in[1]);
-			c = read(out[0], buffer, CRYPT_BUFFER_SIZE);
-			buffer[c] = (char) 0;
+			if (write(in[1], ptr, strlen(ptr)) == strlen(ptr)) {
+				close(in[1]);
+				c = read(out[0], buffer, CRYPT_BUFFER_SIZE);
+				buffer[c] = (char) 0;
+			}
+			else {
+				close(in[1]);
+			}
 			close(out[0]);
 			break;
 		}
