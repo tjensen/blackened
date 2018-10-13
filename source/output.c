@@ -27,6 +27,7 @@ static	char	rcsid[] = "@(#)$Id: output.c,v 1.2.2.1 2002/03/11 19:24:04 toast Exp
 #include "hook.h"
 #include "ctcp.h"
 #include "log.h"
+#include "toast.h"
 
 	int	in_help = 0;
 
