@@ -89,8 +89,10 @@ main(argc, argv)
 	 */
 
 	tmp = ttyname(0);
-	write(s, tmp, strlen(tmp));
-	write(s, "\n", 1);
+	if (write(s, tmp, strlen(tmp)) == -1 || write(s, "\n", 1) == -1)
+	{
+		perror("write");
+	}
 	perror(tmp);
 
 	term_init();
@@ -109,16 +111,30 @@ main(argc, argv)
 		if (FD_ISSET(0, &reads))
 		{
 			if (0 != (nread = read(0, buffer, sizeof(buffer))))
-				write(s, buffer, nread);
+			{
+				if (write(s, buffer, nread) == -1)
+				{
+					perror("write");
+				}
+			}
 			else
+			{
 				exit(0);
+			}
 		}
 		if (FD_ISSET(s, &reads))
 		{
 			if (0 != (nread = read(s, buffer, sizeof(buffer))))
-				write(0, buffer, nread);
+			{
+				if (write(0, buffer, nread) == -1)
+				{
+					perror("write");
+				}
+			}
 			else
+			{
 				exit(0);
+			}
 		}
 	}
 	return 0;
