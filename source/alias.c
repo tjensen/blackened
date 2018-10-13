@@ -785,7 +785,7 @@ next_unit(str, args, arg_flag, stage)
                                         if (*ptr == '+')
                                                 r++;
                                         else    r--;
-                                        sprintf(tmp,"%ld",r);
+                                        sprintf(tmp,"%d",r);
                                         display = window_display;
                                         window_display = 0;
                                         add_alias(VAR_ALIAS,tptr,tmp);
