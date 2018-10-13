@@ -659,15 +659,12 @@ do_new_notice_ctcp(from, to, str, cmd)
 		{
 			if (!strcmp(cmd, "PING"))
 			{
-				char	buf[64];
-				time_t	timediff,
-					currenttime,
-					timediff2;
-				char	*seconds;
-				time_t	now, nowus;
+				char buf[64];
+				time_t timediff, currenttime, timediff2;
+				char *seconds;
 				struct  timeval         tp;
 				struct  timezone        tzp;
-				long	sec, usec;
+				long sec, usec;
 
 
 				currenttime = time(NULL);
@@ -739,8 +736,6 @@ do_atmosphere(ctcp, from, to, cmd)
 		*to,
 		*cmd;
 {
-        char    *timestr;
-        timestr = (char *)TimeStamp();
 	if (cmd && *cmd)
 	{
 		int old;
