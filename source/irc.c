@@ -70,6 +70,7 @@ static	char	rcsid[] = "@(#)$Id: irc.c,v 1.21.2.5 2002/03/17 23:18:19 toast Exp $
 #include "fileio.h"
 #include "autoop.h"
 #include "rejoin.h"
+#include "comstud.h"
 
 int	irc_port = IRC_PORT,			/* port of ircd */
 	send_text_flag = -1,			/* used in the send_text()

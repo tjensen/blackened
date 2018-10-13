@@ -19,6 +19,7 @@ typedef struct numfmt
 	struct numfmt *next;
 } NumFormat;
 
+extern void init_formats();
 extern	void	formatcmd();
 extern	char	*parseformat();
 extern	char	*numericformat();
