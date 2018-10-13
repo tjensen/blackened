@@ -2926,14 +2926,12 @@ static	char	*
 alias_currdir(input)
 	char	*input;
 {
-	char	*result = (char *) 0;
+    char *result = (char *) 0;
 
-        getcwd(buffer, BIG_BUFFER_SIZE+1);
-	/* is this more portable? *shrug*. i chose BIG_BUFFER_SIZE+1
-	   because it's more readable -cgw- */
-	/* getcwd((char *)buffer, sizeof((char *)buffer)); */
-	malloc_strcpy(&result, buffer);
-	return result;
+    if (getcwd(buffer, BIG_BUFFER_SIZE+1) != NULL) {
+        malloc_strcpy(&result, buffer);
+    }
+    return result;
 }
 
 static	char	*
