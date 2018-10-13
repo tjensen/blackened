@@ -41,6 +41,7 @@ static	char	rcsid[] = "@(#)$Id: parse.c,v 1.17 2001/12/15 02:33:42 toast Exp $";
 #include "format.h"
 #include "cignore.h"
 #include "rejoin.h"
+#include "recorder.h"
 
 #define STRING_CHANNEL '+'
 #define MULTI_CHANNEL '#'

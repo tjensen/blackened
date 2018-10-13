@@ -66,6 +66,7 @@ void	doop();
 void	dodeop();
 int	silly_match();
 char	*my_next_arg(char **);
+extern char *my_stristr(char *s1, char *s2);
 char	*get_reason();
 void	set_ops_method(int);
 void	not_on_a_channel(void);
