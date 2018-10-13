@@ -710,6 +710,13 @@ char *hostname;
 	return result;
 }
 
+#define unsafe_write(s, buf, size) \
+    if (write((s), (buf), (size)) != (size)) { \
+        perror("write"); \
+        close((s)); \
+        return; \
+    }
+
 void
 netfinger(name)
 	char	*name;
@@ -777,9 +784,9 @@ netfinger(name)
                 close(s);
                 return;
         }
-        write(s, "/W ", 3);
-        write(s, name, strlen(name));
-        write(s, "\r\n", 2);
+        unsafe_write(s, "/W ", 3);
+        unsafe_write(s, name, strlen(name));
+        unsafe_write(s, "\r\n", 2);
         f = fdopen(s, "r");
         num = 0;
         strcpy(tmpstr, "");
