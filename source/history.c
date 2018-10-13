@@ -433,7 +433,12 @@ history(command, args, subargs)
 
 		fseek(hist_file, 0L, 0);
 		while (--max > 0)
-			fgets(buffer, BIG_BUFFER_SIZE, hist_file);
+		{
+			if (fgets(buffer, BIG_BUFFER_SIZE, hist_file) == NULL)
+			{
+				perror("fgets");
+			}
+		}
 		while (fgets(buffer, BIG_BUFFER_SIZE, hist_file))
 		{
 			buffer[strlen(buffer) - 1] = '\0';
