@@ -20,6 +20,8 @@ static	char	rcsid[] = "@(#)$Id: recorder.c,v 1.7 2001/04/01 15:58:27 toast Exp $
 #include "format.h"
 #include "parse.h"
 #include "status.h"
+#include "ircaux.h"
+#include "output.h"
 
 static Rec_Msg	*Msgs = (Rec_Msg *) 0;
 static int	ReadingMessages = 0;
