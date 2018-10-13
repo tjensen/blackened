@@ -3297,11 +3297,12 @@ cd(command, args, subargs)
 		else
 			say("CD: No such user");
 	}
-	getcwd(buffer, BIG_BUFFER_SIZE+1);
-	/* is this more portable? *shrug*. i chose BIG_BUFFER_SIZE+1 
-	   because it's more readable -cgw- */
-	/* getcwd((char *)buffer, sizeof((char *)buffer)); */
-	say("Current directory: %s", buffer);
+	if (getcwd(buffer, BIG_BUFFER_SIZE+1) != NULL) {
+		say("Current directory: %s", buffer);
+	}
+	else {
+		perror("getcwd");
+	}
 }
 
 static	void
