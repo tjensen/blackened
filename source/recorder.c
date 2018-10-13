@@ -42,12 +42,12 @@ count_msgs()
 char	*
 count_messages()
 {
-	static char	ret_msg[8];
+	static char	ret_msg[16];
 	int		num;
 
 	num = count_msgs();
 	if (num) {
-		sprintf(ret_msg, "%d", num);
+		snprintf(ret_msg, sizeof(ret_msg), "%d", num);
 		return (char *) &ret_msg;
 	}
 	return (char *) 0;
