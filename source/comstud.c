@@ -133,7 +133,7 @@ char **reason;
 	*temp = '\0';
 	temp+=7;  /* now pointing at beginning of the Path */
 	*(temp-2) = '\0'; /* to fix the below while() loops */
-	if (*reason = strchr(temp, ' '))
+	if ((*reason = strchr(temp, ' ')))
 	{
 		**reason = '\0';
 		(*reason)++;
@@ -233,7 +233,6 @@ void
 logaddnolog(nick)
 char	*nick;
 {
-	char *timestr;
 	time_t t;
 
 	t = time(0);
@@ -247,7 +246,6 @@ void
 logremovenolog(nick)
 char	*nick;
 {
-	char *timestr;
 	time_t t;
 
 	t = time(0);
@@ -261,7 +259,6 @@ void
 lognolog(nicks)
 char	*nicks;
 {
-	char *timestr;
 	time_t t;
 
 	t = time(0);
@@ -280,7 +277,6 @@ char *extra;
 int  flag;
 {
 	char *timestr;
-	FILE *out;
 	time_t t;
 	char filename[255];
 	mode_t savemask;
@@ -334,7 +330,7 @@ int  flag;
 		}
 		(void)umask(savemask);
 		fprintf(logptr, "MsgLog started at %s\n", SmallTS(&t));
-		if (nologlist = get_string_var(NO_LOG_VAR))
+		if ((nologlist = get_string_var(NO_LOG_VAR)))
 			fprintf(logptr, "*** Not logging messages to/from: %s\n", nologlist);
 		fflush(logptr);
         	if (string)
@@ -397,7 +393,7 @@ char *chars;
     return "";
   while (*chars)
     {
-      if (ptr = strrchr(string, *chars))
+      if ((ptr = strrchr(string, *chars)))
         *ptr = '\0';
       chars++;
     }
@@ -423,11 +419,10 @@ freadln(stream, lin)
 
 char *randreason()
 {
-  int count, min, max, i;
+  int count, i;
   FILE *bleah;
   char filename[1024];
   char static buffer[1024];
-  min = 1;
   count = 0;
 
   strcpy(buffer, "");
@@ -722,7 +717,7 @@ netfinger(name)
 	char	*name;
 {
         char *host;
-        char fname[100], temp[2], tmpstr[255];
+        char temp[2], tmpstr[255];
         struct hostent *hp;
         struct servent *sp;
         struct sockaddr_in sin;
@@ -730,7 +725,7 @@ netfinger(name)
         char *rindex();
         register FILE *f;
         register int c;
-        register int lastc;
+        register int lastc = '\n';
 
         if (name)
                 host = rindex(name, '@');
@@ -921,8 +916,6 @@ WhoisStuff *stuff;
 char *nick;
 char *args;
 {
-        char *temp;
-
         if (!stuff || !stuff->nick || !nick || my_stricmp(stuff->nick, nick))
         {
                 say("No match for the unban of %s on %s",
@@ -988,11 +981,10 @@ void my_ignore(command, args)
 char *command;
 char *args;
 {
-	char ignore_buf[1024];
 	char argbuf[1024];
 	char *spec;
 
-	if (spec=my_next_arg(&args))
+	if ((spec=my_next_arg(&args)))
 	{
 		strcpy(argbuf, get_string_var(IGN_PARAM_VAR));
 		if (args && *args) {
@@ -1020,11 +1012,10 @@ void my_ignorehost(command, args)
 char *command;
 char *args;
 {
-        char ignore_buf[1024];
 	char argbuf[1024];
         char *spec;
 
-        if (spec=my_next_arg(&args))
+        if ((spec=my_next_arg(&args)))
         {
 		strcpy(argbuf, get_string_var(IGN_PARAM_VAR));
 		if (args && *args) {
@@ -1077,7 +1068,6 @@ WhoisStuff *stuff;
 char *nick;
 char *args;
 {
-	char	*temp;
 	char	uh[1024];
 	int	temptime;
 
@@ -1356,7 +1346,7 @@ char *args;
 {
    char *to, *tag;
 
-   if (to=my_next_arg(&args))
+   if ((to=my_next_arg(&args)))
    {
       if (!strcmp(to, "*"))
          if ((to = get_channel_by_refnum(0))==NULL)
@@ -1383,7 +1373,7 @@ char *args;
 {
   char *host, *hostname;
 
-  if (host=my_next_arg(&args))
+  if ((host=my_next_arg(&args)))
   {
         say("Checking tables...");
         if (!strchr(host, '.'))
@@ -1421,7 +1411,7 @@ char *command,
         char    *newhname;
         struct hostent *hp;
 
-        if (newhname = next_arg(args, &args))
+        if ((newhname = next_arg(args, &args)))
         {
                 strlcpy(MyHostName, newhname, sizeof(MyHostName));
                 if ((hp = gethostbyname(MyHostName)) != NULL)
@@ -1444,7 +1434,7 @@ char *args;
 {
     char *newusername;
 
-    if (newusername = my_next_arg(&args))
+    if ((newusername = my_next_arg(&args)))
        do_newuser(NULL, newusername, args);
     else
        say("You must specify a username.");
@@ -1456,7 +1446,7 @@ char *args;
 {
     char *userhost;
 
-    if (userhost=my_next_arg(&args))
+    if ((userhost=my_next_arg(&args)))
     {
       if (!strchr(userhost, '@'))
       {
@@ -2578,13 +2568,12 @@ char *args;
 {
         ChannelList     *chan;
         NickList        *nicks;
-        char            *to, *spec, *rest, *temp1;
+        char            *to, *spec, *temp1;
         char            modebuf[1024];
 	char		msgbuf[1024];
         int             count, ops, msg;
 
 
-        rest = (char *) 0;
         spec = (char *) 0;
 	temp1 = (char *) 0;
 	strcpy(msgbuf, "");
