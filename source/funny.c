@@ -26,6 +26,7 @@ static	char	rcsid[] = "@(#)$Id: funny.c,v 1.7 2001/12/09 05:36:17 toast Exp $";
 #include "numbers.h"
 #include "parse.h"
 #include "cignore.h"
+#include "format.h"
 
 static	char	*names_channel = (char *) 0;
 static	char	*mode_channel = (char *) 0;
