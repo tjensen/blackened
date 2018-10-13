@@ -21,6 +21,7 @@ extern	void	add_to_whois_queue();
 extern  void	typed_add_to_whois_queue();
 # endif
 extern	void	add_ison_to_whois();
+extern void add_userhost_to_whois(char *nick, void (*func)());
 extern	void	whois_name();
 extern	void	whowas_name();
 extern	void	whois_channels();

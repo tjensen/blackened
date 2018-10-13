@@ -82,6 +82,7 @@ void	oopscmd();
 void	userhost_finger();
 void	change_server_tempbans _((int, int));
 void	insert_ban _((char *, char *, int));
+extern int remove_ban(char *channel, char *mask);
 void	BanTimer();
 void	handle_findd();
 void	findd();

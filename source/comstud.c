@@ -51,6 +51,7 @@ static	char	rcsid[] = "@(#)$Id: comstud.c,v 1.29.2.1 2002/03/07 19:35:40 toast E
 #include "hook.h"
 #include "toast.h"
 #include "format.h"
+#include "reg.h"
 #include "comstud.h"
 
 #define getrandom(min, max) ((rand() % (int)(((max)+1) - (min))) + (min))
@@ -2700,7 +2701,7 @@ char *args;
 void handle_masskill(nick)
 char *nick;
 {
-	static count = 0;
+	static int count = 0;
 
 	if (!nick)
 	{
@@ -2712,8 +2713,8 @@ char *nick;
 	if (isme(nick))
 		return;
 	count++;
-	send_to_server("KILL %s :%s (%i", nick, 
-		*reason ? reason : get_reason(), count);	
+	send_to_server("KILL %s :%s (%i", nick,
+		*reason ? reason : get_reason(), count);
 }
 
 void handle_tracekill(nick)
