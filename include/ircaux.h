@@ -38,7 +38,7 @@ extern	int	my_stricmp _((char *, char *));
 extern	int	my_strnicmp _((char *, char *, int));
 extern	char	*my_strstr _((char *, char *));
 extern	int	scanstr _((char *, char *));
-extern	int	counstr _((char *, char *));
+extern	int	countstr _((char *, char *));
 extern	void	really_free();
 extern	void	strmcpy();
 extern	void	strmcat();
