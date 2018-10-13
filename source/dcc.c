@@ -925,8 +925,9 @@ dcc_filesend(args)
 	}
 	else
 	{
-		getcwd(FileBuf, sizeof(FileBuf));
-		strcat(FileBuf, "/");
+		if (getcwd(FileBuf, sizeof(FileBuf)) != NULL) {
+			strcat(FileBuf, "/");
+		}
 		strcat(FileBuf, filename);
 	}
 	if (strchr(FileBuf, '*') && !multi_send)
@@ -1574,7 +1575,10 @@ process_incoming_file(Client)
 		Client->flags |= DCC_DELETE;
 		return;
 	}
-	write(Client->file, tmp, bytesread);
+	if (write(Client->file, tmp, bytesread) != bytesread) {
+		perror("write");
+		return;
+	}
 	Client->bytes_read += bytesread;
 	bytestemp = htonl(Client->bytes_read);
 	send(Client->write, (char *)&bytestemp, sizeof(u_32int_t), 0);
