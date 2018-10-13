@@ -48,6 +48,7 @@ void	unkline();
 void	vercmd();
 void	auto_msg();
 void	remnick _((char *));
+extern void adddccnick(char *anick);
 void	do_new_window();
 void	do_kill_window();
 void	do_list_windows();
