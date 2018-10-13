@@ -18,6 +18,7 @@ typedef struct auto_who
 
 void	remove_autowho(char *);
 
+extern int is_channel_ops(char *to);
 extern	char	*PasteArgs();
 extern	void	parse_server _((char *));
 

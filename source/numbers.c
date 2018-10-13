@@ -35,6 +35,7 @@ static	char	rcsid[] = "@(#)$Id: numbers.c,v 1.14 2001/12/08 04:55:55 toast Exp $
 #include "toast.h"
 #include "cignore.h"
 #include "recorder.h"
+#include "format.h"
 
 extern	void	got_initial_version();
 extern  int     check_screen_redirect();
