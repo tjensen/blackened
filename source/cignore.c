@@ -211,8 +211,6 @@ cignore_list(channel)
 		}
 		for (tmp = ignored_channels; tmp; tmp = tmp->next)
 		{
-			char	s[BIG_BUFFER_SIZE];
-
 			if (channel)
 			{
 				if (strncmp(channel, tmp->channel, len))
@@ -269,11 +267,9 @@ cignore(command, args, subargs)
 		*args,
 		*subargs;
 {
-	char	*channel,
-		*type;
-	int	len, val;
-	int	flag,
-		no_flags;
+	char *channel, *type;
+	int len;
+	int flag, no_flags;
 
 	if ((channel = next_arg(args, &args)) != NULL)
 	{

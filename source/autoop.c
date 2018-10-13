@@ -154,10 +154,8 @@ autoop_add(channel, userhost)
 	char	*channel,
 		*userhost;
 {
-	ao_ChanItem	*chanitem = ao_chanlist,
-			*lastchan;
-	ao_UserItem	*useritem = NULL,
-			*tempuser;
+	ao_ChanItem *chanitem = ao_chanlist, *lastchan = NULL;
+	ao_UserItem *useritem = NULL, *tempuser;
 
 	if (in_autoop_list_exact(channel, userhost))
 	{
@@ -220,11 +218,8 @@ autoop_remove(channel, userhost)
 	char	*channel,
 		*userhost;
 {
-	ao_ChanItem	*chanitem = ao_chanlist,
-			*lastchan;
-	ao_UserItem	*useritem = NULL,
-			*tempuser,
-			*tempuser2;
+	ao_ChanItem *chanitem = ao_chanlist;
+	ao_UserItem *tempuser, *tempuser2;
 
 	while (chanitem)
 	{
@@ -264,7 +259,6 @@ autoop_remove(channel, userhost)
 				tempuser2 = tempuser2->next;
 			}
 		}
-		lastchan = chanitem;
 		chanitem = chanitem->next;
 	}
 	say("%s not found in %s auto-op list.", userhost, channel);
@@ -337,14 +331,13 @@ autoop(command, args)
 	char	*command,
 		*args;
 {
-	char		*channel, *userhost;
-	ao_ChanItem	*chanitem, *lastchan, *tempchan;
-	ao_UserItem	*useritem, *tempuser, *tempuser2;
-	int		len;
-	int		remove = 0;
+	char *channel, *userhost;
+	ao_ChanItem *chanitem, *tempchan;
+	ao_UserItem *useritem, *tempuser;
+	int len;
+	int remove = 0;
 
 	chanitem = ao_chanlist;
-	lastchan = 0;
 
 	channel = my_next_arg(&args);
 	if (channel && (*channel == '-'))

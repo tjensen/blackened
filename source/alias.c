@@ -3459,18 +3459,14 @@ char	*
 function_tr(input)
 	char	*input;
 {
-	char	*result = (char *) 0;
-	char	*flags,
-		*src,
-		*dst,
-		*target;
-	int	srcl, dstl;
-	int	i, j, k, l;
-	int	m;
+	char *result = (char *) 0;
+	char *src, *dst, *target;
+	int srcl, dstl;
+	int i, j, k, l;
+	int m;
 
 	if (input && *input)
 	{
-		flags = input;
 		src = index(input, '/');
 		if (src)
 		{
