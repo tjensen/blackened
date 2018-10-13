@@ -276,8 +276,10 @@ new_malloc(size)
 	{
 		static	char	error[] = "Malloc failed: \nIrc Aborted!\n";
 
-		write(2, error, strlen(error));
-		write(2, strerror(errno), strlen(strerror(errno)));
+		if (write(2, error, strlen(error)) == -1 || write(2, strerror(errno), strlen(strerror(errno))) == -1)
+		{
+			perror("write");
+		}
 		term_reset();
 		exit(1);
 	}
@@ -1458,8 +1460,12 @@ new_stty(option)
 	ioctl(0, TCSETAW, &ttyset);
 #else
 	char	command[256];
-	sprintf(command, "stty %s", option);
-	system(command);               /* IT WILL BE REMOVED IF ALL ARCHIES WORKS */
+	snprintf(command, sizeof(command), "stty %s", option);
+	/* IT WILL BE REMOVED IF ALL ARCHIES WORKS */
+	if (system(command) == -1)
+	{
+		perror("system");
+	}
 #endif
 }
 
@@ -1500,9 +1506,10 @@ zcat(name)
 		(void) MY_SIGNAL(SIGINT, SIG_IGN, 0);
 		dup2(in[1], 1);
 		close(in[0]);
-		setuid(getuid());
-		setgid(getgid());
-		execl(ZCAT, ZCAT, name, NULL);
+		if (setuid(getuid()) == 0 && setgid(getgid()) == 0)
+		{
+			execl(ZCAT, ZCAT, name, NULL);
+		}
 		exit(0);
 	default:
 		close(in[1]);
