@@ -856,7 +856,7 @@ char *files;
 	struct dirent *dir;
 	struct stat stbuf;
 	char *thespec;
-	char path[256], newbuf[256], filebuf[256];
+	char path[256], newbuf[512], filebuf[512];
 	int count = 0;
 
 	strcpy(path, files);
@@ -873,11 +873,11 @@ char *files;
 			continue;
 		if (!wild_match(thespec, dir->d_name))
 			continue;
-		sprintf(filebuf, "%s/%s", path, dir->d_name);
+		snprintf(filebuf, sizeof(filebuf), "%s/%s", path, dir->d_name);
 		stat(filebuf, &stbuf);
 		if (S_ISDIR(stbuf.st_mode))
 			continue;
-		sprintf(newbuf, "%s %s/%s", user, path, dir->d_name);
+		snprintf(newbuf, sizeof(newbuf), "%s %s/%s", user, path, dir->d_name);
 		count++;
 		dcc_filesend(newbuf);
 	}
@@ -1519,7 +1519,7 @@ process_outgoing_file(Client)
 		 * sometime....  -phone jan, 1993.
 		 */
 
-		char	lame_ultrix[10];	/* should be plenty */
+		char	lame_ultrix[32];	/* should be plenty */
 		time_t	xtime = time(NULL) - Client->starttime;
 		double	sent = (double)Client->bytes_sent;
 
@@ -1528,7 +1528,7 @@ process_outgoing_file(Client)
 		sent /= (double)1024.0;
 		if (xtime <= 0)
 			xtime = 1;
-		sprintf(lame_ultrix, "%2.4g", (sent / (double)xtime));
+		snprintf(lame_ultrix, sizeof(lame_ultrix), "%2.4g", (sent / (double)xtime));
 		say("DCC SEND:%s to %s completed %s kb/sec",
 			Client->description, Client->user, lame_ultrix);
 		close(Client->read);
@@ -1556,7 +1556,7 @@ process_incoming_file(Client)
 		 * sometime....  -phone jan, 1993.
 		 */
 
-		char    lame_ultrix[10];        /* should be plenty */
+		char    lame_ultrix[32];        /* should be plenty */
 		time_t	xtime = time(NULL) - Client->starttime;
 		double	sent = (double)Client->bytes_read;
 
@@ -1565,7 +1565,7 @@ process_incoming_file(Client)
 		sent /= (double)1024.0;
 		if (xtime <= 0)
 			xtime = 1;
-		sprintf(lame_ultrix, "%2.4g", (sent / (double)xtime));
+		snprintf(lame_ultrix, sizeof(lame_ultrix), "%2.4g", (sent / (double)xtime));
 		say("DCC GET:%s from %s completed %s kb/sec",
 			Client->description, Client->user, lame_ultrix);
 		close(Client->read);
