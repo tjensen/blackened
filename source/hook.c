@@ -224,9 +224,9 @@ add_numeric_hook(numeric, nick, stuff, noisy, not, server, sernum)
 {
 	NumericList *entry;
 	Hook	*new;
-	char	buf[4];
+	char	buf[16];
 
-	sprintf(buf, "%3.3u", numeric);
+	snprintf(buf, sizeof(buf), "%3.3u", numeric);
 	if ((entry = (NumericList *) find_in_list(&numeric_list, buf, 0)) ==
 			(NumericList *) 0)
 	{
@@ -338,12 +338,12 @@ show_numeric_list(numeric)
 {
 	NumericList *tmp;
 	Hook	*list;
-	char	buf[4];
+	char	buf[16];
 	int	cnt = 0;
 
 	if (numeric)
 	{
-		sprintf(buf, "%3.3u", numeric);
+		snprintf(buf, sizeof(buf), "%3.3u", numeric);
 		if ((tmp = (NumericList *) find_in_list(&numeric_list, buf, 0))
 				!= NULL)
 		{
@@ -432,9 +432,9 @@ do_hook(which, format, arg1, arg2, arg3, arg4, arg5, arg6)
 	if (which < 0)
 	{
 		NumericList *hook;
-		char	foo[4];
+		char	foo[16];
 
-		sprintf(foo, "%3.3u", -which);
+		snprintf(foo, sizeof(foo), "%3.3u", -which);
 		if ((hook = (NumericList *) find_in_list(&numeric_list, foo, 0))
 				!= NULL)
 		{
