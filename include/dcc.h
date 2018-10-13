@@ -48,7 +48,7 @@ typedef	struct	DCC_struct
 	struct	in_addr	remote;
 	u_short	remport;
 	long	bytes_read;
-	time_t	bytes_sent;
+	long	bytes_sent;
 	time_t	lasttime;
 	time_t	starttime;
 	char	*buffer;

@@ -1731,8 +1731,8 @@ dcc_list(args)
 			read[9];
 		char	*time;
 
-		sprintf(sent, "%d", Client->bytes_sent);
-		sprintf(read, "%d", Client->bytes_read);
+		sprintf(sent, "%ld", Client->bytes_sent);
+		sprintf(read, "%ld", Client->bytes_read);
 		time = (Client->starttime) ? dcc_time(Client->starttime) : "",
 		flags = Client->flags;
 		put_it(format, dcc_types[flags&DCC_TYPES],
