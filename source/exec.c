@@ -870,24 +870,27 @@ start_process(name, logical, redirect, who, refnum)
 				args[cnt++] = arg;
 			}
 			args[cnt] = (char *) 0;
-			setuid(getuid()); /* If we are setuid, set it back! */
-			setgid(getgid());
-			execvp(args[0], args);
+			/* If we are setuid, set it back! */
+			if (setuid(getuid()) == 0 && setgid(getgid()) == 0) {
+				execvp(args[0], args);
+			}
 		}
 		else
 		{
 			if ((flag = get_string_var(SHELL_FLAGS_VAR)) ==
 					(char *) 0)
 				flag = empty_string;
-			setuid(getuid());
-			setgid(getgid());
-			execl(shell, shell, flag, name, (char *) 0);
+			if (setuid(getuid()) == 0 && setgid(getgid()) == 0) {
+				execl(shell, shell, flag, name, (char *) 0);
+			}
 		}
 		banner = get_string_var(BANNER_VAR);
 		sprintf(buffer, "%sError starting shell \"%s\": %s\n", 
 			banner ? banner : empty_string, shell,
 			strerror(errno));
-		write(1, buffer, strlen(buffer));
+		if (write(1, buffer, strlen(buffer)) == -1) {
+			perror("write");
+		}
 		_exit(-1);
 		break;
 	default:
@@ -903,7 +906,7 @@ start_process(name, logical, redirect, who, refnum)
 /*
 * text_to_process: sends the given text to the given process.  If the given
 * process index is not valid, an error is reported and 1 is returned.
-* Otherwise 0 is returned. 
+* Otherwise 0 is returned.
 * Added show, to remove some bad recursion, phone, april 1993
 */
 int
@@ -912,25 +915,28 @@ text_to_process(proc_index, text, show)
 	char	*text;
 	int	show;
 {
-	int	ref;
-	Process	*proc;
+    int	ref;
+    Process	*proc;
 
-	if (valid_process_index(proc_index) == 0)
-	{
-		say("No such process number %d", proc_index);
-		return (1);
-	}
-	ref = process_list[proc_index]->refnum;
-	proc = process_list[proc_index];
-	message_to(ref);
-	if (show)
-		put_it("%s%s", get_prompt_by_refnum(ref), text); /* lynx */
-	write(proc->p_stdin, text, strlen(text));
-	write(proc->p_stdin, "\n", 1);
-	set_prompt_by_refnum(ref, empty_string);
-	/*  update_input(UPDATE_ALL); */
-	message_to(0);
-	return (0);
+    if (valid_process_index(proc_index) == 0)
+    {
+        say("No such process number %d", proc_index);
+        return (1);
+    }
+    ref = process_list[proc_index]->refnum;
+    proc = process_list[proc_index];
+    message_to(ref);
+    if (show)
+        put_it("%s%s", get_prompt_by_refnum(ref), text); /* lynx */
+    if (write(proc->p_stdin, text, strlen(text)) == -1 ||
+            write(proc->p_stdin, "\n", 1) == -1) {
+        perror("write");
+        return (1);
+    }
+    set_prompt_by_refnum(ref, empty_string);
+    /*  update_input(UPDATE_ALL); */
+    message_to(0);
+    return (0);
 }
 
 /*
