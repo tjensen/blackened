@@ -17,6 +17,7 @@ static	char	rcsid[] = "@(#)$Id: fileio.c,v 1.9 2001/12/09 03:02:17 toast Exp $";
 #include <stdio.h>
 #include "ircaux.h"
 #include "config.h"
+#include "output.h"
 #include "fileio.h"
 
 static FILE	*FileList[MAX_FILES];
@@ -448,7 +449,7 @@ function_ftell(input)
 			(FileList[i-1] != (FILE *)0))
 		{
 			retval = ftell(FileList[i-1]);
-			sprintf(tmp, "%d", retval);
+			snprintf(tmp, sizeof(tmp), "%ld", retval);
 			malloc_strcpy(&result, tmp);
 		}
 		else

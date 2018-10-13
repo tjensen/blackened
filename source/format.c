@@ -21,6 +21,7 @@ static	char	rcsid[] = "@(#)$Id: format.c,v 1.14.2.1 2002/03/07 22:29:52 toast Ex
 #include "comstud.h"
 #include "toast.h"
 #include "vars.h"
+#include "output.h"
 
 extern	int	from_server;
 extern  char    *get_server_itsname();
