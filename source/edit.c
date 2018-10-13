@@ -569,7 +569,7 @@ deop(command, args, subargs)
 {
 	send_to_server("MODE %s -o", get_server_nickname(from_server));
 	set_server_operator(from_server, NULL);
-	clear_server_operator_pwd(from_server, NULL);
+	clear_server_operator_pwd(from_server);
 	set_server_operator_nick(from_server, NULL);
 }
 

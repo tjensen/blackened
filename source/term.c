@@ -318,11 +318,11 @@ term_puts(str, len)
 }
 
 /* putchar_x: the putchar function used by tputs */
-void
+int
 putchar_x(c)
-	char	c;
+	int	c;
 {
-	fputc(c, (current_screen?current_screen->fpout:stdout));
+	return fputc(c, (current_screen?current_screen->fpout:stdout));
 }
 
 void

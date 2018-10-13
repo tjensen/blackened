@@ -17,6 +17,8 @@
 # include <sys/ttold.h>
 #endif
 
+#include <termcap.h>
+
 extern	int	term_reset_flag;
 extern	char	*CM,
 		*DO,
@@ -36,7 +38,7 @@ extern	int	CO,
 		LI,
 		SG;
 
-extern	void	putchar_x();
+extern	int	putchar_x(int c);
 #define tputs_x(s)		(tputs(s, 0, putchar_x))
 
 #define term_underline_on()	(tputs_x(US))
